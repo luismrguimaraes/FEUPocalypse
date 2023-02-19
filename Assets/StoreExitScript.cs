@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class WallsCollidersScript : MonoBehaviour
+public class StoreExitScript : MonoBehaviour
 {
-    public AudioSource audioSource;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -18,11 +17,12 @@ public class WallsCollidersScript : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("Collision");
         if (collision.gameObject.layer == LayerMask.NameToLayer("Main Character"))
         {
-            audioSource.Play();
+            SceneManager.LoadScene("Outside");
         }
     }
 }

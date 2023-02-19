@@ -6,6 +6,8 @@ public class MainCharacterScript : MonoBehaviour
 {
     public float moveSpeed;
     public Rigidbody2D rb;
+    public Animator animator;
+
     Vector2 movement;
 
     // Start is called before the first frame update
@@ -25,6 +27,10 @@ public class MainCharacterScript : MonoBehaviour
             movement.x *= Mathf.Cos(Mathf.PI / 4);
             movement.y *= Mathf.Sin(Mathf.PI / 4);
         }
+
+        animator.SetFloat("Horizontal", movement.x);
+        animator.SetFloat("Vertical", movement.y);
+        animator.SetFloat("Speed", movement.sqrMagnitude);
     }
 
     private void FixedUpdate()
