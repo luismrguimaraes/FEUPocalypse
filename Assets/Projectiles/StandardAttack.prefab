@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2302858381309017485}
   - component: {fileID: 2302858381309017484}
   - component: {fileID: -4810583804583912922}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StandardAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,3 +147,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitEffect: {fileID: 2239966279949749394, guid: 16d21cc92ced848d3b717e71a8c6e6fd, type: 3}
+  duration: 10
+  rb: {fileID: 2302858381309017486}

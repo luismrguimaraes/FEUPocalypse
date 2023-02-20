@@ -24,11 +24,7 @@ public class MainCharacterMovementScript : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
-        if (Mathf.Abs(movement.x) + Mathf.Abs(movement.y) > 1)
-        {
-            movement.x *= Mathf.Cos(Mathf.PI / 4);
-            movement.y *= Mathf.Sin(Mathf.PI / 4);
-        }
+        movement.Normalize();
 
         if (!(movement.x == 0 && movement.y == 0))
         {
