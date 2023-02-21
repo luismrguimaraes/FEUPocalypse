@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8500761081294602076}
   - component: {fileID: 8500761081294602078}
   - component: {fileID: 9166234161334225261}
+  - component: {fileID: 4962107115533487983}
   - component: {fileID: 8500761081294602079}
   - component: {fileID: 8500761081294602077}
   - component: {fileID: 8649534803989706958}
@@ -67,7 +68,19 @@ MonoBehaviour:
   bulletPrefab: {fileID: 2302858381309017483, guid: 464fd98d8b7a14a01b6351c77c181da0, type: 3}
   shooting: 0
   standardAttackForce: 10
-  standardAttackCD: 2
+  standardAttackCD: 1
+--- !u!114 &4962107115533487983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8500761081294602074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee6d4b8ee7bd54103ac502ce3d713dd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &8500761081294602079
 Rigidbody2D:
   serializedVersion: 4

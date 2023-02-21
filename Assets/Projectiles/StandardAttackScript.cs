@@ -5,9 +5,11 @@ using UnityEngine;
 public class StandardAttackScript : MonoBehaviour
 {
     public GameObject hitEffect;
-    public float duration = 10;
-    private float timer = 0;
     public Rigidbody2D rb;
+    public float duration = 10;
+    public int damage = 50;
+
+    private float timer = 0;
 
     private void Start()
     {
@@ -30,8 +32,18 @@ public class StandardAttackScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        // Hit animation
         GameObject hitEffectInstance = Instantiate(hitEffect, transform.position, Quaternion.identity);
         Destroy(hitEffectInstance, 5f);
+
+        Collider2D enemyHit = collision.collider;
+        if (enemyHit.gameObject.layer == LayerMask.NameToLayer("Enemies"))
+        {
+            // Enemy hit
+            enemyHit.GetComponent<ZombieScript>().Damage(damage);
+            Debug.Log("enemy hit!");
+        }
+
         Destroy(gameObject);
     }
 }

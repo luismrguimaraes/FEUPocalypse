@@ -10,7 +10,7 @@ public class MainCharShooting : MonoBehaviour
     public bool shooting;
 
     public float standardAttackForce = 10f;
-    public float standardAttackCD = 2f;
+    public float standardAttackCD = 1f;
     private float standardAttackTimer = 0;
 
     private void Start()

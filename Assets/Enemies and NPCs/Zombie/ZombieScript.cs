@@ -7,51 +7,79 @@ public class ZombieScript : MonoBehaviour
     public float moveSpeed;
     public Rigidbody2D rb;
     public Animator animator;
+    public Transform centerPoint;
+    public SpriteRenderer sr;
 
     Vector2 movement;
 
     GameObject mainChar;
 
-    float hp = 100;
+    public int maxHp = 100;
+    int currentHp;
+    public bool isAlive;
 
     // Start is called before the first frame update
     void Start()
     {
         mainChar = GameObject.FindGameObjectWithTag("Player");
 
+        currentHp = maxHp;
+        isAlive = true;
+
+        sr.color = Color.white;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        movement = mainChar.transform.position - transform.position;
-        movement.Normalize();
+        if (isAlive)
+        {
+            movement = mainChar.transform.position - centerPoint.position;
+            movement.Normalize();
 
-        animator.SetFloat("Horizontal", movement.x);
-
+            animator.SetFloat("Horizontal", movement.x);
+        }
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = (moveSpeed * movement);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Player Projectiles"))
+        if (isAlive)
         {
-            // Enemy hit
-            Damage(100);
+            rb.velocity = (moveSpeed * movement);
         }
     }
 
-    private void Damage(float dmg)
+    [ContextMenu("Damage 50")]
+    public void Damage50()
     {
-        hp -= dmg;
-        if (hp <= 0)
+        Damage(50);
+    }
+
+    public void Damage(int dmg)
+    {
+        currentHp -= dmg;
+
+        // Play hurt animation
+        animator.SetTrigger("Hurt");
+
+        if (currentHp <= 0)
         {
-            Destroy(gameObject);
+            Die();
         }
+    }
+
+    private void Die()
+    {
+        sr.color = Color.grey;
+        // Play dying animation
+        animator.SetTrigger("Death");
+
+        // Stop movement
+        rb.velocity = new Vector2(0, 0);
+
+        isAlive = false;
+        Destroy(gameObject, 0.3f);
     }
 
 }
