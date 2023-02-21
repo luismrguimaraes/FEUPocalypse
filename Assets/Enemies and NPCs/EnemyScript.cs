@@ -21,8 +21,9 @@ public class EnemyScript : MonoBehaviour
     public bool isAlive;
 
     // Start is called before the first frame update
-    void Start()
+    public virtual void Start()
     {
+        Debug.Log("Start");
         mainChar = GameObject.FindGameObjectWithTag("Player");
 
         // Set current hp to full

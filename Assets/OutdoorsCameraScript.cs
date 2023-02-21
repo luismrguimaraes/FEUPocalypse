@@ -10,11 +10,11 @@ public class OutdoorsCameraScript : MonoBehaviour
         
     }
 
-    public Transform player;
+    public Transform mainChar;
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = player.transform.position + new Vector3(0, 0, -15);
+        transform.position = mainChar.transform.position + new Vector3(0, 0, -15);
     }
 }
