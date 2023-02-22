@@ -20,6 +20,25 @@ public class EnemyScript : MonoBehaviour
     int currentHp;
     public bool isAlive;
 
+
+    [SerializeField] RuntimeAnimatorController [] animatorControllers;
+
+    public RuntimeAnimatorController NameToAnimController(string name)
+    {
+        for (int i = 0; i < animatorControllers.Length; i++)
+        {
+            Debug.Log(i);
+            Debug.Log(animatorControllers[i].name);
+            if (animatorControllers[i].name == name)
+            {
+                return animatorControllers[i];
+            }
+        }
+
+        Debug.LogWarning("Invalid animator controller name " + name);
+        return null;
+    }
+
     // Start is called before the first frame update
     public virtual void Start()
     {
@@ -32,6 +51,9 @@ public class EnemyScript : MonoBehaviour
 
         // Set Sprite Renderer color to white (default), just in case
         sr.color = Color.white;
+
+        // Change animator
+        animator.runtimeAnimatorController = NameToAnimController("Zombie");
     }
 
     // Update is called once per frame

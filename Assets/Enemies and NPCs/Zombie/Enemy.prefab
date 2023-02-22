@@ -44,8 +44,8 @@ GameObject:
   - component: {fileID: 4206967599122345349}
   - component: {fileID: 590080542358922643}
   - component: {fileID: 7182910036357449435}
-  - component: {fileID: 340996504527730853}
   - component: {fileID: 6810576012953927085}
+  - component: {fileID: 1468540909276165811}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -79,7 +79,7 @@ Animator:
   m_GameObject: {fileID: 4206967599122345350}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4bcb0ebe99a424e22b70d3bbdb3a06f7, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -127,9 +127,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingLayerID: -324694539
+  m_SortingLayer: 3
+  m_SortingOrder: 0
   m_Sprite: {fileID: -1948173916, guid: 23b276e837a844b728818df1682c3105, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -188,26 +188,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32638884, y: 0.40134495}
   m_EdgeRadius: 0
---- !u!114 &340996504527730853
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4206967599122345350}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7c2bec492f374db5b2ed98b1e182c8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 2
-  rb: {fileID: 590080542358922643}
-  animator: {fileID: 4206967599122345348}
-  centerPoint: {fileID: 7520551456305327978}
-  sr: {fileID: 4206967599122345349}
-  flashEffect: {fileID: 6810576012953927085}
-  maxHp: 100
-  isAlive: 0
 --- !u!114 &6810576012953927085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,3 +202,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashMaterial: {fileID: 2100000, guid: acf7f3569493e4891a4c8c798257ef3d, type: 2}
   duration: 0.05
+--- !u!114 &1468540909276165811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4206967599122345350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26bd5a5e4fbcf494280ddc74d9265a2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 2
+  rb: {fileID: 590080542358922643}
+  animator: {fileID: 4206967599122345348}
+  centerPoint: {fileID: 7520551456305327978}
+  sr: {fileID: 4206967599122345349}
+  flashEffect: {fileID: 6810576012953927085}
+  maxHp: 100
+  isAlive: 0
+  animatorControllers:
+  - {fileID: 9100000, guid: 0d152494feddd4e44a9d48921d88318c, type: 2}
+  - {fileID: 9100000, guid: 4bcb0ebe99a424e22b70d3bbdb3a06f7, type: 2}

@@ -40,7 +40,7 @@ public class StandardAttackScript : MonoBehaviour
         if (enemyHit.gameObject.layer == LayerMask.NameToLayer("Enemies"))
         {
             // Enemy hit
-            enemyHit.GetComponent<ZombieScript>().Damage(damage);
+            enemyHit.GetComponent<EnemyScript>().Damage(damage);
             Debug.Log("enemy hit!");
         }
 

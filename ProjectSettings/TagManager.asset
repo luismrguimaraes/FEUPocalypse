@@ -41,3 +41,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: On the ground
+    uniqueID: 551135061
+    locked: 0
+  - name: New Layer 2
+    uniqueID: 2411489003
+    locked: 0
+  - name: Enemies
+    uniqueID: 3970272757
+    locked: 0
+  - name: Player Projectiles
+    uniqueID: 1059628813
+    locked: 0
+  - name: Main Character
+    uniqueID: 3552244517
+    locked: 0

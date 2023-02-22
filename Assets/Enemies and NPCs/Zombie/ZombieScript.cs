@@ -10,6 +10,6 @@ public class ZombieScript : EnemyScript
         base.Start();
         Debug.Log("Start");
 
-        animator.runtimeAnimatorController = (RuntimeAnimatorController)Resources.Load("Assets/MainCharacter/MainCharacter.controller", typeof(RuntimeAnimatorController));
+        animator.runtimeAnimatorController = base.NameToAnimController("Zombie");
     }
 }
