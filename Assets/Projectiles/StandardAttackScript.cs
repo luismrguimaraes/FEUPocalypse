@@ -41,7 +41,6 @@ public class StandardAttackScript : MonoBehaviour
         {
             // Enemy hit
             enemyHit.GetComponent<EnemyScript>().Damage(damage);
-            Debug.Log("enemy hit!");
         }
 
         Destroy(gameObject);

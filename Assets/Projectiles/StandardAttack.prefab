@@ -120,9 +120,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingLayerID: 1059628813
+  m_SortingLayer: 4
+  m_SortingOrder: 0
   m_Sprite: {fileID: 1689426285, guid: 8f77f6d8a5ddb42e3812a4c5e053b4f0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -147,5 +147,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitEffect: {fileID: 2239966279949749394, guid: 16d21cc92ced848d3b717e71a8c6e6fd, type: 3}
-  duration: 10
   rb: {fileID: 2302858381309017486}
+  duration: 10
+  damage: 50
