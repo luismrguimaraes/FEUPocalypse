@@ -37,7 +37,7 @@ public class StandardAttackScript : MonoBehaviour
         Destroy(hitEffectInstance, 5f);
 
         Collider2D enemyHit = collision.collider;
-        if (enemyHit.gameObject.layer == LayerMask.NameToLayer("Enemies"))
+        if (enemyHit.gameObject.CompareTag("Enemy"))
         {
             // Enemy hit
             enemyHit.GetComponent<EnemyScript>().Damage(damage);

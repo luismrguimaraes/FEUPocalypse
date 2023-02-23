@@ -29512,6 +29512,7 @@ GameObject:
   - component: {fileID: 928870191}
   - component: {fileID: 928870194}
   - component: {fileID: 928870193}
+  - component: {fileID: 928870195}
   m_Layer: 0
   m_Name: StoreEntrance
   m_TagString: Untagged
@@ -29585,6 +29586,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &928870195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 928870190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b365e7a4bdd24c809fb1d5fd20daa41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneToLoad: D. Beatriz' Store
 --- !u!1 &1089604333
 GameObject:
   m_ObjectHideFlags: 0

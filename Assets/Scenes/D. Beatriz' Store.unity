@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 520292694}
   - component: {fileID: 520292696}
   m_Layer: 0
-  m_Name: Store Exit Collider
+  m_Name: Store Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -275,9 +275,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 520292693}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32b1ec9ec80b444f88825fdee576b3b3, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b365e7a4bdd24c809fb1d5fd20daa41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneToLoad: Outside
 --- !u!1 &1721124343
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StoreExitScript : MonoBehaviour
+public class SceneTransition : MonoBehaviour
 {
+
+    public string sceneToLoad;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,12 +19,12 @@ public class StoreExitScript : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
         Debug.Log("Collision");
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Main Character"))
+        if (collider.CompareTag("Player"))
         {
-            SceneManager.LoadScene("Outside");
+            SceneManager.LoadScene(sceneToLoad);
         }
     }
 }
