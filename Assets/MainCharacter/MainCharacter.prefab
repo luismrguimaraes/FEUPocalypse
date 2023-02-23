@@ -67,7 +67,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 2302858381309017483, guid: 464fd98d8b7a14a01b6351c77c181da0, type: 3}
   shooting: 0
-  standardAttackForce: 10
+  standardAttackForce: 5
   standardAttackCD: 1
 --- !u!114 &4962107115533487983
 MonoBehaviour:

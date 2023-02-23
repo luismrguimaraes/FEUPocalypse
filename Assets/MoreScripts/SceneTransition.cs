@@ -7,6 +7,9 @@ public class SceneTransition : MonoBehaviour
 {
 
     public string sceneToLoad;
+    public Vector2 playerPosition;
+    public VectorValue playerStorage;
+
     // Start is called before the first frame update
     void Start()
     {

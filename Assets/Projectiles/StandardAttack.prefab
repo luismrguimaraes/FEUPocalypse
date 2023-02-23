@@ -148,5 +148,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitEffect: {fileID: 2239966279949749394, guid: 16d21cc92ced848d3b717e71a8c6e6fd, type: 3}
   rb: {fileID: 2302858381309017486}
-  duration: 10
+  duration: 2
   damage: 50

@@ -29186,7 +29186,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4206967599122345350, guid: 3167b1986c84e498cb14229b009ca77a, type: 3}
       propertyPath: m_Name
-      value: Enemy
+      value: Zombie
       objectReference: {fileID: 0}
     - target: {fileID: 4206967599122345371, guid: 3167b1986c84e498cb14229b009ca77a, type: 3}
       propertyPath: m_RootOrder
@@ -29194,11 +29194,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4206967599122345371, guid: 3167b1986c84e498cb14229b009ca77a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.44
+      value: 5.08
       objectReference: {fileID: 0}
     - target: {fileID: 4206967599122345371, guid: 3167b1986c84e498cb14229b009ca77a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.08
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 4206967599122345371, guid: 3167b1986c84e498cb14229b009ca77a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -29599,6 +29599,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: D. Beatriz' Store
+  playerPosition: {x: 0, y: 0}
+  playerStorage: {fileID: 0}
 --- !u!1 &1089604333
 GameObject:
   m_ObjectHideFlags: 0
@@ -29616,7 +29618,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1089604334
 MonoBehaviour:
   m_ObjectHideFlags: 0

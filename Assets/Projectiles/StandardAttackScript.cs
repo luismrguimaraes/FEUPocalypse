@@ -6,7 +6,7 @@ public class StandardAttackScript : MonoBehaviour
 {
     public GameObject hitEffect;
     public Rigidbody2D rb;
-    public float duration = 10;
+    public float duration = 2;
     public int damage = 50;
 
     private float timer = 0;
