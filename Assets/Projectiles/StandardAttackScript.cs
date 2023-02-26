@@ -6,13 +6,14 @@ public class StandardAttackScript : MonoBehaviour
 {
     public GameObject hitEffect;
     public Rigidbody2D rb;
-    public float duration = 2;
-    public int damage = 50;
+    public float duration = 1;
+    public int damage = 10;
 
     private float timer = 0;
 
     private void Start()
     {
+        duration = 1;
         GameObject mainChar = GameObject.FindGameObjectWithTag("Player");
         Physics2D.IgnoreCollision(mainChar.GetComponent<Collider2D>(), GetComponent<Collider2D>());
     }
