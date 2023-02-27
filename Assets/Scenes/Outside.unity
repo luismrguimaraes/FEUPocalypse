@@ -29618,7 +29618,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1089604334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34890,14 +34890,6 @@ PrefabInstance:
     - target: {fileID: 8500761081294602078, guid: 9fc76e00499984ed6b62834b3833352e, type: 3}
       propertyPath: controls.m_Name
       value: Controls
-      objectReference: {fileID: 0}
-    - target: {fileID: 8649534803989706958, guid: 9fc76e00499984ed6b62834b3833352e, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8649534803989706958, guid: 9fc76e00499984ed6b62834b3833352e, type: 3}
-      propertyPath: m_SortingLayer
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9166234161334225261, guid: 9fc76e00499984ed6b62834b3833352e, type: 3}
       propertyPath: firePoint

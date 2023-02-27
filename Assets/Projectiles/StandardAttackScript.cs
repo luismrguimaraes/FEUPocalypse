@@ -32,6 +32,11 @@ public class StandardAttackScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Player Projectiles"))
+        {
+            return;
+        }
+
         // Hit animation
         GameObject hitEffectInstance = Instantiate(hitEffect, transform.position, Quaternion.identity);
         Destroy(hitEffectInstance, 5f);
