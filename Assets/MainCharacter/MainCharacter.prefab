@@ -53,6 +53,7 @@ MonoBehaviour:
   moveSpeed: 4.51
   rb: {fileID: 8500761081294602079}
   animator: {fileID: 2922874975806617010}
+  startingPosition: {fileID: 11400000, guid: 4f37b59bd725645818246fa9359a1f7b, type: 2}
 --- !u!114 &9166234161334225261
 MonoBehaviour:
   m_ObjectHideFlags: 0

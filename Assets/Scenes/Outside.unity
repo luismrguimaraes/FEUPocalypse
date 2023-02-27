@@ -166,7 +166,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &259805510
 GameObject:
@@ -29190,7 +29190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4206967599122345371, guid: 3167b1986c84e498cb14229b009ca77a, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4206967599122345371, guid: 3167b1986c84e498cb14229b009ca77a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -29514,7 +29514,7 @@ GameObject:
   - component: {fileID: 928870193}
   - component: {fileID: 928870195}
   m_Layer: 0
-  m_Name: StoreEntrance
+  m_Name: StoreEntrance 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29546,7 +29546,7 @@ Transform:
   m_Children:
   - {fileID: 922583441}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &928870193
 MonoBehaviour:
@@ -29599,8 +29599,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: D. Beatriz' Store
-  playerPosition: {x: 0, y: 0}
-  playerStorage: {fileID: 0}
+  playerPosition: {x: 0, y: -3.4}
+  playerStorage: {fileID: 11400000, guid: 4f37b59bd725645818246fa9359a1f7b, type: 2}
 --- !u!1 &1089604333
 GameObject:
   m_ObjectHideFlags: 0
@@ -29946,7 +29946,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1840926432
 GameObject:
