@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Wave
 {
+    public string name;
     public Transform enemy;
     public int count;
     public float rate;
@@ -38,11 +39,9 @@ public class EnemySpawnerScript : MonoBehaviour
             // Check if enemies are still alive
             if( !EnemyIsAlive())
             {
-                Debug.Log(" Wave " + currentWave + "Completed");
+                Debug.Log(" Wave " + waves[currentWave] + "Completed");
 
-                return;
-                // Go to the next wave
-                currentWave++;
+                WaveCompleted();
             }
             else
             {
@@ -64,6 +63,22 @@ public class EnemySpawnerScript : MonoBehaviour
             waveCountdown -= Time.deltaTime;
         }
     }
+
+    void WaveCompleted() {
+
+        waveCountdown = timeBetweenWaves;
+
+        if (waves.Length -1 > currentWave) // if not last wave
+        {
+            spawnState = SpawnState.COUNTING;
+            currentWave++;
+        }
+        else
+        {
+            Debug.Log("Game Completed!");
+        }
+    }
+
 
     bool EnemyIsAlive()
     {
