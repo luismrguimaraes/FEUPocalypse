@@ -10,12 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 8500761081294602076}
   - component: {fileID: 8500761081294602078}
-  - component: {fileID: 9166234161334225261}
   - component: {fileID: 4962107115533487983}
   - component: {fileID: 8500761081294602079}
   - component: {fileID: 8500761081294602077}
   - component: {fileID: 8649534803989706958}
   - component: {fileID: 2922874975806617010}
+  - component: {fileID: 5654658054167930277}
+  - component: {fileID: 2147935344368765385}
   m_Layer: 3
   m_Name: MainCharacter
   m_TagString: Player
@@ -54,22 +55,6 @@ MonoBehaviour:
   rb: {fileID: 8500761081294602079}
   animator: {fileID: 2922874975806617010}
   startingPosition: {fileID: 11400000, guid: 4f37b59bd725645818246fa9359a1f7b, type: 2}
---- !u!114 &9166234161334225261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8500761081294602074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9eac93401734e498887c2bb2f9f2fba7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 2302858381309017483, guid: 464fd98d8b7a14a01b6351c77c181da0, type: 3}
-  shooting: 0
-  standardAttackForce: 5
-  standardAttackCD: 1
 --- !u!114 &4962107115533487983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,7 +153,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -742722779
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: -1341969054, guid: 6320750b8b0cf4784aa39fd4cdab8880, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -201,3 +186,35 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &5654658054167930277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8500761081294602074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb05dee00f553461a9f304d57d1dca99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 0}
+  shooting: 0
+  attackForce: 10
+  attackCD: 1
+--- !u!114 &2147935344368765385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8500761081294602074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d79b015b494294543a965f9027a75a27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 2302858381309017483, guid: 464fd98d8b7a14a01b6351c77c181da0, type: 3}
+  shooting: 0
+  attackForce: 5
+  attackCD: 1
