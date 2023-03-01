@@ -30408,6 +30408,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2835047b62b54ac8b94fc1da31e6004, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waves:
+  - enemy: {fileID: 1207472435}
+    count: 5
+    rate: 1
+  - enemy: {fileID: 1207472435}
+    count: 10
+    rate: 2
+  timeBetweenWaves: 5
+  waveCountdown: 0
+  spawnCooldown: 1
+  searchCountdown: 1
+  spawnState: 2
 --- !u!4 &1815672991
 Transform:
   m_ObjectHideFlags: 0
