@@ -9,6 +9,7 @@ public class EnemyScript : MonoBehaviour
     public Animator animator;
     public Transform centerPoint;
     public SpriteRenderer sr;
+    public HealthBar healthBar;
 
     public FlashEffectScript flashEffect;
     public AudioSource audioSource;
@@ -46,6 +47,7 @@ public class EnemyScript : MonoBehaviour
 
         // Set current hp to full
         currentHp = maxHp;
+        healthBar.SetHealth(currentHp, maxHp);
 
         // Set Sprite Renderer color to white (default), just in case
         sr.color = Color.white;
@@ -74,6 +76,7 @@ public class EnemyScript : MonoBehaviour
     public void Damage(int dmg)
     {
         currentHp -= dmg;
+        healthBar.SetHealth(currentHp, maxHp);
 
         // Play hurt animation
         animator.SetTrigger("Hurt");
