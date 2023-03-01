@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Xsl;
 using UnityEngine;
 
 [System.Serializable]
@@ -8,7 +9,7 @@ public class Wave
     public string name;
     public Transform enemy;
     public int count;
-    public float rate;
+    public float rate; // how many enemies spawning per second, example: rate = 10, every 0.1 a enemy is spawned
 }
 
 public class EnemySpawnerScript : MonoBehaviour
@@ -18,16 +19,25 @@ public class EnemySpawnerScript : MonoBehaviour
     public Wave[] waves;
     private int currentWave = 0;
 
-    public float timeBetweenWaves = 5f;
+    public float timeBetweenWaves = 2.5f;
     public float waveCountdown;
-    public float spawnCooldown = 1f;
     public float searchCountdown = 1f;
 
     public SpawnState spawnState = SpawnState.COUNTING;
 
+    public bool defaultSpawningPoint = false;
+
+    public Transform[] spawningPoints;
+
     // Start is called before the first frame update
     void Start()
     {
+        if (spawningPoints.Length == 0)
+        {
+            Debug.Log("No Spawning Points were introduced, origin will be used!");
+            defaultSpawningPoint = true;
+        }
+
         waveCountdown = timeBetweenWaves;
     }
 
@@ -107,7 +117,7 @@ public class EnemySpawnerScript : MonoBehaviour
             SpawnEnemy(_wave.enemy);
 
             // Waits for a given time before spawning the next enemy
-            yield return new WaitForSeconds(spawnCooldown); 
+            yield return new WaitForSeconds(1 / waves[currentWave].rate); 
         }
 
 
@@ -121,6 +131,17 @@ public class EnemySpawnerScript : MonoBehaviour
     {
         Debug.Log(" Spawning Enemy: ");
 
-        Instantiate(_enemy, transform.position, transform.rotation);
+        if (!defaultSpawningPoint)
+        {
+            Transform _sp = spawningPoints[Random.Range(0, spawningPoints.Length)];
+            Instantiate(_enemy, _sp.position, _sp.rotation);
+
+        }
+        else
+        {
+            Instantiate(_enemy, transform.position, transform.rotation);
+
+        }
+
     }
 }
