@@ -19,7 +19,7 @@ public class EnemyScript : MonoBehaviour
 
     public int maxHp = 100;
     int currentHp;
-    public bool isAlive;
+    public bool isMoving;
 
 
     [SerializeField] RuntimeAnimatorController [] animatorControllers;
@@ -65,7 +65,7 @@ public class EnemyScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isAlive)
+        if (isMoving)
         {
             rb.velocity = (moveSpeed * movement);
         }
@@ -106,14 +106,14 @@ public class EnemyScript : MonoBehaviour
         rb.velocity = new Vector2(0, 0);
 
         // Disable script
-        isAlive = false;
+        isMoving = false;
         Destroy(gameObject, 0.5f);
         GetComponent<Collider2D>().enabled = false;
         enabled = false;
     }
 
-    private void RiseOnEnd()
+    private void OnRiseEnd()
     {
-        isAlive = true;
+        isMoving = true;
     }
 }

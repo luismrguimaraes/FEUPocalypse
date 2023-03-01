@@ -224,7 +224,7 @@ MonoBehaviour:
   flashEffect: {fileID: 6810576012953927085}
   audioSource: {fileID: 1401571277055421541}
   maxHp: 100
-  isAlive: 0
+  isMoving: 0
   animatorControllers:
   - {fileID: 9100000, guid: 0d152494feddd4e44a9d48921d88318c, type: 2}
   - {fileID: 9100000, guid: 4bcb0ebe99a424e22b70d3bbdb3a06f7, type: 2}
@@ -240,7 +240,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: cfd992f0296cd45ee8b23e4ad8e5626a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.27
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -331,7 +331,7 @@ AudioLowPassFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4206967599122345350}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_LowpassResonanceQ: 1
   lowpassLevelCustomCurve:
