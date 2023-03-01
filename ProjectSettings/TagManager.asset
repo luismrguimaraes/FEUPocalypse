@@ -51,6 +51,9 @@ TagManager:
   - name: Enemies
     uniqueID: 3970272757
     locked: 0
+  - name: Enemies Vfx
+    uniqueID: 1947908277
+    locked: 0
   - name: Player Projectiles
     uniqueID: 1059628813
     locked: 0

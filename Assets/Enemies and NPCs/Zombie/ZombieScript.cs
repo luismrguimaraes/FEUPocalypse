@@ -8,7 +8,6 @@ public class ZombieScript : EnemyScript
     {
         maxHp = 200;
         base.Start();
-        Debug.Log("Start");
 
         animator.runtimeAnimatorController = base.NameToAnimController("Zombie");
     }

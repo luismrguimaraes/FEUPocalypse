@@ -131,17 +131,19 @@ public class EnemySpawnerScript : MonoBehaviour
     {
         Debug.Log(" Spawning Enemy: ");
 
+        Transform _sp;
         if (!defaultSpawningPoint)
         {
-            Transform _sp = spawningPoints[Random.Range(0, spawningPoints.Length)];
-            Instantiate(_enemy, _sp.position, _sp.rotation);
-
+            _sp = spawningPoints[Random.Range(0, spawningPoints.Length)];
         }
         else
         {
-            Instantiate(_enemy, transform.position, transform.rotation);
-
+            _sp = transform;
         }
+
+        Transform enemySpawned = Instantiate(_enemy, _sp.position, _sp.rotation);
+        enemySpawned.GetComponent<EnemyScript>().maxHp = 2000;
+        enemySpawned.GetComponent<EnemyScript>().moveSpeed = 1;
 
     }
 }

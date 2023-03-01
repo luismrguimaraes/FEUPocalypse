@@ -12,7 +12,10 @@ public class EnemyScript : MonoBehaviour
     public HealthBar healthBar;
 
     public FlashEffectScript flashEffect;
-    public AudioSource audioSource;
+    public GameObject nightLordSpawnEffect;
+    public AudioSource hurtSfx;
+    public AudioSource nightLordSpawnSfx;
+
 
     Vector2 movement;
 
@@ -52,8 +55,16 @@ public class EnemyScript : MonoBehaviour
         // Set Sprite Renderer color to white (default), just in case
         sr.color = Color.white;
 
+
+
+        // Depends on enemy:
+
         // Change animator
-        animator.runtimeAnimatorController = NameToAnimController("Zombie");
+        animator.runtimeAnimatorController = NameToAnimController("NightLord");
+
+        // Instantiate spawn effect and play sfx
+        Instantiate(nightLordSpawnEffect, transform.position, Quaternion.identity);
+        nightLordSpawnSfx.Play();
     }
 
     // Update is called once per frame
@@ -82,7 +93,7 @@ public class EnemyScript : MonoBehaviour
         animator.SetTrigger("Hurt");
 
         // Play hurt sfx
-        audioSource.Play();
+        hurtSfx.Play();
 
         // If dead, die
         if (currentHp <= 0)

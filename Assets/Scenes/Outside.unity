@@ -29616,7 +29616,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1089604334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29823,9 +29823,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4206967599122345348, guid: 3167b1986c84e498cb14229b009ca77a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 0b79551d6fe5747e0b3e70943f8a0517, type: 2}
+    - target: {fileID: 4206967599122345349, guid: 3167b1986c84e498cb14229b009ca77a, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4206967599122345349, guid: 3167b1986c84e498cb14229b009ca77a, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4206967599122345349, guid: 3167b1986c84e498cb14229b009ca77a, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4206967599122345350, guid: 3167b1986c84e498cb14229b009ca77a, type: 3}
       propertyPath: m_Name
-      value: Zombie
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 4206967599122345371, guid: 3167b1986c84e498cb14229b009ca77a, type: 3}
       propertyPath: m_RootOrder
@@ -30043,11 +30059,11 @@ MonoBehaviour:
     enemy: {fileID: 4206967599122345371, guid: 3167b1986c84e498cb14229b009ca77a, type: 3}
     count: 50
     rate: 2
-  timeBetweenWaves: 5
+  timeBetweenWaves: 2
   waveCountdown: 0
   searchCountdown: 1
   spawnState: 2
-  defaultSpawningPoint: 0
+  defaultSpawningPoint: 1
   spawningPoints:
   - {fileID: 566884479}
   - {fileID: 1211865786}
@@ -35051,10 +35067,6 @@ PrefabInstance:
     - target: {fileID: 8500761081294602078, guid: 9fc76e00499984ed6b62834b3833352e, type: 3}
       propertyPath: controls.m_Name
       value: Controls
-      objectReference: {fileID: 0}
-    - target: {fileID: 9166234161334225261, guid: 9fc76e00499984ed6b62834b3833352e, type: 3}
-      propertyPath: firePoint
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fc76e00499984ed6b62834b3833352e, type: 3}
