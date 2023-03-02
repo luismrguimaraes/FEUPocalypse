@@ -24,10 +24,10 @@ public class LevelSystem : MonoBehaviour
         currentExperience += _xpReceived;
         if (currentExperience >= nextLevelExperience) // Level up
         {
-            currentExperience =- nextLevelExperience;
+            currentExperience = -nextLevelExperience;
             currentLevel++;
         }
-
+    }
     void Start()
     {
 
