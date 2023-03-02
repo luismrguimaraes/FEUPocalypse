@@ -293,7 +293,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26bd5a5e4fbcf494280ddc74d9265a2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
   rb: {fileID: 590080542358922643}
   animator: {fileID: 4206967599122345348}
   centerPoint: {fileID: 7520551456305327978}
@@ -301,8 +300,11 @@ MonoBehaviour:
   healthBar: {fileID: 7106710777221612100}
   flashEffect: {fileID: 6810576012953927085}
   nightLordSpawnEffect: {fileID: 7140427959150935381, guid: 76ce2105361e4437eaf7d0ee5488f535, type: 3}
+  fullVisionDrop: {fileID: 4886166229025214847, guid: e83c9477606d544ef9a6cdea3131177d, type: 3}
   hurtSfx: {fileID: 1401571277055421541}
   nightLordSpawnSfx: {fileID: 2691931620881157669}
+  moveSpeed: 2
+  fullVisionDropChance: 0
   maxHp: 100
   isMoving: 0
   animatorControllers:

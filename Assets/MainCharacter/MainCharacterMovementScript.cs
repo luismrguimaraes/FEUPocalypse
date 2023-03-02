@@ -36,8 +36,6 @@ public class MainCharacterMovementScript : MonoBehaviour
         animator.SetFloat("Horizontal", facingDirection.x);
         animator.SetFloat("Vertical", facingDirection.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);
-
-
     }
 
     private void FixedUpdate()

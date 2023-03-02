@@ -142,8 +142,7 @@ public class EnemySpawnerScript : MonoBehaviour
         }
 
         Transform enemySpawned = Instantiate(_enemy, _sp.position, _sp.rotation);
-        enemySpawned.GetComponent<EnemyScript>().maxHp = 200;
-        enemySpawned.GetComponent<EnemyScript>().moveSpeed = 1;
+        enemySpawned.GetComponent<EnemyScript>().initZombie();
 
     }
 }

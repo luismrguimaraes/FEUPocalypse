@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Light
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - Walls
   - Enemies
   - Player Projectiles
-  - 
+  - Collectibles
   - 
   - 
   - 
@@ -53,6 +54,9 @@ TagManager:
     locked: 0
   - name: Enemies Vfx
     uniqueID: 1947908277
+    locked: 0
+  - name: Collectibles
+    uniqueID: 2095799475
     locked: 0
   - name: Player Projectiles
     uniqueID: 1059628813
