@@ -16,16 +16,25 @@ public class HealthBar : MonoBehaviour
     void Start()
     {
         slider.gameObject.SetActive(false);
-    }
+
+        low = Color.red;
+        high = Color.yellow;
+}
 
     public void SetHealth(int currHealth, int maxHealth)
     {
-        
+
         if (currHealth < maxHealth)
         {
-            slider.gameObject.SetActive(true);
-            timer = 0;
-
+            if (currHealth > 0)
+            {
+                slider.gameObject.SetActive(true);
+                timer = 0;
+            }
+            else
+            {
+                slider.gameObject.SetActive(false);
+            }
         }
         slider.value = currHealth;
         slider.maxValue = maxHealth;

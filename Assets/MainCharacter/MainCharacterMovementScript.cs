@@ -7,6 +7,7 @@ public class MainCharacterMovementScript : MonoBehaviour
     public float moveSpeed;
     public Rigidbody2D rb;
     public Animator animator;
+    public VectorValue startingPosition;
 
     Vector2 movement;
     Vector3 facingDirection;
@@ -15,6 +16,7 @@ public class MainCharacterMovementScript : MonoBehaviour
     void Start()
     {
         facingDirection = new Vector3(0, -1, 0);
+        transform.position = startingPosition.initialValue;
     }
 
 

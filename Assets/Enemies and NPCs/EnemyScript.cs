@@ -12,6 +12,7 @@ public class EnemyScript : MonoBehaviour
     public HealthBar healthBar;
 
     public FlashEffectScript flashEffect;
+    public AudioSource audioSource;
 
     Vector2 movement;
 
@@ -19,7 +20,7 @@ public class EnemyScript : MonoBehaviour
 
     public int maxHp = 100;
     int currentHp;
-    public bool isAlive;
+    public bool isMoving;
 
 
     [SerializeField] RuntimeAnimatorController [] animatorControllers;
@@ -28,8 +29,6 @@ public class EnemyScript : MonoBehaviour
     {
         for (int i = 0; i < animatorControllers.Length; i++)
         {
-            Debug.Log(i);
-            Debug.Log(animatorControllers[i].name);
             if (animatorControllers[i].name == name)
             {
                 return animatorControllers[i];
@@ -48,7 +47,6 @@ public class EnemyScript : MonoBehaviour
 
         // Set current hp to full
         currentHp = maxHp;
-        isAlive = true;
         healthBar.SetHealth(currentHp, maxHp);
 
         // Set Sprite Renderer color to white (default), just in case
@@ -61,18 +59,15 @@ public class EnemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isAlive)
-        {
-            movement = mainChar.transform.position - centerPoint.position;
-            movement.Normalize();
+        movement = mainChar.transform.position - centerPoint.position;
+        movement.Normalize();
 
-            animator.SetFloat("Horizontal", movement.x);
-        }
+        animator.SetFloat("Horizontal", movement.x);
     }
 
     private void FixedUpdate()
     {
-        if (isAlive)
+        if (isMoving)
         {
             rb.velocity = (moveSpeed * movement);
         }
@@ -86,6 +81,9 @@ public class EnemyScript : MonoBehaviour
         // Play hurt animation
         animator.SetTrigger("Hurt");
 
+        // Play hurt sfx
+        audioSource.Play();
+
         // If dead, die
         if (currentHp <= 0)
         {
@@ -96,6 +94,7 @@ public class EnemyScript : MonoBehaviour
             // Else, flash white
             flashEffect.Flash();
         }
+
     }
 
     private void Die()
@@ -110,9 +109,14 @@ public class EnemyScript : MonoBehaviour
         rb.velocity = new Vector2(0, 0);
 
         // Disable script
-        isAlive = false;
+        isMoving = false;
         Destroy(gameObject, 0.5f);
         GetComponent<Collider2D>().enabled = false;
-        this.enabled = false;
+        enabled = false;
+    }
+
+    private void OnRiseEnd()
+    {
+        isMoving = true;
     }
 }
