@@ -28,8 +28,10 @@ public class LevelSystem : MonoBehaviour
         totalExperience += _xpReceived;
         if (currentExperience >= nextLevelExperience) // Level up
         {
-            currentExperience = -nextLevelExperience;
+            
+            currentExperience -= nextLevelExperience;
             currentLevel++;
+            nextLevelExperience += 50;
             if (OnLevelChanged != null) OnLevelChanged(this, EventArgs.Empty);
 
         }

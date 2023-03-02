@@ -29,8 +29,6 @@ public class EnemyScript : MonoBehaviour
     {
         for (int i = 0; i < animatorControllers.Length; i++)
         {
-            Debug.Log(i);
-            Debug.Log(animatorControllers[i].name);
             if (animatorControllers[i].name == name)
             {
                 return animatorControllers[i];
@@ -44,7 +42,6 @@ public class EnemyScript : MonoBehaviour
     // Start is called before the first frame update
     public virtual void Start()
     {
-        Debug.Log("Start");
         mainChar = GameObject.FindGameObjectWithTag("Player");
 
         // Set current hp to full

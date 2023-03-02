@@ -135,11 +135,11 @@ GameObject:
   - component: {fileID: 164773832}
   m_Layer: 0
   m_Name: LogicManager
-  m_TagString: Untagged
+  m_TagString: LogicManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &164773832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,7 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18f7acda1b68a484c8de9724b227350c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  experience: 0
+  experience: 50
+  levelWindow: {fileID: 539850216}
 --- !u!4 &164773833
 Transform:
   m_ObjectHideFlags: 0
@@ -29885,7 +29886,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1089604334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35656,7 +35657,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 742087547766781631, guid: 0fdba8d83034044b7987c11944f1f8d1, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3471793781240138054, guid: 0fdba8d83034044b7987c11944f1f8d1, type: 3}
       propertyPath: m_RootOrder
@@ -35705,6 +35706,10 @@ PrefabInstance:
     - target: {fileID: 3471793781240138075, guid: 0fdba8d83034044b7987c11944f1f8d1, type: 3}
       propertyPath: m_Name
       value: Zombie
+      objectReference: {fileID: 0}
+    - target: {fileID: 3471793781240138075, guid: 0fdba8d83034044b7987c11944f1f8d1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fdba8d83034044b7987c11944f1f8d1, type: 3}
