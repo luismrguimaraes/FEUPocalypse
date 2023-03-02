@@ -8,14 +8,13 @@ public class LevelWindow : MonoBehaviour
 
     private Text levelText;
     private Slider slider;
+    private LevelSystem levelSystem;
 
     void Awake()
     {
         levelText = transform.Find("LevelText").GetComponent<Text>();
         slider = transform.Find("ExperienceBar").GetComponent<Slider>();
 
-        SetExperienceBarSize(0.5f);
-        SetLevelNumber(8);
     }
 
     private void SetLevelNumber(int levelNumber)
@@ -29,4 +28,30 @@ public class LevelWindow : MonoBehaviour
         slider.maxValue = 1;
     }
 
+    public void SetLevelSystem(LevelSystem _levelSystem)
+    {
+        levelSystem = _levelSystem;
+
+        // Update the initial values
+        SetLevelNumber(levelSystem.GetLevelNumber());
+        SetExperienceBarSize(levelSystem.GetExperienceNormalized());
+
+        // Subscribe to changed events
+        levelSystem.OnExperienceChanged += LevelSystem_OnExperienceChanged;
+        levelSystem.OnLevelChanged += LevelSystem_OnLevelChanged;
+    }
+
+    private void LevelSystem_OnExperienceChanged(object sender, System.EventArgs e)
+    {
+        // Experience changed, update bar size
+
+        SetExperienceBarSize(levelSystem.GetExperienceNormalized());
+    }
+
+    private void LevelSystem_OnLevelChanged(object sender, System.EventArgs e)
+    {
+        // Level changed, update text
+
+        SetLevelNumber(levelSystem.GetLevelNumber());
+    }
 }

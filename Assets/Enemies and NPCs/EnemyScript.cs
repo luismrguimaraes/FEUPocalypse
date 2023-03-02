@@ -20,6 +20,7 @@ public class EnemyScript : MonoBehaviour
     public int maxHp = 100;
     int currentHp;
     public bool isAlive;
+    public int experienceDrop = 25;
 
 
     [SerializeField] RuntimeAnimatorController [] animatorControllers;
@@ -114,5 +115,12 @@ public class EnemyScript : MonoBehaviour
         Destroy(gameObject, 0.5f);
         GetComponent<Collider2D>().enabled = false;
         this.enabled = false;
+
+        GameObject logicManager = GameObject.FindGameObjectWithTag("LogicManager");
+        logicManager.GetComponent<LogicScript>().GainXP(experienceDrop);
+
+
     }
+
+    
 }
