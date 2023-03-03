@@ -14,7 +14,7 @@ public class LevelSystem : MonoBehaviour
     private int nextLevelExperience;
 
 
-    public LevelSystem()
+    public void Init()
     {
         currentLevel = 1;
         currentExperience = 0;

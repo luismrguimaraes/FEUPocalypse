@@ -10,11 +10,10 @@ public class LevelWindow : MonoBehaviour
     private Slider slider;
     private LevelSystem levelSystem;
 
-    void Awake()
+    public void Init()
     {
         levelText = transform.Find("LevelText").GetComponent<Text>();
         slider = transform.Find("ExperienceBar").GetComponent<Slider>();
-
     }
 
     private void SetLevelNumber(int levelNumber)
