@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2677951929126054189}
   - component: {fileID: 5361680618819096937}
   - component: {fileID: 2147935344368765385}
+  - component: {fileID: 2421065923955310385}
   - component: {fileID: 4962107115533487983}
   - component: {fileID: 8500761081294602079}
   - component: {fileID: 8500761081294602077}
@@ -69,6 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 121d547c9093c4de68f87cf9e1367013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHp: 500
 --- !u!114 &5361680618819096937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,8 +101,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 2302858381309017483, guid: 464fd98d8b7a14a01b6351c77c181da0, type: 3}
-  shooting: 0
+  active: 0
   attackForce: 5
+  attackCD: 1
+--- !u!114 &2421065923955310385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8500761081294602074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a97c73e473254887b811e7569225b02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flamePrefab: {fileID: 0}
+  shooting: 0
+  attackForce: 10
   attackCD: 1
 --- !u!114 &4962107115533487983
 MonoBehaviour:

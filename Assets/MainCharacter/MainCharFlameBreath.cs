@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public class MainCharStandardShot : MonoBehaviour
+public class MainCharFlameBreath : MonoBehaviour
 {
-    public GameObject bulletPrefab;
+    //public GameObject flamePrefab;
 
     public float attackForce = 10f;
     public float attackCD = 1f;
@@ -26,15 +26,8 @@ public class MainCharStandardShot : MonoBehaviour
         }
         else
         {
-            Shoot();
+            //Shoot();
             attackTimer = 0;
         }
-    }
-
-    void Shoot()
-    {
-        GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(-gameObject.GetComponent<MainCharMovementScript>().GetFacingDirection() * attackForce, ForceMode2D.Impulse);
     }
 }

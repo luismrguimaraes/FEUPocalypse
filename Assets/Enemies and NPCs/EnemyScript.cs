@@ -28,7 +28,7 @@ public class EnemyScript : MonoBehaviour
     public float fullVisionDropChance;
     public float moveSpeedBoostDropChance;
     public float maxHp = 100;
-    public float damage = 5;
+    public float dmgPerSecond = 5;
 
     Vector2 movement;
     float currentHp;
@@ -63,8 +63,6 @@ public class EnemyScript : MonoBehaviour
 
         // Set Sprite Renderer color to white (default), just in case
         sr.color = Color.white;
-
-        DontDestroyOnLoad(gameObject);
     }
 
     public void initZombie()
@@ -74,7 +72,7 @@ public class EnemyScript : MonoBehaviour
 
         moveSpeed = 2;
         maxHp = 12;
-        damage = 50;
+        dmgPerSecond = 50;
 
         // set drop chances
         fullVisionDropChance = 0.2f;
@@ -92,7 +90,7 @@ public class EnemyScript : MonoBehaviour
 
         moveSpeed = 1;
         maxHp = 200;
-        damage = 150;
+        dmgPerSecond = 150;
 
         // set drop chances
         fullVisionDropChance = 0.4f;
@@ -197,7 +195,7 @@ public class EnemyScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            mainChar.GetComponent<MainCharHealthScript>().Damage(damage*Time.deltaTime);
+            mainChar.GetComponent<MainCharHealthScript>().Damage(dmgPerSecond * Time.deltaTime);
         }
     }
 }

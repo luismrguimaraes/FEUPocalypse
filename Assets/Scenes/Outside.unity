@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 164773832}
   m_Layer: 0
   m_Name: LogicManager
-  m_TagString: Untagged
+  m_TagString: LogicManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,6 +153,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   experience: 0
+  mainChar: {fileID: 1026091138}
+  initialScene: 
+  mcAcquiredWeapons: 0000
 --- !u!4 &164773833
 Transform:
   m_ObjectHideFlags: 0
@@ -29709,10 +29712,16 @@ MonoBehaviour:
   sceneToLoad: D. Beatriz' Store
   playerPosition: {x: 0, y: -3.4}
   playerStorage: {fileID: 11400000, guid: 4f37b59bd725645818246fa9359a1f7b, type: 2}
+  logicScript: {fileID: 0}
 --- !u!4 &967446335 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1741832752619546736, guid: 5f64feda3e3904fafa99a49286b32462, type: 3}
   m_PrefabInstance: {fileID: 1313936163}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1026091138 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8500761081294602074, guid: 9fc76e00499984ed6b62834b3833352e, type: 3}
+  m_PrefabInstance: {fileID: 2012987650}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1089604333
 GameObject:

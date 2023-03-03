@@ -2,14 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StandardAttackScript : MonoBehaviour
+public class FlameBreathScript : MonoBehaviour
 {
     public GameObject hitEffect;
     public Rigidbody2D rb;
-    public float duration = 1;
-    public float damage = 10;
-
-    private float timer = 0;
+    public float dmgPerSecond = 10;
+    private bool isFlameActive = false;
 
     private void Start()
     {
@@ -19,32 +17,28 @@ public class StandardAttackScript : MonoBehaviour
         Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Player Projectiles"));
     }
 
-    private void Update()
+
+    void OnAnimatorEnd()
     {
-        if (timer < duration)
-        {
-            timer = timer + Time.deltaTime;
-        }
-        else
-        {
-            Destroy(gameObject);
-            timer = 0;
-        }
+        Destroy(gameObject);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void SetFlameActive()
+    {
+        isFlameActive = true;
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
     {
         // Hit animation
         GameObject hitEffectInstance = Instantiate(hitEffect, transform.position, Quaternion.identity);
         Destroy(hitEffectInstance, 5f);
 
         Collider2D enemyHit = collision.collider;
-        if (enemyHit.gameObject.CompareTag("Enemy"))
+        if (isFlameActive && enemyHit.gameObject.CompareTag("Enemy"))
         {
             // Enemy hit
-            enemyHit.GetComponent<EnemyScript>().Damage(damage);
+            enemyHit.GetComponent<EnemyScript>().Damage(dmgPerSecond * Time.deltaTime);
         }
-
-        Destroy(gameObject);
     }
 }
