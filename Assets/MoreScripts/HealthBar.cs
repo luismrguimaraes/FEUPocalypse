@@ -21,7 +21,7 @@ public class HealthBar : MonoBehaviour
         high = Color.yellow;
 }
 
-    public void SetHealth(int currHealth, int maxHealth)
+    public void SetHealth(float currHealth, float maxHealth)
     {
 
         if (currHealth < maxHealth)

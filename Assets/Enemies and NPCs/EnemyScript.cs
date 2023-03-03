@@ -21,17 +21,19 @@ public class EnemyScript : MonoBehaviour
     public AudioSource hurtSfx;
     public AudioSource nightLordSpawnSfx;
 
+    // Other
     GameObject mainChar;
 
     public float moveSpeed;
     public float fullVisionDropChance;
     public float moveSpeedBoostDropChance;
-    public int maxHp = 100;
+    public float maxHp = 100;
+    public float damage = 5;
 
     Vector2 movement;
-    int currentHp;
+    float currentHp;
     bool isMoving = false;
-    int isRecovering = 0;
+    int isRecovering = 0; // recovering frames after being hit
 
 
     [SerializeField] RuntimeAnimatorController [] animatorControllers;
@@ -51,7 +53,7 @@ public class EnemyScript : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    public virtual void Start()
+    public void Start()
     {
         mainChar = GameObject.FindGameObjectWithTag("Player");
 
@@ -61,6 +63,8 @@ public class EnemyScript : MonoBehaviour
 
         // Set Sprite Renderer color to white (default), just in case
         sr.color = Color.white;
+
+        DontDestroyOnLoad(gameObject);
     }
 
     public void initZombie()
@@ -69,9 +73,10 @@ public class EnemyScript : MonoBehaviour
         animator.runtimeAnimatorController = NameToAnimController("Zombie");
 
         moveSpeed = 2;
-        maxHp = 60;
+        maxHp = 12;
+        damage = 50;
 
-        // set drops chances
+        // set drop chances
         fullVisionDropChance = 0.2f;
         moveSpeedBoostDropChance = 0.2f;
     }
@@ -87,8 +92,9 @@ public class EnemyScript : MonoBehaviour
 
         moveSpeed = 1;
         maxHp = 200;
+        damage = 150;
 
-        // set drops chances
+        // set drop chances
         fullVisionDropChance = 0.4f;
         moveSpeedBoostDropChance = 0.4f;
     }
@@ -123,7 +129,7 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
-    public void Damage(int dmg)
+    public void Damage(float dmg)
     {
         currentHp -= dmg;
         healthBar.SetHealth(currentHp, maxHp);
@@ -185,5 +191,13 @@ public class EnemyScript : MonoBehaviour
         {
             Instantiate(dropPrefab, centerPoint.transform.position, Quaternion.identity);
         };
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            mainChar.GetComponent<MainCharHealthScript>().Damage(damage*Time.deltaTime);
+        }
     }
 }
