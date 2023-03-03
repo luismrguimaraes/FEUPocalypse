@@ -12,6 +12,7 @@ public class EnemyScript : MonoBehaviour
     public HealthBar healthBar;
 
     public FlashEffectScript flashEffect;
+    public AudioSource audioSource;
 
     Vector2 movement;
 
@@ -19,8 +20,8 @@ public class EnemyScript : MonoBehaviour
 
     public int maxHp = 100;
     int currentHp;
-    public bool isAlive;
     public int experienceDrop = 25;
+    public bool isMoving;
 
 
     [SerializeField] RuntimeAnimatorController [] animatorControllers;
@@ -46,7 +47,6 @@ public class EnemyScript : MonoBehaviour
 
         // Set current hp to full
         currentHp = maxHp;
-        isAlive = true;
         healthBar.SetHealth(currentHp, maxHp);
 
         // Set Sprite Renderer color to white (default), just in case
@@ -59,18 +59,15 @@ public class EnemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isAlive)
-        {
-            movement = mainChar.transform.position - centerPoint.position;
-            movement.Normalize();
+        movement = mainChar.transform.position - centerPoint.position;
+        movement.Normalize();
 
-            animator.SetFloat("Horizontal", movement.x);
-        }
+        animator.SetFloat("Horizontal", movement.x);
     }
 
     private void FixedUpdate()
     {
-        if (isAlive)
+        if (isMoving)
         {
             rb.velocity = (moveSpeed * movement);
         }
@@ -84,6 +81,9 @@ public class EnemyScript : MonoBehaviour
         // Play hurt animation
         animator.SetTrigger("Hurt");
 
+        // Play hurt sfx
+        audioSource.Play();
+
         // If dead, die
         if (currentHp <= 0)
         {
@@ -94,6 +94,7 @@ public class EnemyScript : MonoBehaviour
             // Else, flash white
             flashEffect.Flash();
         }
+
     }
 
     private void Die()
@@ -107,16 +108,19 @@ public class EnemyScript : MonoBehaviour
         // Stop movement
         rb.velocity = new Vector2(0, 0);
 
-        // Disable script
-        isAlive = false;
-        Destroy(gameObject, 0.5f);
-        GetComponent<Collider2D>().enabled = false;
-        this.enabled = false;
-
+        // Invokes the gain experience function in game logic manager
         GameObject logicManager = GameObject.FindGameObjectWithTag("LogicManager");
         logicManager.GetComponent<LogicScript>().GainXP(experienceDrop);
 
-
+        // Disable script
+        isMoving = false;
+        Destroy(gameObject, 0.5f);
+        GetComponent<Collider2D>().enabled = false;
+        enabled = false;
+    }
+    private void OnRiseEnd()
+    {
+        isMoving = true;
     }
 
     

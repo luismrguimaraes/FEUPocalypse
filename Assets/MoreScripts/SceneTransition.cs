@@ -24,10 +24,12 @@ public class SceneTransition : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("Collision");
+        Debug.Log("Scene Transition");
         if (collider.CompareTag("Player"))
         {
+            playerStorage.initialValue = playerPosition;
             SceneManager.LoadScene(sceneToLoad);
+            Input.ResetInputAxes();
         }
     }
 }
