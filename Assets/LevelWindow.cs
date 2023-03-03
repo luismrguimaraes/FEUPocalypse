@@ -19,7 +19,7 @@ public class LevelWindow : MonoBehaviour
 
     private void SetLevelNumber(int levelNumber)
     {
-        levelText.text = "LEVEL\n" + levelNumber;
+        levelText.text = "" + levelNumber;
     }
 
     private void SetExperienceBarSize(float experienceNormalized) // float from 0 to 1
