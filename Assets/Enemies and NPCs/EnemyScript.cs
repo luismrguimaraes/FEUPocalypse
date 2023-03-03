@@ -15,6 +15,7 @@ public class EnemyScript : MonoBehaviour
     // Prefabs
     public GameObject nightLordSpawnEffect;
     public GameObject fullVisionDrop;
+    public GameObject moveSpeedBoostDrop;
 
     // Audio Sources
     public AudioSource hurtSfx;
@@ -24,6 +25,7 @@ public class EnemyScript : MonoBehaviour
 
     public float moveSpeed;
     public float fullVisionDropChance;
+    public float moveSpeedBoostDropChance;
     public int maxHp = 100;
 
     Vector2 movement;
@@ -71,6 +73,7 @@ public class EnemyScript : MonoBehaviour
 
         // set drops chances
         fullVisionDropChance = 0.2f;
+        moveSpeedBoostDropChance = 0.2f;
     }
 
     public void initNightLord()
@@ -82,11 +85,12 @@ public class EnemyScript : MonoBehaviour
         Instantiate(nightLordSpawnEffect, transform.position, Quaternion.identity);
         nightLordSpawnSfx.Play();
 
-        maxHp = 200;
         moveSpeed = 1;
+        maxHp = 200;
 
         // set drops chances
         fullVisionDropChance = 0.4f;
+        moveSpeedBoostDropChance = 0.4f;
     }
 
     // Update is called once per frame
@@ -159,11 +163,8 @@ public class EnemyScript : MonoBehaviour
         rb.velocity = new Vector2(0, 0);
 
         // Drop? Collectibles 
-        int randomValue = Random.Range(0, 100);
-        if (randomValue < fullVisionDropChance * 100)
-        {
-            Instantiate(fullVisionDrop, centerPoint.transform.position, Quaternion.identity);
-        };
+        RollDropDice(fullVisionDrop, fullVisionDropChance);
+        RollDropDice(moveSpeedBoostDrop, moveSpeedBoostDropChance);
 
         // Disable script
         isMoving = false;
@@ -175,5 +176,14 @@ public class EnemyScript : MonoBehaviour
     private void OnRiseEnd()
     {
         isMoving = true;
+    }
+
+    private void RollDropDice(GameObject dropPrefab, float dropChance)
+    {
+        int randomValue = Random.Range(0, 100);
+        if (randomValue < dropChance * 100)
+        {
+            Instantiate(dropPrefab, centerPoint.transform.position, Quaternion.identity);
+        };
     }
 }

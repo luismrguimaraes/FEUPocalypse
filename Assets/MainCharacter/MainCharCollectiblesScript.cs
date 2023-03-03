@@ -6,6 +6,10 @@ public class MainCharCollectiblesScript : MonoBehaviour
 {
     public GameObject light2d;
     public float fullLightDuration = 2.5f;
+    public float moveSpeedBoostDuration = 2.5f;
+    public float moveSpeedBoostAmount = 1.8f;
+
+    public AudioSource lightSwitchSfx;
 
     // Start is called before the first frame update
     void Start()
@@ -15,8 +19,14 @@ public class MainCharCollectiblesScript : MonoBehaviour
 
     IEnumerator ReenableLight()
     {
-        yield return new WaitForSeconds(fullLightDuration);// Wait a bit
+        yield return new WaitForSeconds(fullLightDuration); // Wait
         light2d.SetActive(true);
+    }
+
+    IEnumerator RemoveMoveSpeedBoost()
+    {
+        yield return new WaitForSeconds(moveSpeedBoostDuration); // Wait
+        gameObject.GetComponent<MainCharMovementScript>().moveSpeed /= moveSpeedBoostAmount;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -28,9 +38,12 @@ public class MainCharCollectiblesScript : MonoBehaviour
                 light2d.SetActive(false);
                 StopCoroutine("ReenableLight");
                 StartCoroutine("ReenableLight");
+                lightSwitchSfx.Play();
             }
-            else if (collision.gameObject.name == "InvuDrop(Clone)")
+            else if (collision.gameObject.name == "MoveSpeedBoostDrop(Clone)")
             {
+                gameObject.GetComponent<MainCharMovementScript>().moveSpeed *= moveSpeedBoostAmount;
+                StartCoroutine("RemoveMoveSpeedBoost");
 
             }
             Destroy(collision.gameObject);

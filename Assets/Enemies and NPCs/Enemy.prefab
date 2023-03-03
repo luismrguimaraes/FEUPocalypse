@@ -301,12 +301,13 @@ MonoBehaviour:
   flashEffect: {fileID: 6810576012953927085}
   nightLordSpawnEffect: {fileID: 7140427959150935381, guid: 76ce2105361e4437eaf7d0ee5488f535, type: 3}
   fullVisionDrop: {fileID: 4886166229025214847, guid: e83c9477606d544ef9a6cdea3131177d, type: 3}
+  moveSpeedBoostDrop: {fileID: 4295631071850386830, guid: d4cba9290225448988a69c7d0536fad8, type: 3}
   hurtSfx: {fileID: 1401571277055421541}
   nightLordSpawnSfx: {fileID: 2691931620881157669}
   moveSpeed: 2
   fullVisionDropChance: 0
+  moveSpeedBoostDropChance: 0
   maxHp: 100
-  isMoving: 0
   animatorControllers:
   - {fileID: 9100000, guid: 4bcb0ebe99a424e22b70d3bbdb3a06f7, type: 2}
   - {fileID: 9100000, guid: 0b79551d6fe5747e0b3e70943f8a0517, type: 2}
