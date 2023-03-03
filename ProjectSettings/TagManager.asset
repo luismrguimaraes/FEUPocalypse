@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - LogicManager
   layers:
   - Default
   - TransparentFX
@@ -56,4 +57,10 @@ TagManager:
     locked: 0
   - name: Main Character
     uniqueID: 3552244517
+    locked: 0
+  - name: UI_1
+    uniqueID: 2624855373
+    locked: 0
+  - name: UI_2
+    uniqueID: 3587374383
     locked: 0

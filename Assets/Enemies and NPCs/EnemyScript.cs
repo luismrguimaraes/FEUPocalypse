@@ -20,6 +20,7 @@ public class EnemyScript : MonoBehaviour
 
     public int maxHp = 100;
     int currentHp;
+    public int experienceDrop = 25;
     public bool isMoving;
 
 
@@ -42,7 +43,6 @@ public class EnemyScript : MonoBehaviour
     // Start is called before the first frame update
     public virtual void Start()
     {
-        Debug.Log("Start");
         mainChar = GameObject.FindGameObjectWithTag("Player");
 
         // Set current hp to full
@@ -108,15 +108,20 @@ public class EnemyScript : MonoBehaviour
         // Stop movement
         rb.velocity = new Vector2(0, 0);
 
+        // Invokes the gain experience function in game logic manager
+        GameObject logicManager = GameObject.FindGameObjectWithTag("LogicManager");
+        logicManager.GetComponent<LogicScript>().GainXP(experienceDrop);
+
         // Disable script
         isMoving = false;
         Destroy(gameObject, 0.5f);
         GetComponent<Collider2D>().enabled = false;
         enabled = false;
     }
-
     private void OnRiseEnd()
     {
         isMoving = true;
     }
+
+    
 }

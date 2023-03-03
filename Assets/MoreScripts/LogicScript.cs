@@ -5,21 +5,24 @@ using UnityEngine;
 public class LogicScript : MonoBehaviour
 {
     public float experience = 0f;
-    //private int level = 0;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private LevelSystem levelSystem;
+    [SerializeField] private GameObject canvas;
 
-    // Update is called once per frame
-    void Update()
+    void Awake()
     {
-        
-    }
+        levelSystem = gameObject.AddComponent<LevelSystem>();
+        levelSystem.Init();
 
-    public void GainXP (float xp)
+        LevelWindow levelWindow = Instantiate(canvas, transform.position, transform.rotation).GetComponentInChildren<LevelWindow>();
+
+        levelWindow.Init();
+        levelWindow.SetLevelSystem(levelSystem);
+    }
+    
+
+
+    public void GainXP(int xp)
     {
-        experience += xp;
+        levelSystem.AddExperience(xp);
     }
 }

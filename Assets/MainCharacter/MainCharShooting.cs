@@ -9,7 +9,7 @@ public class MainCharShooting : MonoBehaviour
     public GameObject bulletPrefab;
     public bool shooting;
 
-    public float standardAttackForce = 10f;
+    public float standardAttackForce = 20f;
     public float standardAttackCD = 1f;
     private float standardAttackTimer = 0;
 
