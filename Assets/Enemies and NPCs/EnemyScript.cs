@@ -15,6 +15,7 @@ public class EnemyScript : MonoBehaviour
     // Prefabs
     public GameObject nightLordSpawnEffect;
     public GameObject fullVisionDrop;
+    public GameObject coinDrop;
     public GameObject moveSpeedBoostDrop;
 
     // Audio Sources
@@ -25,11 +26,11 @@ public class EnemyScript : MonoBehaviour
     GameObject mainChar;
 
     public float moveSpeed;
-    public float fullVisionDropChance;
-    public float moveSpeedBoostDropChance;
     public float maxHp = 100;
     public float damage = 5;
     public int experienceDrop = 25;
+    public int coinAmountDrop = 10;
+    public float powerUpDropChance;
 
     Vector2 movement;
     float currentHp;
@@ -76,8 +77,7 @@ public class EnemyScript : MonoBehaviour
         damage = 50;
 
         // set drop chances
-        fullVisionDropChance = 0.2f;
-        moveSpeedBoostDropChance = 0.2f;
+        powerUpDropChance = 0.1f;
     }
 
     public void initNightLord()
@@ -92,10 +92,11 @@ public class EnemyScript : MonoBehaviour
         moveSpeed = 1;
         maxHp = 200;
         damage = 150;
+        coinAmountDrop = 200;
 
         // set drop chances
-        fullVisionDropChance = 0.4f;
-        moveSpeedBoostDropChance = 0.4f;
+        powerUpDropChance = 0.15f;
+
     }
 
     // Update is called once per frame
@@ -172,8 +173,9 @@ public class EnemyScript : MonoBehaviour
         logicManager.GetComponent<LogicScript>().GainXP(experienceDrop);
 
         // Drop? Collectibles 
-        RollDropDice(fullVisionDrop, fullVisionDropChance);
-        RollDropDice(moveSpeedBoostDrop, moveSpeedBoostDropChance);
+        //RollDropDice(fullVisionDrop, powerUpDropChance);
+        //RollDropDice(moveSpeedBoostDrop, powerUpDropChance);
+        RollDropDice(powerUpDropChance);
 
         // Disable script
         isMoving = false;
@@ -186,14 +188,45 @@ public class EnemyScript : MonoBehaviour
         isMoving = true;
     }
 
+    private void RollDropDice(float dropChance)
+    {
+        int randomValue = Random.Range(0, 100);
+        if (randomValue < dropChance * 100)
+        {
+            // Dropping a power-up Item 
+            if (randomValue % 2 == 0)
+            {
+                // Dropping fullVisionDrop
+                Instantiate(fullVisionDrop, centerPoint.transform.position, Quaternion.identity);
+
+            }
+            else
+            {
+                // Dropping moveSpeedBoostDropChance
+                Instantiate(moveSpeedBoostDrop, centerPoint.transform.position, Quaternion.identity);
+            }
+        }
+        else
+        {
+            GameObject droppedCoin = Instantiate(coinDrop, centerPoint.transform.position, Quaternion.identity);
+            droppedCoin.GetComponent<CoinScript>().Init(coinAmountDrop);
+        }
+    }
+
     private void RollDropDice(GameObject dropPrefab, float dropChance)
     {
         int randomValue = Random.Range(0, 100);
         if (randomValue < dropChance * 100)
         {
-            Instantiate(dropPrefab, centerPoint.transform.position, Quaternion.identity);
-        };
+           Instantiate(dropPrefab, centerPoint.transform.position, Quaternion.identity);
+        }
+        else
+        {
+            Instantiate(coinDrop, centerPoint.transform.position, Quaternion.identity);
+        }
     }
+
+
 
     private void OnCollisionStay2D(Collision2D collision)
     {

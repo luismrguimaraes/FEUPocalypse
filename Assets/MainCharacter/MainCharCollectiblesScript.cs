@@ -46,6 +46,10 @@ public class MainCharCollectiblesScript : MonoBehaviour
                 StartCoroutine("RemoveMoveSpeedBoost");
 
             }
+            else if (collision.gameObject.name == "SpinningCoin(Clone)")
+            {
+                Debug.Log(collision.gameObject.GetComponent<CoinScript>().amount);
+            }
             Destroy(collision.gameObject);
         }
     }

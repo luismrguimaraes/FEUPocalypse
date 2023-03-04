@@ -51,9 +51,6 @@ TagManager:
   - name: Collectibles
     uniqueID: 2095799475
     locked: 0
-  - name: Collectables
-    uniqueID: 324425481
-    locked: 0
   - name: Enemies
     uniqueID: 3970272757
     locked: 0
