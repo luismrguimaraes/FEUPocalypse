@@ -4,24 +4,37 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-    public float moveSpeed;
     public Rigidbody2D rb;
     public Animator animator;
     public Transform centerPoint;
     public SpriteRenderer sr;
+
     public HealthBar healthBar;
-
     public FlashEffectScript flashEffect;
-    public AudioSource audioSource;
 
-    Vector2 movement;
+    // Prefabs
+    public GameObject nightLordSpawnEffect;
+    public GameObject fullVisionDrop;
+    public GameObject moveSpeedBoostDrop;
 
+    // Audio Sources
+    public AudioSource hurtSfx;
+    public AudioSource nightLordSpawnSfx;
+
+    // Other
     GameObject mainChar;
 
-    public int maxHp = 100;
-    int currentHp;
+    public float moveSpeed;
+    public float fullVisionDropChance;
+    public float moveSpeedBoostDropChance;
+    public float maxHp = 100;
+    public float damage = 5;
     public int experienceDrop = 25;
-    public bool isMoving;
+
+    Vector2 movement;
+    float currentHp;
+    bool isMoving = false;
+    int isRecovering = 0; // recovering frames after being hit
 
 
     [SerializeField] RuntimeAnimatorController [] animatorControllers;
@@ -41,7 +54,7 @@ public class EnemyScript : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    public virtual void Start()
+    public void Start()
     {
         mainChar = GameObject.FindGameObjectWithTag("Player");
 
@@ -51,9 +64,38 @@ public class EnemyScript : MonoBehaviour
 
         // Set Sprite Renderer color to white (default), just in case
         sr.color = Color.white;
+    }
 
+    public void initZombie()
+    {
         // Change animator
         animator.runtimeAnimatorController = NameToAnimController("Zombie");
+
+        moveSpeed = 2;
+        maxHp = 12;
+        damage = 50;
+
+        // set drop chances
+        fullVisionDropChance = 0.2f;
+        moveSpeedBoostDropChance = 0.2f;
+    }
+
+    public void initNightLord()
+    {
+        // Change animator
+        animator.runtimeAnimatorController = NameToAnimController("NightLord");
+
+        // Instantiate spawn effect and play sfx
+        Instantiate(nightLordSpawnEffect, transform.position, Quaternion.identity);
+        nightLordSpawnSfx.Play();
+
+        moveSpeed = 1;
+        maxHp = 200;
+        damage = 150;
+
+        // set drop chances
+        fullVisionDropChance = 0.4f;
+        moveSpeedBoostDropChance = 0.4f;
     }
 
     // Update is called once per frame
@@ -69,11 +111,24 @@ public class EnemyScript : MonoBehaviour
     {
         if (isMoving)
         {
-            rb.velocity = (moveSpeed * movement);
+            rb.velocity = moveSpeed * movement;
+        }
+        else
+        {
+            // If recovering from hit
+            if (isRecovering > 0)
+            {
+                rb.velocity = new Vector2(0, 0);
+                isRecovering--;
+                if (isRecovering == 0)
+                {
+                    isMoving = true;
+                }
+            }
         }
     }
 
-    public void Damage(int dmg)
+    public void Damage(float dmg)
     {
         currentHp -= dmg;
         healthBar.SetHealth(currentHp, maxHp);
@@ -82,7 +137,11 @@ public class EnemyScript : MonoBehaviour
         animator.SetTrigger("Hurt");
 
         // Play hurt sfx
-        audioSource.Play();
+        hurtSfx.Play();
+
+        // Stop for 12 frames
+        isRecovering = 12;
+        isMoving = false;
 
         // If dead, die
         if (currentHp <= 0)
@@ -112,6 +171,10 @@ public class EnemyScript : MonoBehaviour
         GameObject logicManager = GameObject.FindGameObjectWithTag("LogicManager");
         logicManager.GetComponent<LogicScript>().GainXP(experienceDrop);
 
+        // Drop? Collectibles 
+        RollDropDice(fullVisionDrop, fullVisionDropChance);
+        RollDropDice(moveSpeedBoostDrop, moveSpeedBoostDropChance);
+
         // Disable script
         isMoving = false;
         Destroy(gameObject, 0.5f);
@@ -123,5 +186,20 @@ public class EnemyScript : MonoBehaviour
         isMoving = true;
     }
 
-    
+    private void RollDropDice(GameObject dropPrefab, float dropChance)
+    {
+        int randomValue = Random.Range(0, 100);
+        if (randomValue < dropChance * 100)
+        {
+            Instantiate(dropPrefab, centerPoint.transform.position, Quaternion.identity);
+        };
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            mainChar.GetComponent<MainCharHealthScript>().Damage(damage*Time.deltaTime);
+        }
+    }
 }

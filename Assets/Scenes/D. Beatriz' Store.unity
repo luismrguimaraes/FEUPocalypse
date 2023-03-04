@@ -279,7 +279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Outside
-  playerPosition: {x: 1.5, y: 3}
+  playerPosition: {x: 1.5, y: 0}
   playerStorage: {fileID: 11400000, guid: 4f37b59bd725645818246fa9359a1f7b, type: 2}
 --- !u!1 &1721124343
 GameObject:
