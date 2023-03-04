@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Light
   - LogicManager
   layers:
   - Default
@@ -16,7 +17,7 @@ TagManager:
   - Walls
   - Enemies
   - Player Projectiles
-  - 
+  - Collectibles
   - 
   - 
   - 
@@ -46,11 +47,14 @@ TagManager:
   - name: On the ground
     uniqueID: 551135061
     locked: 0
-  - name: New Layer 2
-    uniqueID: 2411489003
+  - name: Collectibles
+    uniqueID: 2095799475
     locked: 0
   - name: Enemies
     uniqueID: 3970272757
+    locked: 0
+  - name: Enemies Vfx
+    uniqueID: 1947908277
     locked: 0
   - name: Player Projectiles
     uniqueID: 1059628813

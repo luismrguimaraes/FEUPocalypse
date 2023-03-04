@@ -130,17 +130,18 @@ public class EnemySpawnerScript : MonoBehaviour
     void SpawnEnemy (Transform _enemy)
     {
 
+        Transform _sp;
         if (!defaultSpawningPoint)
         {
-            Transform _sp = spawningPoints[Random.Range(0, spawningPoints.Length)];
-            Instantiate(_enemy, _sp.position, _sp.rotation);
-
+            _sp = spawningPoints[Random.Range(0, spawningPoints.Length)];
         }
         else
         {
-            Instantiate(_enemy, transform.position, transform.rotation);
-
+            _sp = transform;
         }
+
+        Transform enemySpawned = Instantiate(_enemy, _sp.position, _sp.rotation);
+        enemySpawned.GetComponent<EnemyScript>().initZombie();
 
     }
 }

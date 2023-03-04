@@ -13,7 +13,6 @@ public class StandardAttackScript : MonoBehaviour
 
     private void Start()
     {
-        duration = 0.5f;
         GameObject mainChar = GameObject.FindGameObjectWithTag("Player");
         Physics2D.IgnoreCollision(mainChar.GetComponent<Collider2D>(), GetComponent<Collider2D>());
     }
