@@ -9,6 +9,7 @@ public class Wave
     public string name;
     public Transform enemy;
     public int count;
+    public int numOfBosses;
     public float rate; // how many enemies spawning per second, example: rate = 10, every 0.1 a enemy is spawned
 }
 
@@ -116,7 +117,14 @@ public class EnemySpawnerScript : MonoBehaviour
 
         for (int i = 0; i < _wave.count; i++)
         {
-            SpawnEnemy(_wave.enemy);
+            if (i + _wave.numOfBosses >= _wave.count)
+            {
+                SpawnEnemy(_wave.enemy, true);
+            }
+            else
+            {
+                SpawnEnemy(_wave.enemy, false);
+            }
 
             // Waits for a given time before spawning the next enemy
             yield return new WaitForSeconds(1 / waves[currentWave].rate); 
@@ -129,7 +137,7 @@ public class EnemySpawnerScript : MonoBehaviour
 
     }
 
-    void SpawnEnemy (Transform _enemy)
+    void SpawnEnemy (Transform _enemy, bool isBoss)
     {
         Debug.Log(" Spawning Enemy: ");
 
@@ -144,7 +152,15 @@ public class EnemySpawnerScript : MonoBehaviour
         }
 
         Transform enemySpawned = Instantiate(_enemy, _sp.position, _sp.rotation);
-        enemySpawned.GetComponent<EnemyScript>().initZombie();
+
+        if (isBoss)
+        {
+            enemySpawned.GetComponent<EnemyScript>().initNightLord();
+        }
+        else
+        {
+            enemySpawned.GetComponent<EnemyScript>().initZombie();
+        }
 
     }
 }

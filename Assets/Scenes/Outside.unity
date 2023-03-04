@@ -155,7 +155,8 @@ MonoBehaviour:
   experience: 0
   mainChar: {fileID: 1026091138}
   initialScene: 
-  mcAcquiredWeapons: 0000
+  startingFromDontDestroyOnLoadScene: 0
+  mcAcquiredWeapons: 
 --- !u!4 &164773833
 Transform:
   m_ObjectHideFlags: 0
@@ -30107,28 +30108,33 @@ MonoBehaviour:
   - name: wave 1
     enemy: {fileID: 4206967599122345371, guid: 3167b1986c84e498cb14229b009ca77a, type: 3}
     count: 2
+    numOfBosses: 0
     rate: 2
   - name: wave 2
     enemy: {fileID: 4206967599122345371, guid: 3167b1986c84e498cb14229b009ca77a, type: 3}
     count: 4
+    numOfBosses: 0
     rate: 2
   - name: wave 3
     enemy: {fileID: 4206967599122345371, guid: 3167b1986c84e498cb14229b009ca77a, type: 3}
     count: 10
+    numOfBosses: 1
     rate: 2
   - name: wave 4
     enemy: {fileID: 4206967599122345371, guid: 3167b1986c84e498cb14229b009ca77a, type: 3}
     count: 20
+    numOfBosses: 2
     rate: 2
   - name: wave 5
     enemy: {fileID: 4206967599122345371, guid: 3167b1986c84e498cb14229b009ca77a, type: 3}
-    count: 30
+    count: 40
+    numOfBosses: 5
     rate: 2
   timeBetweenWaves: 2
   waveCountdown: 0
   searchCountdown: 1
   spawnState: 2
-  defaultSpawningPoint: 0
+  defaultSpawningPoint: 1
   spawningPoints:
   - {fileID: 566884479}
   - {fileID: 1211865786}
