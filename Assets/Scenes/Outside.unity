@@ -29761,7 +29761,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 0000000055a7d920eb66bc8ff58da5ecb5b81a74b35ceb7c0da7283f25f3bad3
+  m_ApplyToSortingLayers: 0000000055a7d9207f9e89b2b35ceb7cf58da5ecb5b81a740da7283f25f3bad3
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -30116,11 +30116,19 @@ MonoBehaviour:
     enemy: {fileID: 4206967599122345371, guid: 3167b1986c84e498cb14229b009ca77a, type: 3}
     count: 10
     rate: 2
+  - name: wave 4
+    enemy: {fileID: 4206967599122345371, guid: 3167b1986c84e498cb14229b009ca77a, type: 3}
+    count: 20
+    rate: 2
+  - name: wave 5
+    enemy: {fileID: 4206967599122345371, guid: 3167b1986c84e498cb14229b009ca77a, type: 3}
+    count: 30
+    rate: 2
   timeBetweenWaves: 2
   waveCountdown: 0
   searchCountdown: 1
   spawnState: 2
-  defaultSpawningPoint: 1
+  defaultSpawningPoint: 0
   spawningPoints:
   - {fileID: 566884479}
   - {fileID: 1211865786}
@@ -30152,7 +30160,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c12d0e5266d504559a7c1a6bd943b08b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 83d4b600c96a34b649d0a6c60d488eec, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.28
   m_Pitch: 1

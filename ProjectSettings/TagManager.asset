@@ -47,6 +47,9 @@ TagManager:
   - name: On the ground
     uniqueID: 551135061
     locked: 0
+  - name: Enemy Spawning Points
+    uniqueID: 2995363455
+    locked: 0
   - name: Collectibles
     uniqueID: 2095799475
     locked: 0
