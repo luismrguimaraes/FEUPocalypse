@@ -26,8 +26,9 @@ public class EnemySpawnerScript : MonoBehaviour
     public SpawnState spawnState = SpawnState.COUNTING;
 
     public bool defaultSpawningPoint = false;
-
     public Transform[] spawningPoints;
+
+    public AudioSource zombieSfx;
 
     // Start is called before the first frame update
     void Start()
@@ -111,6 +112,7 @@ public class EnemySpawnerScript : MonoBehaviour
     IEnumerator SpawnWave(Wave _wave)
     {
         spawnState = SpawnState.SPAWNING;
+        zombieSfx.Play();
 
         for (int i = 0; i < _wave.count; i++)
         {
