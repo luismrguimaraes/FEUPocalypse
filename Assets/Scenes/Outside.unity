@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &164773832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29713,7 +29713,7 @@ MonoBehaviour:
   sceneToLoad: D. Beatriz' Store
   playerPosition: {x: 0, y: -3.4}
   playerStorage: {fileID: 11400000, guid: 4f37b59bd725645818246fa9359a1f7b, type: 2}
-  logicScript: {fileID: 0}
+  logicScript: {fileID: 164773832}
 --- !u!4 &967446335 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1741832752619546736, guid: 5f64feda3e3904fafa99a49286b32462, type: 3}

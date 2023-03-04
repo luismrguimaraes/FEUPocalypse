@@ -15,6 +15,7 @@ public class FlameBreathScript : MonoBehaviour
         Physics2D.IgnoreCollision(mainChar.GetComponent<Collider2D>(), GetComponent<Collider2D>());
 
         Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Player Projectiles"));
+        SetFlameInactive();
     }
 
 
@@ -24,6 +25,11 @@ public class FlameBreathScript : MonoBehaviour
     }
 
     void SetFlameActive()
+    {
+        isFlameActive = true;
+    }
+
+    void SetFlameInactive()
     {
         isFlameActive = true;
     }
