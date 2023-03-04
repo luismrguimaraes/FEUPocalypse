@@ -29,6 +29,7 @@ public class EnemyScript : MonoBehaviour
     public float moveSpeedBoostDropChance;
     public float maxHp = 100;
     public float damage = 5;
+    public int experienceDrop = 25;
 
     Vector2 movement;
     float currentHp;
@@ -166,6 +167,10 @@ public class EnemyScript : MonoBehaviour
         // Stop movement
         rb.velocity = new Vector2(0, 0);
 
+        // Invokes the gain experience function in game logic manager
+        GameObject logicManager = GameObject.FindGameObjectWithTag("LogicManager");
+        logicManager.GetComponent<LogicScript>().GainXP(experienceDrop);
+
         // Drop? Collectibles 
         RollDropDice(fullVisionDrop, fullVisionDropChance);
         RollDropDice(moveSpeedBoostDrop, moveSpeedBoostDropChance);
@@ -176,7 +181,6 @@ public class EnemyScript : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
         enabled = false;
     }
-
     private void OnRiseEnd()
     {
         isMoving = true;
