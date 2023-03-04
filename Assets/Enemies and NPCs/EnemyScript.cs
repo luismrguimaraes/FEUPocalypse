@@ -63,8 +63,6 @@ public class EnemyScript : MonoBehaviour
 
         // Set Sprite Renderer color to white (default), just in case
         sr.color = Color.white;
-
-        DontDestroyOnLoad(gameObject);
     }
 
     public void initZombie()
