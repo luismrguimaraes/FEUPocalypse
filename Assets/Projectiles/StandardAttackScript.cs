@@ -16,7 +16,7 @@ public class StandardAttackScript : MonoBehaviour
         GameObject mainChar = GameObject.FindGameObjectWithTag("Player");
         Physics2D.IgnoreCollision(mainChar.GetComponent<Collider2D>(), GetComponent<Collider2D>());
 
-        Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Player Projectiles"));
+        Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Player Projectiles/Attacks"));
     }
 
     private void Update()

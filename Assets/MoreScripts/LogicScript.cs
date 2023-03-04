@@ -19,7 +19,7 @@ public class LogicScript : MonoBehaviour
     void Start()
     {
         mainChar = GameObject.FindGameObjectWithTag("Player");
-        mcAcquiredWeapons = new bool[] { true, false };
+        mcAcquiredWeapons = new bool[] { true, true };
 
         if (startingFromDontDestroyOnLoadScene)
         {

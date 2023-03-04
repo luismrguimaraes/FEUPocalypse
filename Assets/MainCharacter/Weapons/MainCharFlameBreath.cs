@@ -8,7 +8,7 @@ public class MainCharFlameBreath : MonoBehaviour
 {
     public GameObject flameBreathPrefab;
 
-    public float attackCD = 1f;
+    public float attackCD = 2f;
     private float attackTimer = 0;
     MainCharMovementScript mainCharMovement;
     public int XOffset = 5;
@@ -26,23 +26,17 @@ public class MainCharFlameBreath : MonoBehaviour
         {
             attackTimer += Time.deltaTime;
         }
-        else if (Mathf.Abs(  mainCharMovement.GetFacingDirection().x  ) > 0.5)
+        else if (Mathf.Abs(mainCharMovement.GetFacingDirection().x) > 0.8)
         {
-            //Breathe();
+            Breathe();
             attackTimer = 0;
         }
     }
 
     private void Breathe()
     {
-        if (mainCharMovement.. > 0)
-        {
-            GameObject flame = Instantiate(flameBreathPrefab, transform.position + new Vector3(XOffset, 0, 0) , transform.rotation);
-        }
-        else
-        {
-            GameObject flame = Instantiate(flameBreathPrefab, transform.position + new Vector3(-XOffset, 0, 0), transform.rotation);
-            flame.transform.Rotate(Vector3.up, Mathf.PI);
-        }
+        Debug.Log("Breathing");
+
+        GameObject flame = Instantiate(flameBreathPrefab, transform.position, transform.rotation);
     }
 }

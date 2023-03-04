@@ -16,7 +16,7 @@ TagManager:
   - UI
   - Walls
   - Enemies
-  - Player Projectiles
+  - Player Projectiles/Attacks
   - Collectibles
   - 
   - 
@@ -59,7 +59,7 @@ TagManager:
   - name: Enemies Vfx
     uniqueID: 1947908277
     locked: 0
-  - name: Player Projectiles
+  - name: Player Projectiles/Attacks
     uniqueID: 1059628813
     locked: 0
   - name: Main Character

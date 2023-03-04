@@ -18,7 +18,6 @@ public class EnemyScript : MonoBehaviour
     public GameObject moveSpeedBoostDrop;
 
     // Audio Sources
-    public AudioSource hurtSfx;
     public AudioSource nightLordSpawnSfx;
 
     // Other
@@ -134,9 +133,6 @@ public class EnemyScript : MonoBehaviour
 
         // Play hurt animation
         animator.SetTrigger("Hurt");
-
-        // Play hurt sfx
-        hurtSfx.Play();
 
         // Stop for 12 frames
         isRecovering = 12;

@@ -12,14 +12,14 @@ GameObject:
   - component: {fileID: 1961550268827296054}
   - component: {fileID: 2677951929126054189}
   - component: {fileID: 5361680618819096937}
-  - component: {fileID: 2147935344368765385}
-  - component: {fileID: 2421065923955310385}
   - component: {fileID: 4962107115533487983}
   - component: {fileID: 8500761081294602079}
   - component: {fileID: 8500761081294602077}
   - component: {fileID: 8649534803989706958}
   - component: {fileID: 2922874975806617010}
   - component: {fileID: 7406269043354154841}
+  - component: {fileID: 4462849248099102657}
+  - component: {fileID: 5259319899021275195}
   m_Layer: 3
   m_Name: MainCharacter
   m_TagString: Player
@@ -88,38 +88,6 @@ MonoBehaviour:
   moveSpeedBoostDuration: 2.5
   moveSpeedBoostAmount: 1.8
   lightSwitchSfx: {fileID: 7406269043354154841}
---- !u!114 &2147935344368765385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8500761081294602074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d79b015b494294543a965f9027a75a27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 2302858381309017483, guid: 464fd98d8b7a14a01b6351c77c181da0, type: 3}
-  active: 0
-  attackForce: 5
-  attackCD: 1
---- !u!114 &2421065923955310385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8500761081294602074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a97c73e473254887b811e7569225b02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flamePrefab: {fileID: 0}
-  shooting: 0
-  attackForce: 10
-  attackCD: 1
 --- !u!114 &4962107115533487983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,7 +186,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -742722779
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -1341969054, guid: 6320750b8b0cf4784aa39fd4cdab8880, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -347,3 +315,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4462849248099102657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8500761081294602074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38d5b85d950374fcb99b0f835c02618f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flameBreathPrefab: {fileID: 830926241391753039, guid: 85037173e3158400e934fb73551ca9cd, type: 3}
+  attackCD: 2
+  XOffset: 5
+--- !u!114 &5259319899021275195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8500761081294602074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a35ed31cc1d554aa4a2076e59f38739c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 2302858381309017483, guid: 464fd98d8b7a14a01b6351c77c181da0, type: 3}
+  attackForce: 10
+  attackCD: 1
