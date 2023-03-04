@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - LogicManager
+  - Coins
   layers:
   - Default
   - TransparentFX
@@ -48,6 +49,9 @@ TagManager:
     locked: 0
   - name: New Layer 2
     uniqueID: 2411489003
+    locked: 0
+  - name: Collectables
+    uniqueID: 324425481
     locked: 0
   - name: Enemies
     uniqueID: 3970272757
