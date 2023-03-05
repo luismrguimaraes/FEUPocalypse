@@ -133,7 +133,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.5833334
+  - time: 1.5
     functionName: SetFlameInactive
     data: 
     objectReferenceParameter: {fileID: 0}

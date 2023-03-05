@@ -29762,7 +29762,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 0000000055a7d9207f9e89b2b35ceb7cf58da5ecb5b81a740da7283f25f3bad3
+  m_ApplyToSortingLayers: 0000000055a7d9207f9e89b2b35ceb7c0da7283ff58da5ecb5b81a743750ea8125f3bad3
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -30108,7 +30108,7 @@ MonoBehaviour:
   - name: wave 1
     enemy: {fileID: 4206967599122345371, guid: 3167b1986c84e498cb14229b009ca77a, type: 3}
     count: 2
-    numOfBosses: 0
+    numOfBosses: 1
     rate: 2
   - name: wave 2
     enemy: {fileID: 4206967599122345371, guid: 3167b1986c84e498cb14229b009ca77a, type: 3}
@@ -30134,7 +30134,7 @@ MonoBehaviour:
   waveCountdown: 0
   searchCountdown: 1
   spawnState: 2
-  defaultSpawningPoint: 0
+  defaultSpawningPoint: 1
   spawningPoints:
   - {fileID: 566884479}
   - {fileID: 1211865786}

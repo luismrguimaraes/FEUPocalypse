@@ -31,8 +31,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2113181738733979267}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.3, y: 0.87, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalPosition: {x: 3.41, y: 1.15, z: 0}
+  m_LocalScale: {x: 4.02, y: 3.75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -53,7 +53,7 @@ MonoBehaviour:
   hitEffect: {fileID: 3411610704686677162, guid: b5700496790a744d88bde4e16001a060, type: 3}
   mainChar: {fileID: 0}
   dmgPerSecond: 150
-  damageInterval: 0.5
+  damageInterval: 0.2
   flameBreathSFX: {fileID: -4828384958699435930}
   rb: {fileID: 3082116541453955513}
 --- !u!82 &-4828384958699435930
@@ -164,7 +164,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.05
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -274,7 +274,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1059628813
-  m_SortingLayer: 6
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 1863877901, guid: cc19e029199e8456e82dea782f316895, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

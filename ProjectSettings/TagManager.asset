@@ -53,14 +53,17 @@ TagManager:
   - name: Collectibles
     uniqueID: 2095799475
     locked: 0
+  - name: Player Projectiles and Attacks
+    uniqueID: 1059628813
+    locked: 0
   - name: Enemies
     uniqueID: 3970272757
     locked: 0
   - name: Enemies Vfx
     uniqueID: 1947908277
     locked: 0
-  - name: Player Projectiles and Attacks
-    uniqueID: 1059628813
+  - name: Hit Vfx
+    uniqueID: 2179616823
     locked: 0
   - name: Main Character
     uniqueID: 3552244517

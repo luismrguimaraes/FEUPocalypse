@@ -73,7 +73,7 @@ public class EnemyScript : MonoBehaviour
         moveSpeed = 2;
         maxHp = 12;
         dmgPerSecond = 50;
-        rb.mass = 0.5f;
+        rb.mass = 1;
 
         // set drop chances
         fullVisionDropChance = 0.2f;
@@ -90,7 +90,7 @@ public class EnemyScript : MonoBehaviour
         nightLordSpawnSfx.Play();
 
         // Set attributes
-        moveSpeed = 1;
+        moveSpeed = 2.5f;
         maxHp = 200;
         dmgPerSecond = 150;
         rb.mass = 1;
