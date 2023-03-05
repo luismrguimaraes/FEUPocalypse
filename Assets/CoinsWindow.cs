@@ -7,10 +7,11 @@ public class CoinsWindow : MonoBehaviour
 {
     public Text coinsText;
     // Start is called before the first frame update
-    void Start()
+
+    public void Init()
     {
         coinsText = transform.Find("CoinText").GetComponent<Text>();
-
+        SetCoinsValue(0);
     }
 
     public void SetCoinsValue(int value)

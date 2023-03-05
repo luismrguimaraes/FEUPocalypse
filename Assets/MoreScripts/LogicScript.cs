@@ -25,7 +25,7 @@ public class LogicScript : MonoBehaviour
 
     private void Start()
     {
-        coinsWindow.GetComponent<CoinsWindow>().SetCoinsValue(0);
+        coinsWindow.GetComponent<CoinsWindow>().Init();
     }
 
     public void GainXP(int xp)
