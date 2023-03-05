@@ -208,15 +208,15 @@ SpriteRenderer:
   m_SortingLayerID: -324694539
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 756434565, guid: 23b276e837a844b728818df1682c3105, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &590080542358922643
@@ -253,18 +253,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.015971422, y: -0.29432753}
+  m_Offset: {x: 0.005810961, y: -0.29432753}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
-    newSize: {x: 2, y: 2}
+    newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.32638884, y: 0.40134495}
+  m_Size: {x: 0.3060679, y: 0.40134495}
   m_EdgeRadius: 0
 --- !u!114 &6810576012953927085
 MonoBehaviour:
@@ -301,7 +301,6 @@ MonoBehaviour:
   nightLordSpawnEffect: {fileID: 7140427959150935381, guid: 76ce2105361e4437eaf7d0ee5488f535, type: 3}
   fullVisionDrop: {fileID: 4886166229025214847, guid: e83c9477606d544ef9a6cdea3131177d, type: 3}
   moveSpeedBoostDrop: {fileID: 4295631071850386830, guid: d4cba9290225448988a69c7d0536fad8, type: 3}
-  hurtSfx: {fileID: 0}
   nightLordSpawnSfx: {fileID: 2691931620881157669}
   moveSpeed: 2
   fullVisionDropChance: 0

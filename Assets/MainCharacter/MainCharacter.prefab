@@ -327,8 +327,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38d5b85d950374fcb99b0f835c02618f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flameBreathPrefab: {fileID: 830926241391753039, guid: 85037173e3158400e934fb73551ca9cd, type: 3}
-  attackCD: 2
+  flameBreathPrefab: {fileID: 2113181738733979267, guid: b509618b68bd147f2beb57cb6840e36c, type: 3}
+  attackCD: 3
   XOffset: 5
 --- !u!114 &5259319899021275195
 MonoBehaviour:

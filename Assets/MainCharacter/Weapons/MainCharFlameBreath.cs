@@ -36,7 +36,6 @@ public class MainCharFlameBreath : MonoBehaviour
     private void Breathe()
     {
         Debug.Log("Breathing");
-
-        GameObject flame = Instantiate(flameBreathPrefab, transform.position, transform.rotation);
+        GameObject flame = Instantiate(flameBreathPrefab, flameBreathPrefab.transform.position, flameBreathPrefab.transform.rotation);
     }
 }

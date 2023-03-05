@@ -16,7 +16,7 @@ public class StandardAttackScript : MonoBehaviour
         GameObject mainChar = GameObject.FindGameObjectWithTag("Player");
         Physics2D.IgnoreCollision(mainChar.GetComponent<Collider2D>(), GetComponent<Collider2D>());
 
-        Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Player Projectiles/Attacks"));
+        Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Player Projectiles and Attacks"));
     }
 
     private void Update()
@@ -36,7 +36,7 @@ public class StandardAttackScript : MonoBehaviour
     {
         // Hit animation
         GameObject hitEffectInstance = Instantiate(hitEffect, transform.position, Quaternion.identity);
-        Destroy(hitEffectInstance, 5f);
+        Destroy(hitEffectInstance, 1f);
 
         Collider2D enemyHit = collision.collider;
         if (enemyHit.gameObject.CompareTag("Enemy"))

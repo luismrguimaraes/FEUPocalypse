@@ -69,9 +69,11 @@ public class EnemyScript : MonoBehaviour
         // Change animator
         animator.runtimeAnimatorController = NameToAnimController("Zombie");
 
+        // Set attributes
         moveSpeed = 2;
         maxHp = 12;
         dmgPerSecond = 50;
+        rb.mass = 0.5f;
 
         // set drop chances
         fullVisionDropChance = 0.2f;
@@ -87,9 +89,11 @@ public class EnemyScript : MonoBehaviour
         Instantiate(nightLordSpawnEffect, transform.position, Quaternion.identity);
         nightLordSpawnSfx.Play();
 
+        // Set attributes
         moveSpeed = 1;
         maxHp = 200;
         dmgPerSecond = 150;
+        rb.mass = 1;
 
         // set drop chances
         fullVisionDropChance = 0.4f;

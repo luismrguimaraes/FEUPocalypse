@@ -35,6 +35,6 @@ public class MainCharStandardShot : MonoBehaviour
     {
         GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(-gameObject.GetComponent<MainCharMovementScript>().GetFacingDirection() * attackForce, ForceMode2D.Impulse);
+        rb.AddForce(gameObject.GetComponent<MainCharMovementScript>().GetFacingDirection() * attackForce, ForceMode2D.Impulse);
     }
 }
