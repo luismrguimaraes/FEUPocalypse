@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - Light
   - LogicManager
+  - SceneManager
+  - EnemySpawner
   layers:
   - Default
   - TransparentFX
@@ -18,7 +20,7 @@ TagManager:
   - Enemies
   - Player Projectiles and Attacks
   - Collectibles
-  - 
+  - Store Entrances
   - 
   - 
   - 

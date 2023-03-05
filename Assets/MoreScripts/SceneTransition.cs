@@ -8,22 +8,41 @@ public class SceneTransition : MonoBehaviour
     public string sceneToLoad;
     public Vector2 playerPosition;
     public VectorValue playerStorage;
+    public bool isEntrance;
 
-    public LogicScript logicScript;
+    private LogicScript logicScript;
+    private SceneManagerScript sceneManagerScript;
+
 
     // Start is called before the first frame update
     void Start()
     {
         logicScript = GameObject.FindGameObjectWithTag("LogicManager").GetComponent<LogicScript>();
-        logicScript.SceneTransitionLogicUpdate();
+        logicScript.SceneTransitionOnStartUpdate();
+
+        sceneManagerScript = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManagerScript>();
+        sceneManagerScript.SceneTransitionOnStartUpdate();
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("Scene Transition");
         if (collider.CompareTag("Player"))
         {
-            playerStorage.initialValue = playerPosition;
+            if (isEntrance)
+            {
+                // Store position that player will be after exiting
+                sceneManagerScript.SetPlayerPositionAfterExiting(transform.position + new Vector3(0, -2, 0));
+                playerStorage.initialValue = playerPosition;
+
+                // Store current Wave
+                sceneManagerScript.StoreCurrentWave();
+            }
+            else
+            {
+                // Get the stored position
+                playerStorage.initialValue = sceneManagerScript.GetPlayerPositionAfterExiting();
+
+            }
             SceneManager.LoadScene(sceneToLoad);
             Input.ResetInputAxes();
         }

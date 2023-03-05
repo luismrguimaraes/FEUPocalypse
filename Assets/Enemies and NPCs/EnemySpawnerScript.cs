@@ -18,11 +18,11 @@ public class EnemySpawnerScript : MonoBehaviour
     public enum SpawnState { SPAWNING, WAITING, COUNTING }
 
     public Wave[] waves;
-    private int currentWave = 0;
+    public int currentWave = 0;
 
     public float timeBetweenWaves = 2.5f;
     public float waveCountdown;
-    public float searchCountdown = 1f;
+    public float searchCountdown = 3f;
 
     public SpawnState spawnState = SpawnState.COUNTING;
 

@@ -313,7 +313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Outside
-  playerPosition: {x: 1.5, y: 0}
+  playerPosition: {x: 0, y: 0}
   playerStorage: {fileID: 11400000, guid: 4f37b59bd725645818246fa9359a1f7b, type: 2}
   logicScript: {fileID: 0}
 --- !u!1 &1306710980
@@ -2711,34 +2711,6 @@ PrefabInstance:
     - target: {fileID: 6130341967759134332, guid: 3573333d02af94327bf3b6cdd78438c8, type: 3}
       propertyPath: m_RootOrder
       value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6130341967759134332, guid: 3573333d02af94327bf3b6cdd78438c8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.9473892
-      objectReference: {fileID: 0}
-    - target: {fileID: 6130341967759134332, guid: 3573333d02af94327bf3b6cdd78438c8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.5344785
-      objectReference: {fileID: 0}
-    - target: {fileID: 6130341967759134332, guid: 3573333d02af94327bf3b6cdd78438c8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.121868946
-      objectReference: {fileID: 0}
-    - target: {fileID: 6130341967759134332, guid: 3573333d02af94327bf3b6cdd78438c8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6130341967759134332, guid: 3573333d02af94327bf3b6cdd78438c8, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6130341967759134332, guid: 3573333d02af94327bf3b6cdd78438c8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6130341967759134332, guid: 3573333d02af94327bf3b6cdd78438c8, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6130341967759134332, guid: 3573333d02af94327bf3b6cdd78438c8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

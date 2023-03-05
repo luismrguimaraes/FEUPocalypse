@@ -8,24 +8,22 @@ public class LogicScript : MonoBehaviour
 {
     public float experience = 0f;
     public GameObject mainChar;
-    public string initialScene;
-    public bool startingFromDontDestroyOnLoadScene = true;
 
     public enum Weapons { STANDARD_ATTACK, FLAME_BREATH }
     public bool[] mcAcquiredWeapons;
+
+    private SceneManagerScript sceneManagerScript;
 
     //private int level = 0;
     // Start is called before the first frame update
     void Start()
     {
         mainChar = GameObject.FindGameObjectWithTag("Player");
-        mcAcquiredWeapons = new bool[] { true, true };
+        mcAcquiredWeapons = new bool[] { true, false };
 
-        if (startingFromDontDestroyOnLoadScene)
-        {
-            DontDestroyOnLoad(gameObject);
-            SceneManager.LoadScene(initialScene);
-        }
+        sceneManagerScript = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManagerScript>();
+
+        DontDestroyOnLoad(gameObject);
     }
 
     void DisableAllWeapons()
@@ -81,7 +79,7 @@ public class LogicScript : MonoBehaviour
         experience += xp;
     }
 
-    public void SceneTransitionLogicUpdate()
+    public void SceneTransitionOnStartUpdate()
     {
         mainChar = GameObject.FindGameObjectWithTag("Player");
 
