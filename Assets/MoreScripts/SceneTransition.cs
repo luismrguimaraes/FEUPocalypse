@@ -12,6 +12,7 @@ public class SceneTransition : MonoBehaviour
 
     private LogicScript logicScript;
     private SceneManagerScript sceneManagerScript;
+    private CoinsWindow coinsWindow;
 
 
     // Start is called before the first frame update
@@ -22,6 +23,9 @@ public class SceneTransition : MonoBehaviour
 
         sceneManagerScript = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManagerScript>();
         sceneManagerScript.SceneTransitionOnStartUpdate();
+
+        coinsWindow = GameObject.FindGameObjectWithTag("CoinsWindow").GetComponent<CoinsWindow>();
+        coinsWindow.SceneTransitionOnStartUpdate();
     }
 
     private void OnTriggerEnter2D(Collider2D collider)

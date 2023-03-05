@@ -19,7 +19,7 @@ public class HealthBar : MonoBehaviour
 
         low = Color.red;
         high = Color.yellow;
-}
+    }
 
     public void SetHealth(float currHealth, float maxHealth)
     {
@@ -45,6 +45,7 @@ public class HealthBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (timer > activeSec)
         {
             slider.gameObject.SetActive(false);
@@ -55,6 +56,5 @@ public class HealthBar : MonoBehaviour
         }
 
         slider.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position + offset);
-
     }
 }

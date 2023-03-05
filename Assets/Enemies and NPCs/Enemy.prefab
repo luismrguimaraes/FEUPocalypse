@@ -317,13 +317,15 @@ MonoBehaviour:
   flashEffect: {fileID: 6810576012953927085}
   nightLordSpawnEffect: {fileID: 7140427959150935381, guid: 76ce2105361e4437eaf7d0ee5488f535, type: 3}
   fullVisionDrop: {fileID: 4886166229025214847, guid: e83c9477606d544ef9a6cdea3131177d, type: 3}
+  coinDrop: {fileID: 3556199939164189758, guid: 3a73481fb833543748d124aae32fc1e0, type: 3}
   moveSpeedBoostDrop: {fileID: 4295631071850386830, guid: d4cba9290225448988a69c7d0536fad8, type: 3}
   nightLordSpawnSfx: {fileID: 2691931620881157669}
   moveSpeed: 2
-  fullVisionDropChance: 0
-  moveSpeedBoostDropChance: 0
   maxHp: 100
   dmgPerSecond: 5
+  experienceDrop: 25
+  coinAmountDrop: 10
+  powerUpDropChance: 0
   animatorControllers:
   - {fileID: 9100000, guid: 4bcb0ebe99a424e22b70d3bbdb3a06f7, type: 2}
   - {fileID: 9100000, guid: 0b79551d6fe5747e0b3e70943f8a0517, type: 2}
@@ -584,7 +586,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0.00010681, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

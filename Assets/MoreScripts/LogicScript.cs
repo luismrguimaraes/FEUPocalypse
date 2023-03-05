@@ -6,22 +6,35 @@ using UnityEngine.SceneManagement;
 
 public class LogicScript : MonoBehaviour
 {
-    public float experience = 0f;
-
     public enum Weapons { STANDARD_ATTACK, FLAME_BREATH }
     public bool[] mcAcquiredWeapons;
 
     private GameObject mainChar;
     private SceneManagerScript sceneManagerScript;
 
-    //private int level = 0;
+    public int coins = 0;
+    private LevelSystem levelSystem;
+    public GameObject coinsWindow;
+    [SerializeField] private GameObject levelWindowCanvas;
+    
     // Start is called before the first frame update
     void Start()
     {
+        levelSystem = gameObject.AddComponent<LevelSystem>();
+        levelSystem.Init();
+
+        LevelWindow levelWindow = levelWindowCanvas.GetComponentInChildren<LevelWindow>();
+
+        levelWindow.Init();
+        levelWindow.SetLevelSystem(levelSystem);
+
         mainChar = GameObject.FindGameObjectWithTag("Player");
         mcAcquiredWeapons = new bool[] { true, false };
 
         sceneManagerScript = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManagerScript>();
+
+        coinsWindow = GameObject.FindGameObjectWithTag("CoinsWindow");
+        coinsWindow.GetComponent<CoinsWindow>().Init();
 
         DontDestroyOnLoad(gameObject);
     }
@@ -68,15 +81,15 @@ public class LogicScript : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void GainXP(int xp)
     {
-        
+        levelSystem.AddExperience(xp);
     }
 
-    public void GainXP (float xp)
+    public void GainCoins(int value)
     {
-        experience += xp;
+        coins += value;
+        coinsWindow.GetComponent<CoinsWindow>().SetCoinsValue(coins);
     }
 
     public void SceneTransitionOnStartUpdate()

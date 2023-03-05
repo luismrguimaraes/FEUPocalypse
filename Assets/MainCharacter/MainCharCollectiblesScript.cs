@@ -5,16 +5,19 @@ using UnityEngine;
 public class MainCharCollectiblesScript : MonoBehaviour
 {
     public GameObject light2d;
+    public GameObject logicManager;
     public float fullLightDuration = 2.5f;
     public float moveSpeedBoostDuration = 2.5f;
     public float moveSpeedBoostAmount = 1.8f;
 
     public AudioSource lightSwitchSfx;
+    public AudioSource coinSoundEffect;
 
     // Start is called before the first frame update
     void Start()
     {
         light2d = GameObject.FindGameObjectWithTag("Light");
+        logicManager = GameObject.FindGameObjectWithTag("LogicManager");
     }
 
     IEnumerator ReenableLight()
@@ -45,6 +48,11 @@ public class MainCharCollectiblesScript : MonoBehaviour
                 gameObject.GetComponent<MainCharMovementScript>().moveSpeed *= moveSpeedBoostAmount;
                 StartCoroutine("RemoveMoveSpeedBoost");
 
+            }
+            else if (collision.gameObject.name == "SpinningCoin(Clone)")
+            {
+                logicManager.GetComponent<LogicScript>().GainCoins(collision.gameObject.GetComponent<CoinScript>().amount);
+                coinSoundEffect.Play();
             }
             Destroy(collision.gameObject);
         }

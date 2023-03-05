@@ -139,7 +139,6 @@ public class EnemySpawnerScript : MonoBehaviour
 
     void SpawnEnemy (Transform _enemy, bool isBoss)
     {
-        Debug.Log(" Spawning Enemy: ");
 
         Transform _sp;
         if (!defaultSpawningPoint)

@@ -35001,8 +35001,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5654658054167930277, guid: 9fc76e00499984ed6b62834b3833352e, type: 3}
+    - target: {fileID: 8500761081294602078, guid: 9fc76e00499984ed6b62834b3833352e, type: 3}
+      propertyPath: controls.m_Id
+      value: e1382269-02e0-4b8e-9d19-7af4766611ba
+      objectReference: {fileID: 0}
+    - target: {fileID: 8500761081294602078, guid: 9fc76e00499984ed6b62834b3833352e, type: 3}
+      propertyPath: controls.m_Name
+      value: Controls
+      objectReference: {fileID: 0}
+    - target: {fileID: 9166234161334225261, guid: 9fc76e00499984ed6b62834b3833352e, type: 3}
+      propertyPath: firePoint
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9166234161334225261, guid: 9fc76e00499984ed6b62834b3833352e, type: 3}
+      propertyPath: standardAttackForce
+      value: 15
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fc76e00499984ed6b62834b3833352e, type: 3}
 --- !u!4 &2133117732 stripped
 Transform:
