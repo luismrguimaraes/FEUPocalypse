@@ -70,3 +70,6 @@ TagManager:
   - name: Main Character
     uniqueID: 3552244517
     locked: 0
+  - name: Environment Vfx
+    uniqueID: 808447033
+    locked: 0

@@ -7,11 +7,11 @@ using UnityEngine.SceneManagement;
 public class LogicScript : MonoBehaviour
 {
     public float experience = 0f;
-    public GameObject mainChar;
 
     public enum Weapons { STANDARD_ATTACK, FLAME_BREATH }
     public bool[] mcAcquiredWeapons;
 
+    private GameObject mainChar;
     private SceneManagerScript sceneManagerScript;
 
     //private int level = 0;
