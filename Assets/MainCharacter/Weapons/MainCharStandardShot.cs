@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class MainCharStandardShot : MonoBehaviour
 {
     public GameObject bulletPrefab;
-    public bool shooting;
 
     public float attackForce = 10f;
     public float attackCD = 1f;
@@ -15,31 +14,20 @@ public class MainCharStandardShot : MonoBehaviour
 
     private void Start()
     {
-        if (SceneManager.GetActiveScene().name == "Outside")
-        {
-            shooting = true;
-        }
-        else
-        {
-            shooting = false;
-        }
         attackTimer = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (shooting)
+        if (attackTimer < attackCD)
         {
-            if (attackTimer < attackCD)
-            {
-                attackTimer = attackTimer + Time.deltaTime;
-            }
-            else
-            {
-                Shoot();
-                attackTimer = 0;
-            }
+            attackTimer = attackTimer + Time.deltaTime;
+        }
+        else
+        {
+            Shoot();
+            attackTimer = 0;
         }
     }
 
@@ -47,6 +35,6 @@ public class MainCharStandardShot : MonoBehaviour
     {
         GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(-gameObject.GetComponent<MainCharMovementScript>().GetFacingDirection() * attackForce, ForceMode2D.Impulse);
+        rb.AddForce(gameObject.GetComponent<MainCharMovementScript>().GetFacingDirection() * attackForce, ForceMode2D.Impulse);
     }
 }

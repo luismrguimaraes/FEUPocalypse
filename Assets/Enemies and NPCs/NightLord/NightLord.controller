@@ -371,7 +371,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: Horizontal
-    m_EventTreshold: 0
+    m_EventTreshold: 0.01
   - m_ConditionMode: 1
     m_ConditionEvent: Death
     m_EventTreshold: 0
@@ -489,7 +489,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: Horizontal
-    m_EventTreshold: 0
+    m_EventTreshold: 0.01
   - m_ConditionMode: 1
     m_ConditionEvent: Hurt
     m_EventTreshold: 0
@@ -517,7 +517,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 4
     m_ConditionEvent: Horizontal
-    m_EventTreshold: 0
+    m_EventTreshold: 0.01
   - m_ConditionMode: 1
     m_ConditionEvent: Hurt
     m_EventTreshold: 0
@@ -576,7 +576,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 4
     m_ConditionEvent: Horizontal
-    m_EventTreshold: 0
+    m_EventTreshold: 0.01
   - m_ConditionMode: 1
     m_ConditionEvent: Death
     m_EventTreshold: 0

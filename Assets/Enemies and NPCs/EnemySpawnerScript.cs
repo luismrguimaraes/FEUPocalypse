@@ -9,6 +9,7 @@ public class Wave
     public string name;
     public Transform enemy;
     public int count;
+    public int numOfBosses;
     public float rate; // how many enemies spawning per second, example: rate = 10, every 0.1 a enemy is spawned
 }
 
@@ -17,17 +18,18 @@ public class EnemySpawnerScript : MonoBehaviour
     public enum SpawnState { SPAWNING, WAITING, COUNTING }
 
     public Wave[] waves;
-    private int currentWave = 0;
+    public int currentWave = 0;
 
     public float timeBetweenWaves = 2.5f;
     public float waveCountdown;
-    public float searchCountdown = 1f;
+    public float searchCountdown = 3f;
 
     public SpawnState spawnState = SpawnState.COUNTING;
 
     public bool defaultSpawningPoint = false;
-
     public Transform[] spawningPoints;
+
+    public AudioSource zombieSfx;
 
     // Start is called before the first frame update
     void Start()
@@ -111,10 +113,18 @@ public class EnemySpawnerScript : MonoBehaviour
     IEnumerator SpawnWave(Wave _wave)
     {
         spawnState = SpawnState.SPAWNING;
+        zombieSfx.Play();
 
         for (int i = 0; i < _wave.count; i++)
         {
-            SpawnEnemy(_wave.enemy);
+            if (i + _wave.numOfBosses >= _wave.count)
+            {
+                SpawnEnemy(_wave.enemy, true);
+            }
+            else
+            {
+                SpawnEnemy(_wave.enemy, false);
+            }
 
             // Waits for a given time before spawning the next enemy
             yield return new WaitForSeconds(1 / waves[currentWave].rate); 
@@ -127,7 +137,7 @@ public class EnemySpawnerScript : MonoBehaviour
 
     }
 
-    void SpawnEnemy (Transform _enemy)
+    void SpawnEnemy (Transform _enemy, bool isBoss)
     {
 
         Transform _sp;
@@ -141,7 +151,15 @@ public class EnemySpawnerScript : MonoBehaviour
         }
 
         Transform enemySpawned = Instantiate(_enemy, _sp.position, _sp.rotation);
-        enemySpawned.GetComponent<EnemyScript>().initZombie();
+
+        if (isBoss)
+        {
+            enemySpawned.GetComponent<EnemyScript>().initNightLord();
+        }
+        else
+        {
+            enemySpawned.GetComponent<EnemyScript>().initZombie();
+        }
 
     }
 }
