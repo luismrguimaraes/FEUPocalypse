@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 
 public class LogicScript : MonoBehaviour
@@ -13,13 +15,18 @@ public class LogicScript : MonoBehaviour
     private SceneManagerScript sceneManagerScript;
 
     public int coins = 0;
+    public int myMaxHealth = 500;
+    public int myCurrHealth;
     private LevelSystem levelSystem;
     public GameObject coinsWindow;
+
     [SerializeField] private GameObject levelWindowCanvas;
     
     // Start is called before the first frame update
     void Start()
     {
+        RestoreToMaxHealth();
+
         levelSystem = gameObject.AddComponent<LevelSystem>();
         levelSystem.Init();
 
@@ -79,6 +86,11 @@ public class LogicScript : MonoBehaviour
                     break;
             }
         }
+    }
+
+    public void RestoreToMaxHealth()
+    {
+        myCurrHealth = myMaxHealth;
     }
 
     public void GainXP(int xp)
