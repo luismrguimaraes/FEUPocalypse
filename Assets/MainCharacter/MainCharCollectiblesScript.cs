@@ -11,6 +11,7 @@ public class MainCharCollectiblesScript : MonoBehaviour
     public float moveSpeedBoostAmount = 1.8f;
 
     public AudioSource lightSwitchSfx;
+    public AudioSource coinSoundEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -50,8 +51,8 @@ public class MainCharCollectiblesScript : MonoBehaviour
             }
             else if (collision.gameObject.name == "SpinningCoin(Clone)")
             {
-                Debug.Log("hello");
                 logicManager.GetComponent<LogicScript>().GainCoins(collision.gameObject.GetComponent<CoinScript>().amount);
+                coinSoundEffect.Play();
             }
             Destroy(collision.gameObject);
         }
