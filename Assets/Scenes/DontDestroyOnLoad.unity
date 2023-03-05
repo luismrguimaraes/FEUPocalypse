@@ -156,7 +156,7 @@ MonoBehaviour:
   mainChar: {fileID: 0}
   initialScene: Outside
   startingFromDontDestroyOnLoadScene: 1
-  mcAcquiredWeapons: 0000
+  mcAcquiredWeapons: 
 --- !u!4 &711532272
 Transform:
   m_ObjectHideFlags: 0
