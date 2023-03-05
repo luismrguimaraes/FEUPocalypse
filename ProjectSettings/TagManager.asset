@@ -8,6 +8,7 @@ TagManager:
   - Light
   - LogicManager
   - Coins
+  - CoinsWindow
   layers:
   - Default
   - TransparentFX

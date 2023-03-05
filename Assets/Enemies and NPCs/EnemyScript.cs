@@ -29,7 +29,7 @@ public class EnemyScript : MonoBehaviour
     public float maxHp = 100;
     public float damage = 5;
     public int experienceDrop = 25;
-    public int coinAmountDrop = 10;
+    public int coinAmountDrop = 1;
     public float powerUpDropChance;
 
     Vector2 movement;
@@ -75,6 +75,7 @@ public class EnemyScript : MonoBehaviour
         moveSpeed = 2;
         maxHp = 12;
         damage = 50;
+        coinAmountDrop = 1;
 
         // set drop chances
         powerUpDropChance = 0.1f;
@@ -92,7 +93,7 @@ public class EnemyScript : MonoBehaviour
         moveSpeed = 1;
         maxHp = 200;
         damage = 150;
-        coinAmountDrop = 200;
+        coinAmountDrop = 20;
 
         // set drop chances
         powerUpDropChance = 0.15f;
@@ -212,11 +213,6 @@ public class EnemyScript : MonoBehaviour
             Debug.Log(animator.runtimeAnimatorController.name);
             droppedCoin.GetComponent<CoinScript>().Init(coinAmountDrop);
         }
-    }
-
-    private int DropCoinRange(int lowerLimit, int upperLimit)
-    {
-        return Random.Range(lowerLimit, upperLimit);
     }
 
     private void RollDropDice(GameObject dropPrefab, float dropChance)

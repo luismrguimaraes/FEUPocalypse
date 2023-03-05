@@ -5,6 +5,7 @@ using UnityEngine;
 public class MainCharCollectiblesScript : MonoBehaviour
 {
     public GameObject light2d;
+    public GameObject logicManager;
     public float fullLightDuration = 2.5f;
     public float moveSpeedBoostDuration = 2.5f;
     public float moveSpeedBoostAmount = 1.8f;
@@ -15,6 +16,7 @@ public class MainCharCollectiblesScript : MonoBehaviour
     void Start()
     {
         light2d = GameObject.FindGameObjectWithTag("Light");
+        logicManager = GameObject.FindGameObjectWithTag("LogicManager");
     }
 
     IEnumerator ReenableLight()
@@ -48,7 +50,8 @@ public class MainCharCollectiblesScript : MonoBehaviour
             }
             else if (collision.gameObject.name == "SpinningCoin(Clone)")
             {
-                Debug.Log(collision.gameObject.GetComponent<CoinScript>().amount);
+                Debug.Log("hello");
+                logicManager.GetComponent<LogicScript>().GainCoins(collision.gameObject.GetComponent<CoinScript>().amount);
             }
             Destroy(collision.gameObject);
         }
