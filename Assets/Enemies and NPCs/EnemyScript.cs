@@ -209,8 +209,14 @@ public class EnemyScript : MonoBehaviour
         else
         {
             GameObject droppedCoin = Instantiate(coinDrop, centerPoint.transform.position, Quaternion.identity);
+            Debug.Log(animator.runtimeAnimatorController.name);
             droppedCoin.GetComponent<CoinScript>().Init(coinAmountDrop);
         }
+    }
+
+    private int DropCoinRange(int lowerLimit, int upperLimit)
+    {
+        return Random.Range(lowerLimit, upperLimit);
     }
 
     private void RollDropDice(GameObject dropPrefab, float dropChance)
