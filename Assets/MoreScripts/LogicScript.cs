@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 
 public class LogicScript : MonoBehaviour
@@ -13,13 +15,19 @@ public class LogicScript : MonoBehaviour
     private SceneManagerScript sceneManagerScript;
 
     public int coins = 0;
+    public float myMaxHealth = 500.0f;
+    public float myCurrHealth;
     private LevelSystem levelSystem;
     public GameObject coinsWindow;
+    public GameObject myStatusBar;
+
     [SerializeField] private GameObject levelWindowCanvas;
     
     // Start is called before the first frame update
     void Start()
     {
+        RestoreToMaxHealth();
+
         levelSystem = gameObject.AddComponent<LevelSystem>();
         levelSystem.Init();
 
@@ -79,6 +87,25 @@ public class LogicScript : MonoBehaviour
                     break;
             }
         }
+    }
+
+    public void Damage(float damage)
+    {
+        myCurrHealth -= damage;
+        SetMyCurrHealth(myCurrHealth);
+        Debug.Log("MC HP: " + myCurrHealth);
+    }
+
+    public void SetMyCurrHealth(float healthVal)
+    {
+        myCurrHealth = healthVal;
+        MyHealthBar myHealthBar = myStatusBar.GetComponent<MyHealthBar>();
+        myHealthBar.SetHealth(myCurrHealth / myMaxHealth, 1.0f);
+    }
+
+    public void RestoreToMaxHealth()
+    {
+        myCurrHealth = myMaxHealth;
     }
 
     public void GainXP(int xp)
