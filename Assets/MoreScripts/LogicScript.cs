@@ -15,10 +15,11 @@ public class LogicScript : MonoBehaviour
     private SceneManagerScript sceneManagerScript;
 
     public int coins = 0;
-    public int myMaxHealth = 500;
-    public int myCurrHealth;
+    public float myMaxHealth = 500.0f;
+    public float myCurrHealth;
     private LevelSystem levelSystem;
     public GameObject coinsWindow;
+    public GameObject myStatusBar;
 
     [SerializeField] private GameObject levelWindowCanvas;
     
@@ -86,6 +87,20 @@ public class LogicScript : MonoBehaviour
                     break;
             }
         }
+    }
+
+    public void Damage(float damage)
+    {
+        myCurrHealth -= damage;
+        SetMyCurrHealth(myCurrHealth);
+        Debug.Log("MC HP: " + myCurrHealth);
+    }
+
+    public void SetMyCurrHealth(float healthVal)
+    {
+        myCurrHealth = healthVal;
+        MyHealthBar myHealthBar = myStatusBar.GetComponent<MyHealthBar>();
+        myHealthBar.SetHealth(myCurrHealth / myMaxHealth, 1.0f);
     }
 
     public void RestoreToMaxHealth()

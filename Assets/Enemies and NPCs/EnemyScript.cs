@@ -23,6 +23,7 @@ public class EnemyScript : MonoBehaviour
 
     // Other
     GameObject mainChar;
+    GameObject logicManager;
 
     public float moveSpeed;
     public float maxHp = 100;
@@ -57,6 +58,7 @@ public class EnemyScript : MonoBehaviour
     public void Start()
     {
         mainChar = GameObject.FindGameObjectWithTag("Player");
+        logicManager = GameObject.FindGameObjectWithTag("LogicManager");
 
         // Set current hp to full
         currentHp = maxHp;
@@ -170,7 +172,7 @@ public class EnemyScript : MonoBehaviour
         rb.velocity = new Vector2(0, 0);
 
         // Invokes the gain experience function in game logic manager
-        GameObject logicManager = GameObject.FindGameObjectWithTag("LogicManager");
+        //GameObject logicManager = GameObject.FindGameObjectWithTag("LogicManager");
         logicManager.GetComponent<LogicScript>().GainXP(experienceDrop);
 
         // Drop? Collectibles 
@@ -233,7 +235,7 @@ public class EnemyScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            mainChar.GetComponent<MainCharHealthScript>().Damage(dmgPerSecond * Time.deltaTime);
+            logicManager.GetComponent<LogicScript>().Damage(dmgPerSecond * Time.deltaTime);
         }
     }
 }

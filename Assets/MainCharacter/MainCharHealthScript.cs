@@ -16,6 +16,6 @@ public class MainCharHealthScript : MonoBehaviour
     public void Damage(float damage)
     {
         currentHp -= damage;
-        Debug.Log("MC HP: " + currentHp);
+        //Debug.Log("MC HP: " + currentHp);
     }
 }
