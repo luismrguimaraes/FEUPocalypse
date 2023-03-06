@@ -11,7 +11,7 @@ public class MyHealthBar : MonoBehaviour
 
     void Start()
     {
-        low = Color.red;
+        low = new Color(0,0.6f,0,1);
         high = Color.green;
 
         SetHealth(1.0f, 1.0f);
