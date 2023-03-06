@@ -172,12 +172,9 @@ public class EnemyScript : MonoBehaviour
         rb.velocity = new Vector2(0, 0);
 
         // Invokes the gain experience function in game logic manager
-        //GameObject logicManager = GameObject.FindGameObjectWithTag("LogicManager");
         logicManager.GetComponent<LogicScript>().GainXP(experienceDrop);
 
         // Drop? Collectibles 
-        //RollDropDice(fullVisionDrop, powerUpDropChance);
-        //RollDropDice(moveSpeedBoostDrop, powerUpDropChance);
         RollDropDice(powerUpDropChance);
 
         // Disable script
@@ -228,8 +225,6 @@ public class EnemyScript : MonoBehaviour
             Instantiate(coinDrop, centerPoint.transform.position, Quaternion.identity);
         }
     }
-
-
 
     private void OnCollisionStay2D(Collision2D collision)
     {
