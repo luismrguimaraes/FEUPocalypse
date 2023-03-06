@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -25988,16 +25988,16 @@ TextureImporter:
       Interiors_free_32x32_223: 1323379439
       Interiors_free_32x32_297: 1341572303
       Interiors_free_32x32_996: 653552059
-      Interiors_free_32x32_382: -744167818
-      Interiors_free_32x32_184: 520503933
-      Interiors_free_32x32_294: -1642514637
       Interiors_free_32x32_414: -298108896
-      Interiors_free_32x32_478: -1624299093
-      Interiors_free_32x32_309: -597763996
-      Interiors_free_32x32_538: -680868022
-      Interiors_free_32x32_624: -536254011
-      Interiors_free_32x32_721: 306800612
       Interiors_free_32x32_725: -559347968
+      Interiors_free_32x32_184: 520503933
+      Interiors_free_32x32_538: -680868022
+      Interiors_free_32x32_478: -1624299093
+      Interiors_free_32x32_294: -1642514637
+      Interiors_free_32x32_382: -744167818
+      Interiors_free_32x32_721: 306800612
+      Interiors_free_32x32_309: -597763996
+      Interiors_free_32x32_624: -536254011
       Interiors_free_32x32_378: -1241425756
       Interiors_free_32x32_80: 1501639952
       Interiors_free_32x32_1147: 1771477087
@@ -26125,8 +26125,8 @@ TextureImporter:
       Interiors_free_32x32_76: 1798603507
       Interiors_free_32x32_166: 1396749959
       Interiors_free_32x32_189: -1050548901
-      Interiors_free_32x32_804: 1660266059
       Interiors_free_32x32_901: -770092421
+      Interiors_free_32x32_804: 1660266059
       Interiors_free_32x32_718: -181354532
       Interiors_free_32x32_548: 542738031
       Interiors_free_32x32_260: -562286406
@@ -26276,9 +26276,9 @@ TextureImporter:
       Interiors_free_32x32_84: -1119969253
       Interiors_free_32x32_447: -1210316874
       Interiors_free_32x32_88: 921631083
-      Interiors_free_32x32_611: 1920308013
-      Interiors_free_32x32_171: 671746048
       Interiors_free_32x32_786: 7953646
+      Interiors_free_32x32_171: 671746048
+      Interiors_free_32x32_611: 1920308013
       Interiors_free_32x32_950: -532766897
       Interiors_free_32x32_528: -851536292
       Interiors_free_32x32_495: -1612855015
@@ -26293,10 +26293,10 @@ TextureImporter:
       Interiors_free_32x32_750: 1213289878
       Interiors_free_32x32_853: -6063742
       Interiors_free_32x32_1069: 345316847
-      Interiors_free_32x32_29: 1384161552
       Interiors_free_32x32_57: -1014961360
-      Interiors_free_32x32_1135: -1005223879
       Interiors_free_32x32_377: 949627802
+      Interiors_free_32x32_1135: -1005223879
+      Interiors_free_32x32_29: 1384161552
       Interiors_free_32x32_231: 2072991305
       Interiors_free_32x32_419: -949990796
       Interiors_free_32x32_712: -747005930
@@ -26562,15 +26562,15 @@ TextureImporter:
       Interiors_free_32x32_85: -243709035
       Interiors_free_32x32_95: -749382367
       Interiors_free_32x32_389: -1120446272
-      Interiors_free_32x32_466: 2131556490
       Interiors_free_32x32_1037: -1692758259
+      Interiors_free_32x32_1130: 1858816375
+      Interiors_free_32x32_466: 2131556490
       Interiors_free_32x32_772: 991128582
       Interiors_free_32x32_971: 473869723
       Interiors_free_32x32_600: 754583504
       Interiors_free_32x32_645: 1852350562
       Interiors_free_32x32_589: 1299779490
       Interiors_free_32x32_331: -2027017135
-      Interiors_free_32x32_1130: 1858816375
       Interiors_free_32x32_1003: 1978231708
       Interiors_free_32x32_1156: -456490247
       Interiors_free_32x32_944: 1368707792
@@ -26589,9 +26589,9 @@ TextureImporter:
       Interiors_free_32x32_179: 192673240
       Interiors_free_32x32_453: -1907226126
       Interiors_free_32x32_250: 1406436537
-      Interiors_free_32x32_525: -861309972
-      Interiors_free_32x32_1101: 458580928
       Interiors_free_32x32_644: -561355411
+      Interiors_free_32x32_1101: 458580928
+      Interiors_free_32x32_525: -861309972
       Interiors_free_32x32_45: 1109470162
       Interiors_free_32x32_1040: -631365016
       Interiors_free_32x32_499: -788513486
@@ -26621,9 +26621,9 @@ TextureImporter:
       Interiors_free_32x32_159: -1799676446
       Interiors_free_32x32_587: 1189487113
       Interiors_free_32x32_859: 208263407
+      Interiors_free_32x32_909: 346264918
       Interiors_free_32x32_155: -544430989
       Interiors_free_32x32_216: 430811886
-      Interiors_free_32x32_909: 346264918
       Interiors_free_32x32_62: 271743753
       Interiors_free_32x32_463: 18214791
       Interiors_free_32x32_958: -861681937
