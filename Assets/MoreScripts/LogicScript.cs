@@ -26,20 +26,19 @@ public class LogicScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        mainChar = GameObject.FindGameObjectWithTag("Player");
+        mcAcquiredWeapons = new bool[] { true, false };
+
+        sceneManagerScript = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManagerScript>();
+
         RestoreToMaxHealth();
 
         levelSystem = gameObject.AddComponent<LevelSystem>();
         levelSystem.Init();
 
         LevelWindow levelWindow = levelWindowCanvas.GetComponentInChildren<LevelWindow>();
-
         levelWindow.Init();
         levelWindow.SetLevelSystem(levelSystem);
-
-        mainChar = GameObject.FindGameObjectWithTag("Player");
-        mcAcquiredWeapons = new bool[] { true, false };
-
-        sceneManagerScript = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManagerScript>();
 
         coinsWindow = GameObject.FindGameObjectWithTag("CoinsWindow");
         coinsWindow.GetComponent<CoinsWindow>().Init();
