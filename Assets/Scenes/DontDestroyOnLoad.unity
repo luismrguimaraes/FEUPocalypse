@@ -157,6 +157,7 @@ MonoBehaviour:
   myMaxHealth: 500
   myCurrHealth: 0
   coinsWindow: {fileID: 1576797114}
+  myStatusBar: {fileID: 1254787835}
   levelWindowCanvas: {fileID: 1254787835}
 --- !u!4 &711532272
 Transform:
