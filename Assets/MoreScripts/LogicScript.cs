@@ -123,9 +123,12 @@ public class LogicScript : MonoBehaviour
     {
         mainChar = GameObject.FindGameObjectWithTag("Player");
 
+        levelWindowCanvas.SetActive(false);
+
         DisableAllWeapons();
         if (SceneManager.GetActiveScene().name == "Outside")
         {
+            levelWindowCanvas.SetActive(true);
             EnableAcquiredWeapons();
         }
     }
