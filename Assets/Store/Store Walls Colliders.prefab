@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 6130341967759134328}
   - component: {fileID: 6130341967759134329}
   m_Layer: 6
-  m_Name: Walls Colliders
+  m_Name: Store Walls Colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

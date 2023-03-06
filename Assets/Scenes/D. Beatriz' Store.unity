@@ -1158,7 +1158,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.23869704, g: 0.23869704, b: 0.33962262, a: 1}
+  m_BackGroundColor: {r: 0.30588236, g: 0.32941177, b: 0.36862746, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1296,7 +1296,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &520292696
 MonoBehaviour:
@@ -1780,6 +1780,63 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &1157809890
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6130341967759134332, guid: 3573333d02af94327bf3b6cdd78438c8, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130341967759134332, guid: 3573333d02af94327bf3b6cdd78438c8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.9473892
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130341967759134332, guid: 3573333d02af94327bf3b6cdd78438c8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5344785
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130341967759134332, guid: 3573333d02af94327bf3b6cdd78438c8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.121868946
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130341967759134332, guid: 3573333d02af94327bf3b6cdd78438c8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130341967759134332, guid: 3573333d02af94327bf3b6cdd78438c8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130341967759134332, guid: 3573333d02af94327bf3b6cdd78438c8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130341967759134332, guid: 3573333d02af94327bf3b6cdd78438c8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130341967759134332, guid: 3573333d02af94327bf3b6cdd78438c8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130341967759134332, guid: 3573333d02af94327bf3b6cdd78438c8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130341967759134332, guid: 3573333d02af94327bf3b6cdd78438c8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130341967759134333, guid: 3573333d02af94327bf3b6cdd78438c8, type: 3}
+      propertyPath: m_Name
+      value: Store Walls Colliders
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3573333d02af94327bf3b6cdd78438c8, type: 3}
 --- !u!1 &1306710980
 GameObject:
   m_ObjectHideFlags: 0
@@ -4605,39 +4662,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1001 &6130341967692955597
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 6130341967759134332, guid: 3573333d02af94327bf3b6cdd78438c8, type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6130341967759134332, guid: 3573333d02af94327bf3b6cdd78438c8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6130341967759134332, guid: 3573333d02af94327bf3b6cdd78438c8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6130341967759134332, guid: 3573333d02af94327bf3b6cdd78438c8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6130341967759134333, guid: 3573333d02af94327bf3b6cdd78438c8, type: 3}
-      propertyPath: m_Name
-      value: Walls Colliders
-      objectReference: {fileID: 0}
-    - target: {fileID: 6130341967759134333, guid: 3573333d02af94327bf3b6cdd78438c8, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3573333d02af94327bf3b6cdd78438c8, type: 3}
 --- !u!1001 &8500761081052117472
 PrefabInstance:
   m_ObjectHideFlags: 0
