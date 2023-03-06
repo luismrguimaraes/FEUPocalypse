@@ -22,7 +22,7 @@ public class WallsCollidersScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            audioSource.Play();
+            //audioSource.Play();
         }
     }
 }
