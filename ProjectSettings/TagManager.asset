@@ -72,8 +72,12 @@ TagManager:
   - name: Main Character
     uniqueID: 3552244517
     locked: 0
+  - name: Environment Walls Above
+    uniqueID: 1582540697
+    locked: 0
   - name: Environment Vfx
     uniqueID: 808447033
+    locked: 0
   - name: UI_1
     uniqueID: 2624855373
     locked: 0
