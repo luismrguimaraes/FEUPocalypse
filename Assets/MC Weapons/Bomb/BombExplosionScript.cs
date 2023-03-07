@@ -7,15 +7,14 @@ public class BombExplosionScript : MonoBehaviour
     public float damage = 50;
     public Rigidbody2D rb;
 
-    private bool isFlameActive = false;
+    private bool isFlameActive;
 
     // Start is called before the first frame update
     void Start()
     {
-        GameObject mainChar = GameObject.FindGameObjectWithTag("Player");
-        Physics2D.IgnoreCollision(mainChar.GetComponent<Collider2D>(), GetComponent<Collider2D>());
-
         Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Player Projectiles and Attacks"));
+
+        SetFlameInactive();
     }
 
     // Update is called once per frame
@@ -43,8 +42,7 @@ public class BombExplosionScript : MonoBehaviour
         {
             // Enemy hit
             enemyHit.GetComponent<EnemyScript>().Damage(damage);
-
-            Destroy(gameObject);
         }
+        Destroy(gameObject, 2);
     }
 }

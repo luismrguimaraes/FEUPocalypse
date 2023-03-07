@@ -7,7 +7,7 @@ public class FlameBreathScript : MonoBehaviour
     public GameObject hitEffect;
     public GameObject mainChar;
     public float dmgPerSecond = 150;
-    private float damageTimer = 0;
+    private float damageTimer;
     public float damageInterval = 0.5f;
     public AudioSource flameBreathSFX;
     public Rigidbody2D rb;
@@ -19,7 +19,6 @@ public class FlameBreathScript : MonoBehaviour
     private void Start()
     {
         mainChar = GameObject.FindGameObjectWithTag("Player");
-        Physics2D.IgnoreCollision(mainChar.GetComponent<Collider2D>(), GetComponent<Collider2D>());
 
         Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Player Projectiles and Attacks"));
 
@@ -29,6 +28,7 @@ public class FlameBreathScript : MonoBehaviour
         // Store initial position
         initialPosition = transform.position;
 
+        damageTimer = damageInterval; // Damage right away
         flameBreathSFX.Play();
     }
 

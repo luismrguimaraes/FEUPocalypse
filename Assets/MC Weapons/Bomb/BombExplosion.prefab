@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2013230734209360529}
   - component: {fileID: 2013230734209360528}
   - component: {fileID: 5975010314029044523}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BombExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2013230734209360541}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 326dc64976b6746d1af9f86997db6e1d, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c2681ef4f4094b69a219305763e0644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 50
@@ -150,7 +150,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0001
+  m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
