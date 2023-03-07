@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 5259319899021275195}
   - component: {fileID: 2844407005026839894}
   - component: {fileID: 6665460856396617037}
+  - component: {fileID: 7803704391967508609}
   m_Layer: 3
   m_Name: MainCharacter
   m_TagString: Player
@@ -71,8 +72,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04a4fe14bc2f243a2a6b1aff0add303d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fullLightDuration: 2.5
-  moveSpeedBoostDuration: 2.5
+  fullLightDuration: 10
+  moveSpeedBoostDuration: 10
   moveSpeedBoostAmount: 1.8
   lightSwitchSfx: {fileID: 7406269043354154841}
   coinSoundEffect: {fileID: 2844407005026839894}
@@ -441,3 +442,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4b5cb835feaa47ecb6a487a6acf9125, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!81 &7803704391967508609
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8500761081294602074}
+  m_Enabled: 1
