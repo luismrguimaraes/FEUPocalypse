@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
-
 public class LogicScript : MonoBehaviour
 {
     public enum Weapons { STANDARD_ATTACK, FLAME_BREATH }

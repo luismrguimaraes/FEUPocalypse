@@ -8,6 +8,7 @@ public class MainCharMovementScript : MonoBehaviour
     public Rigidbody2D rb;
     public Animator animator;
     public VectorValue startingPosition;
+    private bool stopMoving = false;
 
     Vector2 movement;
     Vector3 facingDirection;
@@ -23,6 +24,12 @@ public class MainCharMovementScript : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (stopMoving)
+        {
+            animator.SetFloat("Speed", 0);
+            return;
+        }
+
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
@@ -40,11 +47,26 @@ public class MainCharMovementScript : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (stopMoving)
+        {
+            animator.SetFloat("Speed", 0);
+            return;
+        }
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 
     public Vector3 GetFacingDirection()
     {
         return facingDirection;
+    }
+
+    public void SetStopMoving(bool flag)
+    {
+        stopMoving = flag;
+    }
+
+    public bool IsMCFacingUp()
+    {
+        return facingDirection == new Vector3(0, 1, 0);
     }
 }
