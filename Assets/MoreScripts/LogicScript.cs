@@ -118,7 +118,7 @@ public class LogicScript : MonoBehaviour
         coinsWindow.GetComponent<CoinsWindow>().SetCoinsValue(coins);
     }
 
-    public void SceneTransitionOnStartUpdate()
+    public void OnSceneTransitionStart()
     {
         mainChar = GameObject.FindGameObjectWithTag("Player");
 

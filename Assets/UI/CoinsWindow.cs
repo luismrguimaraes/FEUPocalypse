@@ -24,7 +24,7 @@ public class CoinsWindow : MonoBehaviour
         coinsText.text = "" + value;
     }
 
-    public void SceneTransitionOnStartUpdate()
+    public void OnSceneTransitionStart()
     {
         gameObject.GetComponent<Canvas>().worldCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }

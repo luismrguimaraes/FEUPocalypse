@@ -12,8 +12,7 @@ public class MainCharMovementScript : MonoBehaviour
     Vector2 movement;
     Vector3 facingDirection;
 
-    // Start is called before the first frame update
-    void Start()
+    public void OnSceneTransitionStart()
     {
         facingDirection = new Vector3(0, -1, 0);
         transform.position = startingPosition.initialValue;

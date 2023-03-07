@@ -154,11 +154,11 @@ public class EnemySpawnerScript : MonoBehaviour
 
         if (isBoss)
         {
-            enemySpawned.GetComponent<EnemyScript>().initNightLord();
+            enemySpawned.GetComponent<EnemyScript>().InitNightLord();
         }
         else
         {
-            enemySpawned.GetComponent<EnemyScript>().initZombie();
+            enemySpawned.GetComponent<EnemyScript>().InitZombie();
         }
 
     }
