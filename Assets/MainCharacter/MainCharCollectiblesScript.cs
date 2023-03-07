@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MainCharCollectiblesScript : MonoBehaviour
 {
-    public GameObject light2d;
-    public GameObject logicManager;
+    private GameObject light2d;
+    private GameObject logicManager;
     public float fullLightDuration = 2.5f;
     public float moveSpeedBoostDuration = 2.5f;
     public float moveSpeedBoostAmount = 1.8f;
@@ -14,7 +14,7 @@ public class MainCharCollectiblesScript : MonoBehaviour
     public AudioSource coinSoundEffect;
 
     // Start is called before the first frame update
-    void Start()
+    public void OnSceneTransitionStart()
     {
         light2d = GameObject.FindGameObjectWithTag("Light");
         logicManager = GameObject.FindGameObjectWithTag("LogicManager");

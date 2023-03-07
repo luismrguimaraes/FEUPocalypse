@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 4462849248099102657}
   - component: {fileID: 5259319899021275195}
   - component: {fileID: 2844407005026839894}
+  - component: {fileID: 6665460856396617037}
   m_Layer: 3
   m_Name: MainCharacter
   m_TagString: Player
@@ -54,7 +55,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 189904a282c8b4c9684555a3ee5a6d38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 3.5
   rb: {fileID: 8500761081294602079}
   animator: {fileID: 2922874975806617010}
   startingPosition: {fileID: 11400000, guid: 4f37b59bd725645818246fa9359a1f7b, type: 2}
@@ -70,8 +71,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04a4fe14bc2f243a2a6b1aff0add303d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  light2d: {fileID: 0}
-  logicManager: {fileID: 0}
   fullLightDuration: 2.5
   moveSpeedBoostDuration: 2.5
   moveSpeedBoostAmount: 1.8
@@ -430,3 +429,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6665460856396617037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8500761081294602074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4b5cb835feaa47ecb6a487a6acf9125, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

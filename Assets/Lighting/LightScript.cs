@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class LightScript : MonoBehaviour
 {
-    public Transform mainChar;
+    private Transform mainChar;
+
+    private void Start()
+    {
+        mainChar = GameObject.FindGameObjectWithTag("Player").transform;
+    }
 
     // Update is called once per frame
     void Update()

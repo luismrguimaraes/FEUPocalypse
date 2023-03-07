@@ -11,6 +11,7 @@ public class SceneManagerScript : MonoBehaviour
     private LogicScript logicScript;
     private EnemySpawnerScript enemySpawnerScript;
     private int currentWave;
+    private static GameObject[] enemies;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +40,7 @@ public class SceneManagerScript : MonoBehaviour
         return playerPositionAfterExiting;
     }
 
-    public void SceneTransitionOnStartUpdate()
+    public void OnSceneTransitionStart()
     {
         if (SceneManager.GetActiveScene().name == "Outside")
         {
@@ -47,12 +48,44 @@ public class SceneManagerScript : MonoBehaviour
 
             if (currentWave >= 0)
                 enemySpawnerScript.currentWave = currentWave;
-        }
 
+            ReenableEnemies();
+
+            enemySpawnerScript.spawnState = EnemySpawnerScript.SpawnState.WAITING;
+        }
     }
 
     public void StoreCurrentWave()
     {
         currentWave = enemySpawnerScript.currentWave;
+    }
+
+    public void DisableEnemies()
+    {
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        if (enemies != null)
+        {
+            for (int i = 0; i < enemies.Length; i++)
+            {
+                enemies[i].GetComponent<EnemyScript>().enabled = false;
+                enemies[i].GetComponent<SpriteRenderer>().enabled = false;
+            }
+        }
+        
+    }
+
+    public void ReenableEnemies()
+    {
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        if (enemies != null)
+        {
+            for (int i = 0; i < enemies.Length; i++)
+            {
+                enemies[i].GetComponent<EnemyScript>().enabled = true;
+                enemies[i].GetComponent<SpriteRenderer>().enabled = true;
+            }
+        }
     }
 }

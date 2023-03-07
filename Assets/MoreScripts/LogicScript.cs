@@ -92,7 +92,6 @@ public class LogicScript : MonoBehaviour
     {
         myCurrHealth -= damage;
         SetMyCurrHealth(myCurrHealth);
-        Debug.Log("MC HP: " + myCurrHealth);
     }
 
     public void SetMyCurrHealth(float healthVal)
@@ -118,7 +117,7 @@ public class LogicScript : MonoBehaviour
         coinsWindow.GetComponent<CoinsWindow>().SetCoinsValue(coins);
     }
 
-    public void SceneTransitionOnStartUpdate()
+    public void OnSceneTransitionStart()
     {
         mainChar = GameObject.FindGameObjectWithTag("Player");
 
