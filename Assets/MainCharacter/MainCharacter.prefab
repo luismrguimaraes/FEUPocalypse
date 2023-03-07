@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 7406269043354154841}
   - component: {fileID: 4462849248099102657}
   - component: {fileID: 5259319899021275195}
+  - component: {fileID: 8241341830981610453}
   - component: {fileID: 2844407005026839894}
   - component: {fileID: 6665460856396617037}
   m_Layer: 3
@@ -317,7 +318,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flameBreathPrefab: {fileID: 2113181738733979267, guid: b509618b68bd147f2beb57cb6840e36c, type: 3}
   attackCD: 3
-  XOffset: 5
 --- !u!114 &5259319899021275195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,6 +333,20 @@ MonoBehaviour:
   bulletPrefab: {fileID: 2302858381309017483, guid: 464fd98d8b7a14a01b6351c77c181da0, type: 3}
   attackForce: 10
   attackCD: 1
+--- !u!114 &8241341830981610453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8500761081294602074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38b691241816e4d3794e3adc6392b21a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bombPrefab: {fileID: 3850415816265186751, guid: cf8c02842fb1b4291926392c3d18b73b, type: 3}
+  attackCD: 4
 --- !u!82 &2844407005026839894
 AudioSource:
   m_ObjectHideFlags: 0
