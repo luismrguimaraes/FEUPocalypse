@@ -56,6 +56,4 @@ public class ShopTrigger : MonoBehaviour
             return;
         }
     }
-
-
 }
