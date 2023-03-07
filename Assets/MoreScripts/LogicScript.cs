@@ -101,9 +101,7 @@ public class LogicScript : MonoBehaviour
             switch (weaponBought + 1)
             {
                 case (int)Weapons.FLAME_BREATH:
-                    // TODO: Ativar aqui o flamebreath
-
-                    mainChar.GetComponent<MainCharFlameBreath>().enabled = true;
+                    mcAcquiredWeapons[(int)Weapons.FLAME_BREATH] = true;
                     break;
                 default:
                     break;
