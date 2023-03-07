@@ -15,6 +15,11 @@ public class ShopUI : MonoBehaviour
     private ItemType selectedType = ItemType.FlameBreath;
     private int itemsSize;
 
+
+    // Prices of the Items
+    public int flameBreathPrice = 100;
+    public int molotovPrice = 100;
+
     private void Awake()
     {
         container = transform.Find("container");
@@ -67,9 +72,28 @@ public class ShopUI : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.B) )
             {
                 Debug.Log("Buying " + selectedType);
+                BuyItem();
             }
 
         }
 
+    }
+
+    private void BuyItem()
+    {
+        GameObject logicManager = GameObject.FindGameObjectWithTag("LogicManager");
+
+        switch (selectedType)
+        {
+            case ItemType.FlameBreath:
+                logicManager.GetComponent<LogicScript>().BuyWeapon(flameBreathPrice, (int)selectedType);
+                return;
+
+            case ItemType.Molotov:
+                logicManager.GetComponent<LogicScript>().BuyWeapon(molotovPrice, (int)selectedType);
+                return;
+            default:
+                return;
+        }
     }
 }

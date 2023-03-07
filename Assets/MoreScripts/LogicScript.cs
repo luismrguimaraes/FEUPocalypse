@@ -87,6 +87,32 @@ public class LogicScript : MonoBehaviour
         }
     }
 
+    public bool BuyWeapon(int cost, int weaponBought)
+    {
+        if (coins < cost)
+        {
+            return false;
+        }
+
+        SpendCoins(cost);
+
+        for (int i = 0; i < System.Enum.GetNames(typeof(Weapons)).Length; i++)
+        {
+            switch (weaponBought + 1)
+            {
+                case (int)Weapons.FLAME_BREATH:
+                    // TODO: Ativar aqui o flamebreath
+
+                    mainChar.GetComponent<MainCharFlameBreath>().enabled = true;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        return true;
+    }
+
     public void Damage(float damage)
     {
         myCurrHealth -= damage;
@@ -117,6 +143,11 @@ public class LogicScript : MonoBehaviour
         coinsWindow.GetComponent<CoinsWindow>().SetCoinsValue(coins);
     }
 
+    public void SpendCoins(int value)
+    {
+        coins -= value;
+        coinsWindow.GetComponent<CoinsWindow>().SetCoinsValue(coins);
+    }
     public void SceneTransitionOnStartUpdate()
     {
         mainChar = GameObject.FindGameObjectWithTag("Player");
