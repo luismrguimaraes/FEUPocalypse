@@ -34041,6 +34041,7 @@ GameObject:
   - component: {fileID: 1664560047}
   - component: {fileID: 1664560049}
   - component: {fileID: 1664560050}
+  - component: {fileID: 1664560051}
   m_Layer: 0
   m_Name: Outdoors Camera
   m_TagString: MainCamera
@@ -34151,6 +34152,14 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!81 &1664560051
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664560045}
+  m_Enabled: 1
 --- !u!1001 &1742779385
 PrefabInstance:
   m_ObjectHideFlags: 0
