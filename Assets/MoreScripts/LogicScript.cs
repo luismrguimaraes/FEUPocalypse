@@ -92,7 +92,6 @@ public class LogicScript : MonoBehaviour
     {
         myCurrHealth -= damage;
         SetMyCurrHealth(myCurrHealth);
-        Debug.Log("MC HP: " + myCurrHealth);
     }
 
     public void SetMyCurrHealth(float healthVal)

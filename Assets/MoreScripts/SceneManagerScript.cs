@@ -63,7 +63,6 @@ public class SceneManagerScript : MonoBehaviour
     public void DisableEnemies()
     {
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        Debug.Log(enemies.Length);
 
         if (enemies != null)
         {
@@ -79,7 +78,6 @@ public class SceneManagerScript : MonoBehaviour
     public void ReenableEnemies()
     {
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        Debug.Log(enemies.Length);
 
         if (enemies != null)
         {
