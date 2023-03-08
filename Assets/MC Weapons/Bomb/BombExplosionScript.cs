@@ -6,6 +6,7 @@ public class BombExplosionScript : MonoBehaviour
 {
     public float damage = 50;
     public Rigidbody2D rb;
+    public AudioSource explosionSfx;
 
     private bool isFlameActive;
 
@@ -27,6 +28,8 @@ public class BombExplosionScript : MonoBehaviour
     {
         rb.simulated = true;
         isFlameActive = true;
+
+        explosionSfx.Play();
     }
 
     void SetFlameInactive()
