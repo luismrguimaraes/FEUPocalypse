@@ -49,13 +49,13 @@ public class StandardAttackScript : MonoBehaviour
                 enemyHit.GetComponent<EnemyScript>().Damage(damage);
 
             // Piercing Ability check
-            if (logicScript.GetLevelNumber() < 3 * upgradeLevelInterval)
+            if (logicScript.GetLevelNumber() > 3 * upgradeLevelInterval)
             {
-                Destroy(gameObject);
+                Physics2D.IgnoreCollision(enemyHit, collision.otherCollider);
             }
             else
             {
-                Physics2D.IgnoreCollision(enemyHit, collision.otherCollider);
+                Destroy(gameObject);
             }
         }
         else

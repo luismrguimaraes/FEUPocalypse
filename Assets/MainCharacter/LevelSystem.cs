@@ -7,11 +7,13 @@ public class LevelSystem : MonoBehaviour
 {
     public event EventHandler OnExperienceChanged;
     public event EventHandler OnLevelChanged;
+    public int fullHpRecoverLevelInterval = 5;
 
     private int currentLevel;
     private int currentExperience;
     private int totalExperience;
     private int nextLevelExperience;
+    private LogicScript logicScript;
 
 
     public void Init()
@@ -20,6 +22,8 @@ public class LevelSystem : MonoBehaviour
         currentExperience = 0;
         totalExperience = 0;
         nextLevelExperience = 100;
+
+        logicScript = GameObject.FindGameObjectWithTag("LogicManager").GetComponent<LogicScript>();
     }
 
     public void AddExperience(int _xpReceived)
@@ -28,10 +32,14 @@ public class LevelSystem : MonoBehaviour
         totalExperience += _xpReceived;
         if (currentExperience >= nextLevelExperience) // Level up
         {
-            
             currentExperience -= nextLevelExperience;
             currentLevel++;
             nextLevelExperience += 50;
+            if (currentLevel % fullHpRecoverLevelInterval == 0)
+            {
+                logicScript.RestoreToMaxHealth();
+
+            }
             if (OnLevelChanged != null) OnLevelChanged(this, EventArgs.Empty);
 
         }

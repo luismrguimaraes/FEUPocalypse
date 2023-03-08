@@ -112,7 +112,7 @@ public class LogicScript : MonoBehaviour
 
     public void RestoreToMaxHealth()
     {
-        myCurrHealth = myMaxHealth;
+        SetMyCurrHealth(myMaxHealth);
     }
 
     public void GainXP(int xp)
