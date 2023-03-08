@@ -8,7 +8,7 @@ using UnityEngine.UIElements;
 
 public class LogicScript : MonoBehaviour
 {
-    public enum Weapons { STANDARD_ATTACK, FLAME_BREATH }
+    public enum Weapons { STANDARD_ATTACK, FLAME_BREATH, BOMB }
     public bool[] mcAcquiredWeapons;
 
     private GameObject mainChar;
@@ -27,7 +27,7 @@ public class LogicScript : MonoBehaviour
     void Start()
     {
         mainChar = GameObject.FindGameObjectWithTag("Player");
-        mcAcquiredWeapons = new bool[] { true, false };
+        mcAcquiredWeapons = new bool[] { true, false , false};
 
         sceneManagerScript = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManagerScript>();
 
@@ -58,6 +58,9 @@ public class LogicScript : MonoBehaviour
                 case (int)Weapons.FLAME_BREATH:
                     mainChar.GetComponent<MainCharFlameBreath>().enabled = false;
                     break;
+                case (int)Weapons.BOMB:
+                    mainChar.GetComponent<MainCharBomb>().enabled = false;
+                    break;
                 default:
                     break;
             }
@@ -80,6 +83,12 @@ public class LogicScript : MonoBehaviour
                     if (mcAcquiredWeapons[i])
                     {
                         mainChar.GetComponent<MainCharFlameBreath>().enabled = true;
+                    }
+                    break;
+                case (int)Weapons.BOMB:
+                    if (mcAcquiredWeapons[i])
+                    {
+                        mainChar.GetComponent<MainCharBomb>().enabled = true;
                     }
                     break;
                 default:
