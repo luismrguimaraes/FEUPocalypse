@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BombScript : MonoBehaviour
 {
-    public float duration = 2;
+    public float duration = 1;
     public GameObject explosionPrefab;
 
     private float timer = 0;
