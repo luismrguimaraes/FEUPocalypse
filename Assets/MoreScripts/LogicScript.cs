@@ -24,8 +24,9 @@ public class LogicScript : MonoBehaviour
     [SerializeField] private GameObject levelWindowCanvas;
     private List<int> itemsBought = new List<int>();
 
-    public AudioSource invalidPick;
-    
+    public AudioSource invalidPickSfx;
+    public AudioSource purchaseSfx;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -106,10 +107,11 @@ public class LogicScript : MonoBehaviour
     {
         if (coins < cost)
         {
-            invalidPick.Play();
+            invalidPickSfx.Play();
             return false;
         }
 
+        purchaseSfx.Play();
         SpendCoins(cost);
 
         for (int i = 0; i < System.Enum.GetNames(typeof(Weapons)).Length; i++)
