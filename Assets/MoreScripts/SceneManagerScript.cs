@@ -70,9 +70,9 @@ public class SceneManagerScript : MonoBehaviour
             {
                 enemies[i].GetComponent<EnemyScript>().enabled = false;
                 enemies[i].GetComponent<SpriteRenderer>().enabled = false;
+                enemies[i].GetComponent<Rigidbody2D>().simulated = false;
             }
         }
-        
     }
 
     public void ReenableEnemies()
@@ -85,6 +85,7 @@ public class SceneManagerScript : MonoBehaviour
             {
                 enemies[i].GetComponent<EnemyScript>().enabled = true;
                 enemies[i].GetComponent<SpriteRenderer>().enabled = true;
+                enemies[i].GetComponent<Rigidbody2D>().simulated = true;
             }
         }
     }

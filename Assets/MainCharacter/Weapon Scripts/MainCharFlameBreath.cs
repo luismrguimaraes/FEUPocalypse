@@ -11,7 +11,6 @@ public class MainCharFlameBreath : MonoBehaviour
     public float attackCD = 2f;
     private float attackTimer = 0;
     MainCharMovementScript mainCharMovement;
-    public int XOffset = 5;
 
     private void Start()
     {

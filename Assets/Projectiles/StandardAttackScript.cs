@@ -15,9 +15,6 @@ public class StandardAttackScript : MonoBehaviour
 
     private void Start()
     {
-        GameObject mainChar = GameObject.FindGameObjectWithTag("Player");
-        Physics2D.IgnoreCollision(mainChar.GetComponent<Collider2D>(), GetComponent<Collider2D>());
-
         logicScript = GameObject.FindGameObjectWithTag("LogicManager").GetComponent<LogicScript>();
 
         Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Player Projectiles and Attacks"));
@@ -38,7 +35,7 @@ public class StandardAttackScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Hit animation
+        // Hit effect
         GameObject hitEffectInstance = Instantiate(hitEffect, transform.position, Quaternion.identity);
         Destroy(hitEffectInstance, 1f);
 
@@ -46,23 +43,29 @@ public class StandardAttackScript : MonoBehaviour
         if (enemyHit.gameObject.CompareTag("Enemy"))
         {
             // Enemy hit
+
+            // Play hit sfx
+            hitEffectInstance.GetComponent<AudioSource>().Play();
+
+            // Double damage ability check
             if (logicScript.GetLevelNumber() > 2 * upgradeLevelInterval)
                 enemyHit.GetComponent<EnemyScript>().Damage(damage *2);
             else
                 enemyHit.GetComponent<EnemyScript>().Damage(damage);
 
-            // Piercing Ability check
-            if (logicScript.GetLevelNumber() < 3 * upgradeLevelInterval)
+            // Piercing ability check
+            if (logicScript.GetLevelNumber() > 3 * upgradeLevelInterval)
             {
-                Destroy(gameObject);
+                Physics2D.IgnoreCollision(enemyHit, collision.otherCollider);
             }
             else
             {
-                Physics2D.IgnoreCollision(enemyHit, collision.otherCollider);
+                Destroy(gameObject);
             }
         }
         else
         {
+
             Destroy(gameObject);
         }
 

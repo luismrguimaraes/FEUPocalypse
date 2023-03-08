@@ -18,6 +18,8 @@ public class MainCharCollectiblesScript : MonoBehaviour
     {
         light2d = GameObject.FindGameObjectWithTag("Light");
         logicManager = GameObject.FindGameObjectWithTag("LogicManager");
+
+        Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Player Projectiles and Attacks"));
     }
 
     IEnumerator ReenableLight()
