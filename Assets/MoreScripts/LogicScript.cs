@@ -4,10 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+using static ShopItem;
 
 public class LogicScript : MonoBehaviour
 {
     public enum Weapons { STANDARD_ATTACK, FLAME_BREATH }
+    enum ItemType { FlameBreath, CocktailMolotov };
     public bool[] mcAcquiredWeapons;
 
     private GameObject mainChar;
@@ -20,6 +22,7 @@ public class LogicScript : MonoBehaviour
     public GameObject coinsWindow;
     public GameObject myStatusBar;
     [SerializeField] private GameObject levelWindowCanvas;
+    private List<int> itemsBought = new List<int>();
 
     public AudioSource invalidPick;
     
@@ -44,6 +47,17 @@ public class LogicScript : MonoBehaviour
         coinsWindow.GetComponent<CoinsWindow>().Init();
 
         DontDestroyOnLoad(gameObject);
+    }
+
+    public void AddItemBought(int boughtItemType)
+    {
+        
+        itemsBought.Add(boughtItemType);
+    }
+
+    public List<int> GetItemsBought()
+    {
+        return itemsBought;
     }
 
     void DisableAllWeapons()

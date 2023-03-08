@@ -16,6 +16,7 @@ public class ShopUI : MonoBehaviour
     private ItemType selectedType = ItemType.FlameBreath;
     private int itemsSize;
     private List<ItemType> itemsBought = new List<ItemType>();
+    private LogicScript logicScript;
 
     // Prices of the Items
     public int flameBreathPrice = 100;
@@ -23,22 +24,24 @@ public class ShopUI : MonoBehaviour
 
     private void Awake()
     {
+        logicScript = GameObject.FindGameObjectWithTag("LogicManager").GetComponent<LogicScript>();
         container = transform.Find("container");
         shopItemTemplate = container.Find("shopItemTemplate");
         itemsSize = Enum.GetNames(typeof(ItemType)).Length;
+        UpdateBoughtItemsCanvas();
+        UpdateItemsBought();
         HideShop();
 
     }
 
    private void UpdatePriceTextColor()
     {
-        LogicScript logicScript = GameObject.FindGameObjectWithTag("LogicManager").GetComponent<LogicScript>();
 
         int availbleMoney = logicScript.coins;
 
         for (int i = 0; i < container.childCount; i++)
         {
-            if (checkIfItemBought(container.GetChild(i).name))
+            if (CheckIfItemBought(container.GetChild(i).name))
             {
                 continue;
             }
@@ -57,7 +60,15 @@ public class ShopUI : MonoBehaviour
 
     }
 
-    private void UpdateBoughtItemsCanvas(ItemType boughtItemType)
+    private void UpdateBoughtItemsCanvas()
+    {
+        for (int i = 0; i < logicScript.GetItemsBought().Count; i++)
+        {
+            UpdateBoughtItemCanvas((ItemType)logicScript.GetItemsBought()[i]);
+        }
+    }
+
+    private void UpdateBoughtItemCanvas(ItemType boughtItemType)
     {
         //LogicScript logicScript = GameObject.FindGameObjectWithTag("LogicManager").GetComponent<LogicScript>();
 
@@ -82,6 +93,9 @@ public class ShopUI : MonoBehaviour
                 Image ItemImg = container.GetChild(i).Find("Canvas").Find("ItemImg").GetComponent<Image>();
                 ItemImg.color = new Color32((byte)(ItemImg.color.r * 255.0f), (byte)(ItemImg.color.g * 255.0), (byte)(ItemImg.color.b * 255), 40);
 
+                Image SoldImg = container.GetChild(i).Find("Canvas").Find("SoldImg").GetComponent<Image>();
+                SoldImg.gameObject.SetActive(true);
+                
                 return;
             }
 
@@ -138,9 +152,8 @@ public class ShopUI : MonoBehaviour
         }
     }
 
-    private bool checkIfItemBought(ItemType itemType)
+    private bool CheckIfItemBought(ItemType itemType)
     {
-        Debug.Log(itemsBought);
         if(itemsBought.Count == 0)
         {
             return false;
@@ -157,9 +170,8 @@ public class ShopUI : MonoBehaviour
         return false;
     }
 
-    private bool checkIfItemBought(String itemType)
+    private bool CheckIfItemBought(String itemType)
     {
-        Debug.Log(itemsBought);
         if (itemsBought.Count == 0)
         {
             return false;
@@ -176,28 +188,39 @@ public class ShopUI : MonoBehaviour
         return false;
     }
 
+    private List<ItemType> UpdateItemsBought()
+    {
+        
+        for(int i = 0; i < logicScript.GetItemsBought().Count; i++)
+        {
+            itemsBought.Add((ItemType)logicScript.GetItemsBought()[i]);
+        }
+
+        return itemsBought;
+    }
+
     private void BuyItem()
     {
-        GameObject logicManager = GameObject.FindGameObjectWithTag("LogicManager");
+
 
         bool success = false;
 
         switch (selectedType)
         {
             case ItemType.FlameBreath:
-                if (checkIfItemBought(selectedType))
+                if (CheckIfItemBought(selectedType))
                 {
                     break;
                 }
-                success = logicManager.GetComponent<LogicScript>().BuyWeapon(flameBreathPrice, (int)selectedType);
+                success = logicScript.BuyWeapon(flameBreathPrice, (int)selectedType);
                 break;
 
             case ItemType.CocktailMolotov:
-                if (checkIfItemBought(selectedType))
+                if (CheckIfItemBought(selectedType))
                 {
                     break;
                 }
-                success = logicManager.GetComponent<LogicScript>().BuyWeapon(molotovPrice, (int)selectedType);
+                success = logicScript.BuyWeapon(molotovPrice, (int)selectedType);
                 break;
             default:
                 break;
@@ -206,8 +229,9 @@ public class ShopUI : MonoBehaviour
         if (success)
         {
             Debug.Log("Item bought = " + selectedType);
-            UpdateBoughtItemsCanvas(selectedType);
+            UpdateBoughtItemCanvas(selectedType);
             itemsBought.Add(selectedType);
+            logicScript.AddItemBought((int)selectedType);
         }
     }
 }
