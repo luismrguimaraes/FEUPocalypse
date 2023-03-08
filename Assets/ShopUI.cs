@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using UnityEngine.Windows;
 
 public class ShopUI : MonoBehaviour
 {
@@ -29,6 +30,28 @@ public class ShopUI : MonoBehaviour
 
     }
 
+   private void UpdatePriceTextColor()
+    {
+        LogicScript logicScript = GameObject.FindGameObjectWithTag("LogicManager").GetComponent<LogicScript>();
+
+        int availbleMoney = logicScript.coins;
+
+        for (int i = 0; i < container.childCount; i++)
+        {
+            TextMeshProUGUI itemPriceText = container.GetChild(i).Find("Canvas").Find("ItemPrice").GetComponent<TextMeshProUGUI>();
+            int itemCost = Int32.Parse(itemPriceText.text);
+            if (itemCost > availbleMoney)
+            {
+                itemPriceText.color = new Color32(241, 0, 0, 255);
+                continue;
+            }
+
+            itemPriceText.color = new Color32(241, 219, 0, 255);
+        }
+
+
+    }
+
     private void ChangePrice(int newPrice)  
     {
         shopItemTemplate.Find("Canvas").Find("ItemPrice").GetComponent<TextMeshProUGUI>().SetText(""+ newPrice);
@@ -42,6 +65,7 @@ public class ShopUI : MonoBehaviour
 
     public void ShowShop()
     {
+        UpdatePriceTextColor();
         activeShop = true;
         gameObject.SetActive(true);
     }
@@ -50,7 +74,7 @@ public class ShopUI : MonoBehaviour
     {
         if (activeShop)
         {
-            if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+            if (UnityEngine.Input.GetKeyDown(KeyCode.DownArrow) || UnityEngine.Input.GetKeyDown(KeyCode.S))
             {
                 if ((int)selectedType + 1 >= itemsSize)
                 {
@@ -59,7 +83,7 @@ public class ShopUI : MonoBehaviour
                 selectedType = selectedType + 1;
                 pointer.GetComponent<PointerScript>().Next();
             }
-            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+            if (UnityEngine.Input.GetKeyDown(KeyCode.UpArrow) || UnityEngine.Input.GetKeyDown(KeyCode.W))
             {
                 
                 if ((int)selectedType <= 0)
@@ -69,7 +93,7 @@ public class ShopUI : MonoBehaviour
                 selectedType = selectedType - 1;
                 pointer.GetComponent<PointerScript>().Previous();
             }
-            if (Input.GetKeyDown(KeyCode.B) )
+            if (UnityEngine.Input.GetKeyDown(KeyCode.B) )
             {
                 Debug.Log("Buying " + selectedType);
                 BuyItem();
