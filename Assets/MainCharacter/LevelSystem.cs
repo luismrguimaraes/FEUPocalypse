@@ -38,7 +38,6 @@ public class LevelSystem : MonoBehaviour
             if (currentLevel % fullHpRecoverLevelInterval == 0)
             {
                 logicScript.RestoreToMaxHealth();
-
             }
             if (OnLevelChanged != null) OnLevelChanged(this, EventArgs.Empty);
 

@@ -20,8 +20,10 @@ public class LogicScript : MonoBehaviour
     private LevelSystem levelSystem;
     public GameObject coinsWindow;
     public GameObject myStatusBar;
-
     [SerializeField] private GameObject levelWindowCanvas;
+
+    public AudioSource fullHpRecoverSfx;
+
     
     // Start is called before the first frame update
     void Start()
@@ -31,7 +33,7 @@ public class LogicScript : MonoBehaviour
 
         sceneManagerScript = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManagerScript>();
 
-        RestoreToMaxHealth();
+        SetMyCurrHealth(myMaxHealth);
 
         levelSystem = gameObject.AddComponent<LevelSystem>();
         levelSystem.Init();
@@ -112,7 +114,11 @@ public class LogicScript : MonoBehaviour
 
     public void RestoreToMaxHealth()
     {
-        SetMyCurrHealth(myMaxHealth);
+        if (myCurrHealth != myMaxHealth)
+        {
+            fullHpRecoverSfx.Play();
+            SetMyCurrHealth(myMaxHealth);
+        }
     }
 
     public void GainXP(int xp)

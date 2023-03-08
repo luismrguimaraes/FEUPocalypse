@@ -35,7 +35,7 @@ public class StandardAttackScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Hit animation
+        // Hit effect
         GameObject hitEffectInstance = Instantiate(hitEffect, transform.position, Quaternion.identity);
         Destroy(hitEffectInstance, 1f);
 
@@ -43,12 +43,17 @@ public class StandardAttackScript : MonoBehaviour
         if (enemyHit.gameObject.CompareTag("Enemy"))
         {
             // Enemy hit
+
+            // Play hit sfx
+            hitEffectInstance.GetComponent<AudioSource>().Play();
+
+            // Double damage ability check
             if (logicScript.GetLevelNumber() > 2 * upgradeLevelInterval)
                 enemyHit.GetComponent<EnemyScript>().Damage(damage *2);
             else
                 enemyHit.GetComponent<EnemyScript>().Damage(damage);
 
-            // Piercing Ability check
+            // Piercing ability check
             if (logicScript.GetLevelNumber() > 3 * upgradeLevelInterval)
             {
                 Physics2D.IgnoreCollision(enemyHit, collision.otherCollider);
@@ -60,6 +65,7 @@ public class StandardAttackScript : MonoBehaviour
         }
         else
         {
+
             Destroy(gameObject);
         }
 
