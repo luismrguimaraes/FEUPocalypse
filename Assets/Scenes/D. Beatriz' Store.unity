@@ -3221,7 +3221,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1221836972}
   m_Layer: 5
-  m_Name: Molotov
+  m_Name: CocktailMolotov
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
