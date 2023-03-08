@@ -6,8 +6,8 @@ public class MainCharCollectiblesScript : MonoBehaviour
 {
     private GameObject light2d;
     private GameObject logicManager;
-    public float fullLightDuration = 2.5f;
-    public float moveSpeedBoostDuration = 2.5f;
+    public float fullLightDuration = 10f;
+    public float moveSpeedBoostDuration = 10f;
     public float moveSpeedBoostAmount = 1.8f;
 
     public AudioSource lightSwitchSfx;

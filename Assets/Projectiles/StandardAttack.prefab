@@ -122,7 +122,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1059628813
-  m_SortingLayer: 6
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 1689426285, guid: 8f77f6d8a5ddb42e3812a4c5e053b4f0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -149,8 +149,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitEffect: {fileID: 2239966279949749394, guid: 16d21cc92ced848d3b717e71a8c6e6fd, type: 3}
   rb: {fileID: 2302858381309017486}
-  duration: 1
+  duration: 3
   damage: 10
+  upgradeLevelInterval: 3
 --- !u!82 &7055579522635816824
 AudioSource:
   m_ObjectHideFlags: 0

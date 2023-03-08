@@ -117,6 +117,11 @@ public class LogicScript : MonoBehaviour
         coinsWindow.GetComponent<CoinsWindow>().SetCoinsValue(coins);
     }
 
+    public int GetLevelNumber()
+    {
+        return levelSystem.GetLevelNumber();
+    }
+
     public void OnSceneTransitionStart()
     {
         mainChar = GameObject.FindGameObjectWithTag("Player");
