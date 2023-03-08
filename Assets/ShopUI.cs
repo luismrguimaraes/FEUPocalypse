@@ -98,9 +98,7 @@ public class ShopUI : MonoBehaviour
                 Debug.Log("Buying " + selectedType);
                 BuyItem();
             }
-
         }
-
     }
 
     private void BuyItem()

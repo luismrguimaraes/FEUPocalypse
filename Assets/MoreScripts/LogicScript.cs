@@ -19,8 +19,9 @@ public class LogicScript : MonoBehaviour
     private LevelSystem levelSystem;
     public GameObject coinsWindow;
     public GameObject myStatusBar;
-
     [SerializeField] private GameObject levelWindowCanvas;
+
+    public AudioSource invalidPick;
     
     // Start is called before the first frame update
     void Start()
@@ -91,6 +92,7 @@ public class LogicScript : MonoBehaviour
     {
         if (coins < cost)
         {
+            invalidPick.Play();
             return false;
         }
 
