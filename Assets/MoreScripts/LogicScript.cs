@@ -8,8 +8,8 @@ using static ShopItem;
 
 public class LogicScript : MonoBehaviour
 {
-    public enum Weapons { STANDARD_ATTACK, FLAME_BREATH }
     enum ItemType { FlameBreath, CocktailMolotov };
+    public enum Weapons { STANDARD_ATTACK, FLAME_BREATH, BOMB };
     public bool[] mcAcquiredWeapons;
 
     private GameObject mainChar;
@@ -23,19 +23,20 @@ public class LogicScript : MonoBehaviour
     public GameObject myStatusBar;
     [SerializeField] private GameObject levelWindowCanvas;
     private List<int> itemsBought = new List<int>();
-
     public AudioSource invalidPickSfx;
     public AudioSource purchaseSfx;
+    public AudioSource fullHpRecoverSfx;
 
+    
     // Start is called before the first frame update
     void Start()
     {
         mainChar = GameObject.FindGameObjectWithTag("Player");
-        mcAcquiredWeapons = new bool[] { true, false };
+        mcAcquiredWeapons = new bool[] { true, false , true};
 
         sceneManagerScript = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManagerScript>();
 
-        RestoreToMaxHealth();
+        SetMyCurrHealth(myMaxHealth);
 
         levelSystem = gameObject.AddComponent<LevelSystem>();
         levelSystem.Init();
@@ -73,6 +74,9 @@ public class LogicScript : MonoBehaviour
                 case (int)Weapons.FLAME_BREATH:
                     mainChar.GetComponent<MainCharFlameBreath>().enabled = false;
                     break;
+                case (int)Weapons.BOMB:
+                    mainChar.GetComponent<MainCharBomb>().enabled = false;
+                    break;
                 default:
                     break;
             }
@@ -95,6 +99,12 @@ public class LogicScript : MonoBehaviour
                     if (mcAcquiredWeapons[i])
                     {
                         mainChar.GetComponent<MainCharFlameBreath>().enabled = true;
+                    }
+                    break;
+                case (int)Weapons.BOMB:
+                    if (mcAcquiredWeapons[i])
+                    {
+                        mainChar.GetComponent<MainCharBomb>().enabled = true;
                     }
                     break;
                 default:
@@ -133,7 +143,6 @@ public class LogicScript : MonoBehaviour
     {
         myCurrHealth -= damage;
         SetMyCurrHealth(myCurrHealth);
-        Debug.Log("MC HP: " + myCurrHealth);
     }
 
     public void SetMyCurrHealth(float healthVal)
@@ -145,7 +154,11 @@ public class LogicScript : MonoBehaviour
 
     public void RestoreToMaxHealth()
     {
-        myCurrHealth = myMaxHealth;
+        if (myCurrHealth != myMaxHealth)
+        {
+            fullHpRecoverSfx.Play();
+            SetMyCurrHealth(myMaxHealth);
+        }
     }
 
     public void GainXP(int xp)
@@ -164,7 +177,11 @@ public class LogicScript : MonoBehaviour
         coins -= value;
         coinsWindow.GetComponent<CoinsWindow>().SetCoinsValue(coins);
     }
-    public void SceneTransitionOnStartUpdate()
+    public int GetLevelNumber()
+    {
+        return levelSystem.GetLevelNumber();
+    }
+    public void OnSceneTransitionStart()
     {
         mainChar = GameObject.FindGameObjectWithTag("Player");
 

@@ -4,20 +4,22 @@ using UnityEngine;
 
 public class MainCharCollectiblesScript : MonoBehaviour
 {
-    public GameObject light2d;
-    public GameObject logicManager;
-    public float fullLightDuration = 2.5f;
-    public float moveSpeedBoostDuration = 2.5f;
+    private GameObject light2d;
+    private GameObject logicManager;
+    public float fullLightDuration = 10f;
+    public float moveSpeedBoostDuration = 10f;
     public float moveSpeedBoostAmount = 1.8f;
 
     public AudioSource lightSwitchSfx;
     public AudioSource coinSoundEffect;
 
     // Start is called before the first frame update
-    void Start()
+    public void OnSceneTransitionStart()
     {
         light2d = GameObject.FindGameObjectWithTag("Light");
         logicManager = GameObject.FindGameObjectWithTag("LogicManager");
+
+        Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Player Projectiles and Attacks"));
     }
 
     IEnumerator ReenableLight()

@@ -13,19 +13,23 @@ public class SceneTransition : MonoBehaviour
     private LogicScript logicScript;
     private SceneManagerScript sceneManagerScript;
     private CoinsWindow coinsWindow;
+    private MainCharGeneralScript mainCharGeneralScript;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        mainCharGeneralScript = GameObject.FindGameObjectWithTag("Player").GetComponent<MainCharGeneralScript>();
+        mainCharGeneralScript.OnSceneTransitionStart();
+
         logicScript = GameObject.FindGameObjectWithTag("LogicManager").GetComponent<LogicScript>();
-        logicScript.SceneTransitionOnStartUpdate();
+        logicScript.OnSceneTransitionStart();
 
         sceneManagerScript = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManagerScript>();
-        sceneManagerScript.SceneTransitionOnStartUpdate();
+        sceneManagerScript.OnSceneTransitionStart();
 
         coinsWindow = GameObject.FindGameObjectWithTag("CoinsWindow").GetComponent<CoinsWindow>();
-        coinsWindow.SceneTransitionOnStartUpdate();
+        coinsWindow.OnSceneTransitionStart();
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -40,12 +44,13 @@ public class SceneTransition : MonoBehaviour
 
                 // Store current Wave
                 sceneManagerScript.StoreCurrentWave();
+                // Store (and disable) enemies
+                sceneManagerScript.DisableEnemies();
             }
             else
             {
                 // Get the stored position
                 playerStorage.initialValue = sceneManagerScript.GetPlayerPositionAfterExiting();
-
             }
             SceneManager.LoadScene(sceneToLoad);
             Input.ResetInputAxes();

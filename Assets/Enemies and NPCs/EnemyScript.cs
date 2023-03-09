@@ -37,7 +37,6 @@ public class EnemyScript : MonoBehaviour
     bool isMoving = false;
     int isRecovering = 0; // recovering frames after being hit
 
-
     [SerializeField] RuntimeAnimatorController [] animatorControllers;
 
     public RuntimeAnimatorController NameToAnimController(string name)
@@ -66,9 +65,11 @@ public class EnemyScript : MonoBehaviour
 
         // Set Sprite Renderer color to white (default), just in case
         sr.color = Color.white;
+
+        DontDestroyOnLoad(gameObject);
     }
 
-    public void initZombie()
+    public void InitZombie()
     {
         // Change animator
         animator.runtimeAnimatorController = NameToAnimController("Zombie");
@@ -77,14 +78,13 @@ public class EnemyScript : MonoBehaviour
         moveSpeed = 2;
         maxHp = 12;
         dmgPerSecond = 50;
-        rb.mass = 1;
         coinAmountDrop = 1;
 
         // set drop chances
         powerUpDropChance = 0.1f;
     }
 
-    public void initNightLord()
+    public void InitNightLord()
     {
         // Change animator
         animator.runtimeAnimatorController = NameToAnimController("NightLord");
@@ -97,7 +97,6 @@ public class EnemyScript : MonoBehaviour
         moveSpeed = 2.5f;
         maxHp = 200;
         dmgPerSecond = 150;
-        rb.mass = 1;
         coinAmountDrop = 20;
 
         // set drop chances
