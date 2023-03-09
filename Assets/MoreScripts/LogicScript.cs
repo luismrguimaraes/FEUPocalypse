@@ -4,11 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
-
+using static ShopItem;
 
 public class LogicScript : MonoBehaviour
 {
-    public enum Weapons { STANDARD_ATTACK, FLAME_BREATH, BOMB }
+    enum ItemType { FlameBreath, CocktailMolotov };
+    public enum Weapons { STANDARD_ATTACK, FLAME_BREATH, COCKTAIL_MOLOTOV };
     public bool[] mcAcquiredWeapons;
 
     private GameObject mainChar;
@@ -21,7 +22,9 @@ public class LogicScript : MonoBehaviour
     public GameObject coinsWindow;
     public GameObject myStatusBar;
     [SerializeField] private GameObject levelWindowCanvas;
-
+    private List<int> itemsBought = new List<int>();
+    public AudioSource invalidPickSfx;
+    public AudioSource purchaseSfx;
     public AudioSource fullHpRecoverSfx;
 
     
@@ -29,7 +32,7 @@ public class LogicScript : MonoBehaviour
     void Start()
     {
         mainChar = GameObject.FindGameObjectWithTag("Player");
-        mcAcquiredWeapons = new bool[] { true, false , true};
+        mcAcquiredWeapons = new bool[] { true, false , false};
 
         sceneManagerScript = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManagerScript>();
 
@@ -48,6 +51,17 @@ public class LogicScript : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    public void AddItemBought(int boughtItemType)
+    {
+        
+        itemsBought.Add(boughtItemType);
+    }
+
+    public List<int> GetItemsBought()
+    {
+        return itemsBought;
+    }
+
     void DisableAllWeapons()
     {
         for (int i = 0; i < System.Enum.GetNames(typeof(Weapons)).Length; i++)
@@ -60,7 +74,7 @@ public class LogicScript : MonoBehaviour
                 case (int)Weapons.FLAME_BREATH:
                     mainChar.GetComponent<MainCharFlameBreath>().enabled = false;
                     break;
-                case (int)Weapons.BOMB:
+                case (int)Weapons.COCKTAIL_MOLOTOV:
                     mainChar.GetComponent<MainCharBomb>().enabled = false;
                     break;
                 default:
@@ -87,7 +101,7 @@ public class LogicScript : MonoBehaviour
                         mainChar.GetComponent<MainCharFlameBreath>().enabled = true;
                     }
                     break;
-                case (int)Weapons.BOMB:
+                case (int)Weapons.COCKTAIL_MOLOTOV:
                     if (mcAcquiredWeapons[i])
                     {
                         mainChar.GetComponent<MainCharBomb>().enabled = true;
@@ -97,6 +111,35 @@ public class LogicScript : MonoBehaviour
                     break;
             }
         }
+    }
+
+    public bool BuyWeapon(int cost, int weaponBought)
+    {
+        if (coins < cost)
+        {
+            invalidPickSfx.Play();
+            return false;
+        }
+
+        purchaseSfx.Play();
+        SpendCoins(cost);
+
+        for (int i = 0; i < System.Enum.GetNames(typeof(Weapons)).Length; i++)
+        {
+            switch (weaponBought + 1)
+            {
+                case (int)Weapons.FLAME_BREATH:
+                    mcAcquiredWeapons[(int)Weapons.FLAME_BREATH] = true;
+                    break;
+                case (int)Weapons.COCKTAIL_MOLOTOV:
+                    mcAcquiredWeapons[(int)Weapons.COCKTAIL_MOLOTOV] = true;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        return true;
     }
 
     public void Damage(float damage)
@@ -132,11 +175,15 @@ public class LogicScript : MonoBehaviour
         coinsWindow.GetComponent<CoinsWindow>().SetCoinsValue(coins);
     }
 
+    public void SpendCoins(int value)
+    {
+        coins -= value;
+        coinsWindow.GetComponent<CoinsWindow>().SetCoinsValue(coins);
+    }
     public int GetLevelNumber()
     {
         return levelSystem.GetLevelNumber();
     }
-
     public void OnSceneTransitionStart()
     {
         mainChar = GameObject.FindGameObjectWithTag("Player");
