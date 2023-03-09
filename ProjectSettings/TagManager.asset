@@ -11,6 +11,7 @@ TagManager:
   - EnemySpawner
   - Coins
   - CoinsWindow
+  - GameOver
   layers:
   - Default
   - TransparentFX

@@ -51,6 +51,11 @@ public class LogicScript : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    public bool CheckIfMCDead()
+    {
+        return myCurrHealth <= 0;
+    }
+
     public void AddItemBought(int boughtItemType)
     {
         
@@ -195,6 +200,24 @@ public class LogicScript : MonoBehaviour
         {
             levelWindowCanvas.SetActive(true);
             EnableAcquiredWeapons();
+        }
+    }
+
+    private void GameOver()
+    {
+        Canvas gameOver = GameObject.FindGameObjectWithTag("GameOver").GetComponent<Canvas>();
+        gameOver.enabled = true;
+        mainChar.GetComponent<MainCharMovementScript>().SetStopMoving(true);
+        mainChar.GetComponent<Rigidbody2D>().simulated = false;
+
+        DisableAllWeapons();
+    }
+
+    private void Update()
+    {
+        if (CheckIfMCDead())
+        {
+            GameOver();
         }
     }
 
