@@ -34399,11 +34399,16 @@ MonoBehaviour:
     count: 100
     numOfBosses: 10
     rate: 2
-  - name: Daamnn
+  - name: wave 6
     enemy: {fileID: 4206967599122345371, guid: 3167b1986c84e498cb14229b009ca77a, type: 3}
     count: 200
     numOfBosses: 50
     rate: 2
+  - name: wave 7
+    enemy: {fileID: 4206967599122345371, guid: 3167b1986c84e498cb14229b009ca77a, type: 3}
+    count: 400
+    numOfBosses: 100
+    rate: 10
   currentWave: 0
   timeBetweenWaves: 2
   waveCountdown: 0
