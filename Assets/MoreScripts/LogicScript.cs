@@ -9,7 +9,7 @@ using static ShopItem;
 public class LogicScript : MonoBehaviour
 {
     enum ItemType { FlameBreath, CocktailMolotov };
-    public enum Weapons { STANDARD_ATTACK, FLAME_BREATH, BOMB };
+    public enum Weapons { STANDARD_ATTACK, FLAME_BREATH, COCKTAIL_MOLOTOV };
     public bool[] mcAcquiredWeapons;
 
     private GameObject mainChar;
@@ -74,7 +74,7 @@ public class LogicScript : MonoBehaviour
                 case (int)Weapons.FLAME_BREATH:
                     mainChar.GetComponent<MainCharFlameBreath>().enabled = false;
                     break;
-                case (int)Weapons.BOMB:
+                case (int)Weapons.COCKTAIL_MOLOTOV:
                     mainChar.GetComponent<MainCharBomb>().enabled = false;
                     break;
                 default:
@@ -101,7 +101,7 @@ public class LogicScript : MonoBehaviour
                         mainChar.GetComponent<MainCharFlameBreath>().enabled = true;
                     }
                     break;
-                case (int)Weapons.BOMB:
+                case (int)Weapons.COCKTAIL_MOLOTOV:
                     if (mcAcquiredWeapons[i])
                     {
                         mainChar.GetComponent<MainCharBomb>().enabled = true;
@@ -130,6 +130,9 @@ public class LogicScript : MonoBehaviour
             {
                 case (int)Weapons.FLAME_BREATH:
                     mcAcquiredWeapons[(int)Weapons.FLAME_BREATH] = true;
+                    break;
+                case (int)Weapons.COCKTAIL_MOLOTOV:
+                    mcAcquiredWeapons[(int)Weapons.COCKTAIL_MOLOTOV] = true;
                     break;
                 default:
                     break;

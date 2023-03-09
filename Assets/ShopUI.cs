@@ -201,8 +201,6 @@ public class ShopUI : MonoBehaviour
 
     private void BuyItem()
     {
-
-
         bool success = false;
 
         switch (selectedType)
