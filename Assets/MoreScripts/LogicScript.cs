@@ -32,7 +32,7 @@ public class LogicScript : MonoBehaviour
     void Start()
     {
         mainChar = GameObject.FindGameObjectWithTag("Player");
-        mcAcquiredWeapons = new bool[] { true, false , true};
+        mcAcquiredWeapons = new bool[] { true, false , false};
 
         sceneManagerScript = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManagerScript>();
 
