@@ -8,6 +8,7 @@ public class MainCharBomb : MonoBehaviour
 {
     public GameObject bombPrefab;
 
+    public float upForce = 100;
     public float attackCD = 4f;
     private float attackTimer = 0;
 
@@ -33,5 +34,6 @@ public class MainCharBomb : MonoBehaviour
     void Plant()
     {
         GameObject bomb = Instantiate(bombPrefab, transform.position, transform.rotation);
+        bomb.GetComponent<Rigidbody2D>().AddForce(Vector2.up * upForce);
     }
 }

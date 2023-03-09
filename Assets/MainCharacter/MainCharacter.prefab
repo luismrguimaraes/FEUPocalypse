@@ -346,6 +346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bombPrefab: {fileID: 3850415816265186751, guid: cf8c02842fb1b4291926392c3d18b73b, type: 3}
+  upForce: 100
   attackCD: 4
 --- !u!82 &2844407005026839894
 AudioSource:

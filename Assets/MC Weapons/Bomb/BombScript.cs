@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BombScript : MonoBehaviour
 {
-    public float duration = 1;
+    public float duration = 1.3f;
     public GameObject explosionPrefab;
 
     private float timer = 0;
@@ -13,6 +13,7 @@ public class BombScript : MonoBehaviour
     void Start()
     {
         timer = 0;
+        transform.Rotate(new Vector3(0, 0, -90));
     }
 
     // Update is called once per frame
@@ -24,9 +25,11 @@ public class BombScript : MonoBehaviour
         }
         else
         {
-            Instantiate(explosionPrefab, transform.position, transform.rotation);
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
             timer = 0;
         }
+
+        transform.Rotate(new Vector3(0, 0, 76) * Time.deltaTime);
     }
 }
