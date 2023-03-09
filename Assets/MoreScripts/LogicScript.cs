@@ -27,7 +27,8 @@ public class LogicScript : MonoBehaviour
     public AudioSource purchaseSfx;
     public AudioSource fullHpRecoverSfx;
 
-    
+    private UnityEngine.UI.Button restartButton;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +50,11 @@ public class LogicScript : MonoBehaviour
         coinsWindow.GetComponent<CoinsWindow>().Init();
 
         DontDestroyOnLoad(gameObject);
+    }
+
+    public bool CheckIfMCDead()
+    {
+        return myCurrHealth <= 0;
     }
 
     public void AddItemBought(int boughtItemType)
@@ -153,6 +159,13 @@ public class LogicScript : MonoBehaviour
         myCurrHealth = healthVal;
         MyHealthBar myHealthBar = myStatusBar.GetComponent<MyHealthBar>();
         myHealthBar.SetHealth(myCurrHealth / myMaxHealth, 1.0f);
+
+
+        if (CheckIfMCDead())
+        {
+            GameOver();
+        }
+
     }
 
     public void RestoreToMaxHealth()
@@ -196,6 +209,36 @@ public class LogicScript : MonoBehaviour
             levelWindowCanvas.SetActive(true);
             EnableAcquiredWeapons();
         }
+    }
+
+    private void GameOver()
+    {
+        restartButton = GameObject.FindGameObjectWithTag("GameOver").GetComponentInChildren<UnityEngine.UI.Button>();
+        restartButton.onClick.AddListener(RestartGame);
+
+        GameObject gameOver = GameObject.FindGameObjectWithTag("GameOver");
+        gameOver.GetComponent<Canvas>().enabled = true;
+
+        gameOver.GetComponent<AudioSource>().Play();
+
+        mainChar.GetComponent<MainCharMovementScript>().SetStopMoving(true);
+        mainChar.GetComponent<Rigidbody2D>().simulated = false;
+
+        DisableAllWeapons();
+    }
+
+    public void RestartGame()
+    {
+         GameObject[] gameObjects = GameObject.FindObjectsOfType<GameObject>();
+         for (int i = 0; i < gameObjects.Length; i++) {
+            Destroy(gameObjects[i]);
+         }
+         SceneManager.LoadScene("DontDestroyOnLoad");
+    }
+
+    void TaskOnClick()
+    {
+        Debug.Log("You have clicked the button!");
     }
 
 }
