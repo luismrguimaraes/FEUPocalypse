@@ -27,9 +27,8 @@ public class LogicScript : MonoBehaviour
     public AudioSource purchaseSfx;
     public AudioSource fullHpRecoverSfx;
 
-    public bool once = false;
+    private UnityEngine.UI.Button restartButton;
 
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -214,6 +213,9 @@ public class LogicScript : MonoBehaviour
 
     private void GameOver()
     {
+        restartButton = GameObject.FindGameObjectWithTag("GameOver").GetComponentInChildren<UnityEngine.UI.Button>();
+        restartButton.onClick.AddListener(RestartGame);
+
         GameObject gameOver = GameObject.FindGameObjectWithTag("GameOver");
         gameOver.GetComponent<Canvas>().enabled = true;
 
@@ -223,6 +225,20 @@ public class LogicScript : MonoBehaviour
         mainChar.GetComponent<Rigidbody2D>().simulated = false;
 
         DisableAllWeapons();
+    }
+
+    public void RestartGame()
+    {
+         GameObject[] gameObjects = GameObject.FindObjectsOfType<GameObject>();
+         for (int i = 0; i < gameObjects.Length; i++) {
+            Destroy(gameObjects[i]);
+         }
+         SceneManager.LoadScene("DontDestroyOnLoad");
+    }
+
+    void TaskOnClick()
+    {
+        Debug.Log("You have clicked the button!");
     }
 
 }
