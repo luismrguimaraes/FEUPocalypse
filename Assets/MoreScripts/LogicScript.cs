@@ -27,6 +27,8 @@ public class LogicScript : MonoBehaviour
     public AudioSource purchaseSfx;
     public AudioSource fullHpRecoverSfx;
 
+    public bool once = false;
+
     
     // Start is called before the first frame update
     void Start()
@@ -158,6 +160,13 @@ public class LogicScript : MonoBehaviour
         myCurrHealth = healthVal;
         MyHealthBar myHealthBar = myStatusBar.GetComponent<MyHealthBar>();
         myHealthBar.SetHealth(myCurrHealth / myMaxHealth, 1.0f);
+
+
+        if (CheckIfMCDead())
+        {
+            GameOver();
+        }
+
     }
 
     public void RestoreToMaxHealth()
@@ -205,20 +214,15 @@ public class LogicScript : MonoBehaviour
 
     private void GameOver()
     {
-        Canvas gameOver = GameObject.FindGameObjectWithTag("GameOver").GetComponent<Canvas>();
-        gameOver.enabled = true;
+        GameObject gameOver = GameObject.FindGameObjectWithTag("GameOver");
+        gameOver.GetComponent<Canvas>().enabled = true;
+
+        gameOver.GetComponent<AudioSource>().Play();
+
         mainChar.GetComponent<MainCharMovementScript>().SetStopMoving(true);
         mainChar.GetComponent<Rigidbody2D>().simulated = false;
 
         DisableAllWeapons();
-    }
-
-    private void Update()
-    {
-        if (CheckIfMCDead())
-        {
-            GameOver();
-        }
     }
 
 }
