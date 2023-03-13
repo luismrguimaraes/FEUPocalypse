@@ -25,7 +25,8 @@ public class MainCharCollectiblesScript : MonoBehaviour
     IEnumerator ReenableLight()
     {
         yield return new WaitForSeconds(fullLightDuration); // Wait
-        light2d.SetActive(true);
+        if (light2d)
+            light2d.SetActive(true);
     }
 
     IEnumerator RemoveMoveSpeedBoost()
