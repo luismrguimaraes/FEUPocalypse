@@ -1,19 +1,20 @@
-# How to play
-## Controls
-Move: WASD/Arrow Keys/Joystick
+# HOW TO PLAY
+## Controls:
+- Move: WASD/Arrow Keys/Joystick
 
-## Objective
-Survive!
+## Objective:
+- Survive!
 
-# Credits
-## Programming
+</br>
+
+# CREDITS
+## Programming:
 - [Luís Guimarães](https://luismrguimaraes.github.io/)
 - [Fábio Huang](https://github.com/FabioMiguel2000)
-## UI
+## UI:
 - [Fábio Huang](https://github.com/FabioMiguel2000)
-## Audio Work
+## Audio Work:
 - [Luís Guimarães](https://luismrguimaraes.github.io/)
-
 ## Visual/Animation Assets:
 - [PixiVan](https://pixivan.itch.io/)
 - [Pimen](https://pimen.itch.io/)
