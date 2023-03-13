@@ -1,4 +1,20 @@
-# Asset crediting
+# How to play
+## Controls
+Move: WASD/Arrow Keys/Joystick
+
+## Objective
+Survive!
+
+# Credits
+## Programming
+- [Luís Guimarães](https://luismrguimaraes.github.io/)
+- [Fábio Huang](https://github.com/FabioMiguel2000)
+## UI
+- [Fábio Huang](https://github.com/FabioMiguel2000)
+## Audio Work
+- [Luís Guimarães](https://luismrguimaraes.github.io/)
+
+## Visual/Animation Assets:
 - [PixiVan](https://pixivan.itch.io/)
 - [Pimen](https://pimen.itch.io/)
 - ["Mega PixelArt Icons"](https://poloviiinkin.itch.io/mega-pixel-art-32x32-px-icons-sprite-sheet)
