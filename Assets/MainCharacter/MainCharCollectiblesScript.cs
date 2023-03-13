@@ -9,9 +9,16 @@ public class MainCharCollectiblesScript : MonoBehaviour
     public float fullLightDuration = 10f;
     public float moveSpeedBoostDuration = 10f;
     public float moveSpeedBoostAmount = 1.8f;
+    public float moveSpeedBoostCountMax = 3;
+    private float moveSpeedBoostCount;
 
     public AudioSource lightSwitchSfx;
     public AudioSource coinSoundEffect;
+
+    private void Start()
+    {
+        moveSpeedBoostCount = 0;
+    }
 
     // Start is called before the first frame update
     public void OnSceneTransitionStart()
@@ -33,6 +40,9 @@ public class MainCharCollectiblesScript : MonoBehaviour
     {
         yield return new WaitForSeconds(moveSpeedBoostDuration); // Wait
         gameObject.GetComponent<MainCharMovementScript>().moveSpeed /= moveSpeedBoostAmount;
+
+        moveSpeedBoostCount -= 1;
+        Debug.Log(moveSpeedBoostCount);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -48,8 +58,26 @@ public class MainCharCollectiblesScript : MonoBehaviour
             }
             else if (collision.gameObject.name == "MoveSpeedBoostDrop(Clone)")
             {
-                gameObject.GetComponent<MainCharMovementScript>().moveSpeed *= moveSpeedBoostAmount;
-                StartCoroutine("RemoveMoveSpeedBoost");
+                if (moveSpeedBoostCount < moveSpeedBoostCountMax)
+                {
+                    gameObject.GetComponent<MainCharMovementScript>().moveSpeed *= moveSpeedBoostAmount;
+                    moveSpeedBoostCount += 1;
+                    Debug.Log("NEW Speed Boost");
+                    Debug.Log(moveSpeedBoostCount);
+
+                    StartCoroutine("RemoveMoveSpeedBoost");
+                }
+                else
+                {
+                    Debug.Log("RESETTING Speed Boost Duration");
+                    Debug.Log(moveSpeedBoostCount);
+
+                    // Reset duration of one
+                    StopCoroutine("RemoveMoveSpeedBoost");
+                    StartCoroutine("RemoveMoveSpeedBoost");
+
+                }
+
 
             }
             else if (collision.gameObject.name == "SpinningCoin(Clone)")
@@ -57,6 +85,7 @@ public class MainCharCollectiblesScript : MonoBehaviour
                 logicManager.GetComponent<LogicScript>().GainCoins(collision.gameObject.GetComponent<CoinScript>().amount);
                 coinSoundEffect.Play();
             }
+
             Destroy(collision.gameObject);
         }
     }

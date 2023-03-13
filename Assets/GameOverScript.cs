@@ -11,5 +11,4 @@ public class GameOverScript : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    // ResetPlayerPosition (Scriptable Object)
 }

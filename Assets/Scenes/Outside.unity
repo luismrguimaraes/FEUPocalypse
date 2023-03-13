@@ -34374,6 +34374,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
+  - name: wave 4
+    enemy: {fileID: 4206967599122345371, guid: 3167b1986c84e498cb14229b009ca77a, type: 3}
+    count: 50
+    numOfBosses: 5
+    rate: 2
   - name: wave 1
     enemy: {fileID: 4206967599122345371, guid: 3167b1986c84e498cb14229b009ca77a, type: 3}
     count: 10
@@ -34388,11 +34393,6 @@ MonoBehaviour:
     enemy: {fileID: 4206967599122345371, guid: 3167b1986c84e498cb14229b009ca77a, type: 3}
     count: 25
     numOfBosses: 2
-    rate: 2
-  - name: wave 4
-    enemy: {fileID: 4206967599122345371, guid: 3167b1986c84e498cb14229b009ca77a, type: 3}
-    count: 50
-    numOfBosses: 5
     rate: 2
   - name: wave 5
     enemy: {fileID: 4206967599122345371, guid: 3167b1986c84e498cb14229b009ca77a, type: 3}

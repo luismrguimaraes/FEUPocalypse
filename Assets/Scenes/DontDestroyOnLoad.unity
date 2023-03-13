@@ -358,7 +358,7 @@ MonoBehaviour:
   invalidPickSfx: {fileID: 711532273}
   purchaseSfx: {fileID: 711532274}
   fullHpRecoverSfx: {fileID: 711532276}
-  playerPosition: {fileID: 0}
+  playerPosition: {fileID: 11400000, guid: 4f37b59bd725645818246fa9359a1f7b, type: 2}
 --- !u!4 &711532272
 Transform:
   m_ObjectHideFlags: 0
