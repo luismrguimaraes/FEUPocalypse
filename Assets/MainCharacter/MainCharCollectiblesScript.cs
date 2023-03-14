@@ -69,16 +69,13 @@ public class MainCharCollectiblesScript : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("RESETTING Speed Boost Duration");
-                    Debug.Log(moveSpeedBoostCount);
+                    //Debug.Log("RESETTING Speed Boost Duration");
+                    //Debug.Log(moveSpeedBoostCount);
 
-                    // Reset duration of one
-                    StopCoroutine("RemoveMoveSpeedBoost");
-                    StartCoroutine("RemoveMoveSpeedBoost");
-
+                    //// Reset duration of one
+                    //StopCoroutine("RemoveMoveSpeedBoost");
+                    //StartCoroutine("RemoveMoveSpeedBoost");
                 }
-
-
             }
             else if (collision.gameObject.name == "SpinningCoin(Clone)")
             {
