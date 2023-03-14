@@ -12,6 +12,7 @@ TagManager:
   - Coins
   - CoinsWindow
   - GameOver
+  - Music
   layers:
   - Default
   - TransparentFX
