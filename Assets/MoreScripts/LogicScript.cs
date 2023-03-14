@@ -29,6 +29,8 @@ public class LogicScript : MonoBehaviour
     public VectorValue playerPosition;
 
     private UnityEngine.UI.Button restartButton;
+    private UnityEngine.UI.Button quitButton;
+
 
     // Start is called before the first frame update
     void Start()
@@ -214,10 +216,11 @@ public class LogicScript : MonoBehaviour
 
     private void GameOver()
     {
-
-
-        restartButton = GameObject.FindGameObjectWithTag("GameOver").GetComponentInChildren<UnityEngine.UI.Button>();
+        restartButton = GameObject.FindGameObjectWithTag("GameOver").GetComponentsInChildren<UnityEngine.UI.Button>()[0];
         restartButton.onClick.AddListener(RestartGame);
+
+        quitButton = GameObject.FindGameObjectWithTag("GameOver").GetComponentsInChildren<UnityEngine.UI.Button>()[1];
+        quitButton.onClick.AddListener(ReturnToMenu);
 
         GameObject gameOver = GameObject.FindGameObjectWithTag("GameOver");
         gameOver.GetComponent<Canvas>().enabled = true;
@@ -241,6 +244,16 @@ public class LogicScript : MonoBehaviour
         SceneManager.LoadScene("DontDestroyOnLoad");
 
         playerPosition.initialValue = new Vector3(0, 0, 0);
+    }
+
+    public void ReturnToMenu()
+    {
+        GameObject[] gameObjects = GameObject.FindObjectsOfType<GameObject>();
+        for (int i = 0; i < gameObjects.Length; i++)
+        {
+            Destroy(gameObjects[i]);
+        }
+        SceneManager.LoadScene("MainMenu");
     }
 
     void TaskOnClick()
