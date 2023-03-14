@@ -57,9 +57,23 @@ public class MainMenuScript : MonoBehaviour
         }
         if (UnityEngine.Input.GetKeyDown(KeyCode.Return))
         {
-            if(selectedOption == MenuOptionType.Start)
+
+            switch (selectedOption)
             {
-                SceneManager.LoadScene("DontDestroyOnLoad");
+                case MenuOptionType.Start:
+                    SceneManager.LoadScene("DontDestroyOnLoad");
+                    break;
+                case MenuOptionType.Instructions:
+                    break;
+                case MenuOptionType.Quit:
+
+                    Application.Quit(); // Will close a running application.
+                                        // However, while this works to end a built application,
+                                        // Application Quit is ignored when running the game in Play Mode in the editor.
+                    Debug.Log("Quitting Game!");
+                    break;
+                default:
+                    break;
             }
         }
     }
