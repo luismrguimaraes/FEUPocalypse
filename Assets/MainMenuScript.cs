@@ -10,7 +10,7 @@ public class MainMenuScript : MonoBehaviour
     private MenuOptionType selectedOption = MenuOptionType.Start;
     void Start()
     {
-        zombieSelector = transform.Find("ZombieSelector");
+        zombieSelector = transform.Find("MainMenuCanvas").Find("ZombieSelector");
     }
 
     // Update is called once per frame
