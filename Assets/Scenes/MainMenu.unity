@@ -1438,7 +1438,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &922205259
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1895,6 +1895,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0369ca7682d67448f8f5d68f24c585fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainMenuCanvas: {fileID: 403132691}
+  instructionsCanvas: {fileID: 922205258}
 --- !u!82 &967274978
 AudioSource:
   m_ObjectHideFlags: 0

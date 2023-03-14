@@ -6,16 +6,30 @@ using UnityEngine.SceneManagement;
 public class MainMenuScript : MonoBehaviour
 {
     enum MenuOptionType { Start, Instructions, Quit };
+    public GameObject mainMenuCanvas;
+    public GameObject instructionsCanvas;
     Transform zombieSelector;
     private MenuOptionType selectedOption = MenuOptionType.Start;
+    private bool ifInstructionPage = false;
     void Start()
     {
         zombieSelector = transform.Find("MainMenuCanvas").Find("ZombieSelector");
+        instructionsCanvas.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (ifInstructionPage) // For Instruction Page
+        {
+            if (UnityEngine.Input.GetKeyDown(KeyCode.Escape))
+            {
+                instructionsCanvas.SetActive(false);
+                mainMenuCanvas.SetActive(true);
+                ifInstructionPage = false;
+            }
+            return;
+        }
         if (UnityEngine.Input.GetKeyDown(KeyCode.DownArrow) || UnityEngine.Input.GetKeyDown(KeyCode.S))
         {
             switch (selectedOption)
@@ -64,6 +78,9 @@ public class MainMenuScript : MonoBehaviour
                     SceneManager.LoadScene("DontDestroyOnLoad");
                     break;
                 case MenuOptionType.Instructions:
+                    mainMenuCanvas.SetActive(false);
+                    instructionsCanvas.SetActive(true);
+                    ifInstructionPage = true;
                     break;
                 case MenuOptionType.Quit:
 
