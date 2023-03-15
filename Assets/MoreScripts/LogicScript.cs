@@ -16,6 +16,9 @@ public class LogicScript : MonoBehaviour
     private SceneManagerScript sceneManagerScript;
 
     public int coins = 0;
+    private int totalCollectedCoins = 0;
+    private int zombiesKills = 0;
+    private int nightLordKills = 0;
     public float myMaxHealth = 500.0f;
     public float myCurrHealth;
     private LevelSystem levelSystem;
@@ -53,6 +56,15 @@ public class LogicScript : MonoBehaviour
         coinsWindow.GetComponent<CoinsWindow>().Init();
 
         DontDestroyOnLoad(gameObject);
+    }
+
+    public void incrementNightLordKill()
+    {
+        nightLordKills += 1;
+    }
+    public void incrementZombieKill()
+    {
+        zombiesKills += 1;
     }
 
     public bool CheckIfMCDead()
@@ -188,6 +200,7 @@ public class LogicScript : MonoBehaviour
     public void GainCoins(int value)
     {
         coins += value;
+        totalCollectedCoins += value;
         coinsWindow.GetComponent<CoinsWindow>().SetCoinsValue(coins);
     }
 
@@ -232,6 +245,8 @@ public class LogicScript : MonoBehaviour
 
         GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>().volume = 0;
 
+        GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreScript>().Show(zombiesKills, nightLordKills, totalCollectedCoins, levelSystem.GetComponent<LevelSystem>().GetTotalExperience());
+
         DisableAllWeapons();
     }
 
@@ -248,6 +263,8 @@ public class LogicScript : MonoBehaviour
 
         mainChar.GetComponent<MainCharMovementScript>().SetStopMoving(true);
         mainChar.GetComponent<Rigidbody2D>().simulated = false;
+
+        GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreScript>().Show(zombiesKills, nightLordKills, totalCollectedCoins, levelSystem.GetComponent<LevelSystem>().GetTotalExperience());
 
         DisableAllWeapons();
     }

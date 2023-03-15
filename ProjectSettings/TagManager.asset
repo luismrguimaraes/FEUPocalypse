@@ -14,6 +14,7 @@ TagManager:
   - GameOver
   - Music
   - GameCompleted
+  - Score
   layers:
   - Default
   - TransparentFX
