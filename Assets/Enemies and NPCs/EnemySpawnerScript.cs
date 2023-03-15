@@ -49,7 +49,7 @@ public class EnemySpawnerScript : MonoBehaviour
         if (spawnState == SpawnState.WAITING)
         {
             // Check if enemies are still alive
-            if( !EnemyIsAlive())
+            if( !EnemyIsAlive() )
             {
                 Debug.Log(" Wave " + waves[currentWave] + "Completed");
 
@@ -72,6 +72,7 @@ public class EnemySpawnerScript : MonoBehaviour
         }
         else
         {
+            
             waveCountdown -= Time.deltaTime;
         }
     }
@@ -80,14 +81,16 @@ public class EnemySpawnerScript : MonoBehaviour
 
         waveCountdown = timeBetweenWaves;
 
-        if (waves.Length -1 > currentWave) // if not last wave
+        if (currentWave < waves.Length -1) // if not last wave
         {
             spawnState = SpawnState.COUNTING;
             currentWave++;
         }
         else
         {
-            Debug.Log("Game Completed!");
+            GameObject.FindGameObjectWithTag("LogicManager").GetComponent<LogicScript>().GameCompleted();
+
+            Debug.Log("Game Completed!" + currentWave);
         }
     }
 

@@ -235,7 +235,7 @@ public class LogicScript : MonoBehaviour
         DisableAllWeapons();
     }
 
-    private void GameCompleted()
+    public void GameCompleted()
     {
         restartButton = GameObject.FindGameObjectWithTag("GameCompleted").GetComponentsInChildren<UnityEngine.UI.Button>()[0];
         restartButton.onClick.AddListener(RestartGame);
@@ -246,7 +246,10 @@ public class LogicScript : MonoBehaviour
         GameObject GameCompleted = GameObject.FindGameObjectWithTag("GameCompleted");
         GameCompleted.GetComponent<Canvas>().enabled = true;
 
+        mainChar.GetComponent<MainCharMovementScript>().SetStopMoving(true);
+        mainChar.GetComponent<Rigidbody2D>().simulated = false;
 
+        DisableAllWeapons();
     }
 
 
