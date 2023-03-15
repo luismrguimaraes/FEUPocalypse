@@ -162,7 +162,6 @@ public class EnemyScript : MonoBehaviour
     private void Die()
     {
         // Change Sprite Renderer color to grey
-        Debug.Log(animator.runtimeAnimatorController.name);
         sr.color = Color.grey;
 
         // Play dying animation
@@ -187,7 +186,6 @@ public class EnemyScript : MonoBehaviour
                 logicManager.GetComponent<LogicScript>().incrementNightLordKill();
                 break;
             default:
-                Debug.Log(animator.name);
                 break;
         }
 
