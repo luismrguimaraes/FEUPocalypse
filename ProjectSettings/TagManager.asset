@@ -13,6 +13,7 @@ TagManager:
   - CoinsWindow
   - GameOver
   - Music
+  - GameCompleted
   layers:
   - Default
   - TransparentFX
