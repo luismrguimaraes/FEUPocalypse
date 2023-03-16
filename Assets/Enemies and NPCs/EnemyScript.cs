@@ -176,12 +176,28 @@ public class EnemyScript : MonoBehaviour
         // Drop? Collectibles 
         RollDropDice(powerUpDropChance);
 
+        // Increment Enemy Kill Count
+        switch (animator.runtimeAnimatorController.name)
+        {
+            case "Zombie":
+                logicManager.GetComponent<LogicScript>().incrementZombieKill();
+                break;
+            case "NightLord":
+                logicManager.GetComponent<LogicScript>().incrementNightLordKill();
+                break;
+            default:
+                break;
+        }
+
         // Disable script
         isMoving = false;
         Destroy(gameObject, 0.5f);
         GetComponent<Collider2D>().enabled = false;
         enabled = false;
     }
+
+
+
     private void OnRiseEnd()
     {
         isMoving = true;

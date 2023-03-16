@@ -40,7 +40,7 @@ public class ShopTrigger : MonoBehaviour
     private void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || UnityEngine.Input.GetKeyDown(KeyCode.Backspace))
         {
             inZone = false;
             DeactivateShop();
