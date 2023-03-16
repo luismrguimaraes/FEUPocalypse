@@ -33962,7 +33962,7 @@ MonoBehaviour:
     rate: 8
   - name: wave 7
     enemy: {fileID: 4206967599122345371, guid: 3167b1986c84e498cb14229b009ca77a, type: 3}
-    count: 0
+    count: 300
     numOfBosses: 200
     rate: 16
   currentWave: 0
