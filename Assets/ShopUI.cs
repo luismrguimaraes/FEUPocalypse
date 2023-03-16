@@ -145,7 +145,7 @@ public class ShopUI : MonoBehaviour
                 selectedType = selectedType - 1;
                 pointer.GetComponent<PointerScript>().Previous();
             }
-            if (UnityEngine.Input.GetKeyDown(KeyCode.B) )
+            if (UnityEngine.Input.GetKeyDown(KeyCode.Return) )
             {
                 BuyItem();
             }
