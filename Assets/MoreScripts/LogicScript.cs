@@ -261,8 +261,12 @@ public class LogicScript : MonoBehaviour
         GameObject GameCompleted = GameObject.FindGameObjectWithTag("GameCompleted");
         GameCompleted.GetComponent<Canvas>().enabled = true;
 
+        GameCompleted.GetComponent<AudioSource>().Play();
+
         mainChar.GetComponent<MainCharMovementScript>().SetStopMoving(true);
         mainChar.GetComponent<Rigidbody2D>().simulated = false;
+
+        GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>().volume = 0;
 
         GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreScript>().Show(zombiesKills, nightLordKills, totalCollectedCoins, levelSystem.GetComponent<LevelSystem>().GetTotalExperience());
 
