@@ -22,7 +22,7 @@ public class MainMenuScript : MonoBehaviour
     {
         if (ifInstructionPage) // For Instruction Page
         {
-            if (UnityEngine.Input.GetKeyDown(KeyCode.Escape))
+            if (UnityEngine.Input.GetKeyDown(KeyCode.Escape) || UnityEngine.Input.GetKeyDown(KeyCode.Backspace))
             {
                 instructionsCanvas.SetActive(false);
                 mainMenuCanvas.SetActive(true);
