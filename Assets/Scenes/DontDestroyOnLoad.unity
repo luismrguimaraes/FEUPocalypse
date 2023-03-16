@@ -217,7 +217,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ab33380703bce441abf4680fc24f11ca, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.16
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1477,6 +1477,7 @@ MonoBehaviour:
   purchaseSfx: {fileID: 711532274}
   fullHpRecoverSfx: {fileID: 711532276}
   playerPosition: {fileID: 11400000, guid: 4f37b59bd725645818246fa9359a1f7b, type: 2}
+  isGameCompleted: 0
 --- !u!4 &711532272
 Transform:
   m_ObjectHideFlags: 0

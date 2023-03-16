@@ -30,6 +30,7 @@ public class LogicScript : MonoBehaviour
     public AudioSource purchaseSfx;
     public AudioSource fullHpRecoverSfx;
     public VectorValue playerPosition;
+    public bool isGameCompleted = false;
 
     private UnityEngine.UI.Button restartButton;
     private UnityEngine.UI.Button quitButton;
@@ -252,25 +253,29 @@ public class LogicScript : MonoBehaviour
 
     public void GameCompleted()
     {
-        restartButton = GameObject.FindGameObjectWithTag("GameCompleted").GetComponentsInChildren<UnityEngine.UI.Button>()[0];
-        restartButton.onClick.AddListener(RestartGame);
+        if (!isGameCompleted)
+        {
+            isGameCompleted = true;
+            restartButton = GameObject.FindGameObjectWithTag("GameCompleted").GetComponentsInChildren<UnityEngine.UI.Button>()[0];
+            restartButton.onClick.AddListener(RestartGame);
 
-        quitButton = GameObject.FindGameObjectWithTag("GameCompleted").GetComponentsInChildren<UnityEngine.UI.Button>()[1];
-        quitButton.onClick.AddListener(ReturnToMenu);
+            quitButton = GameObject.FindGameObjectWithTag("GameCompleted").GetComponentsInChildren<UnityEngine.UI.Button>()[1];
+            quitButton.onClick.AddListener(ReturnToMenu);
 
-        GameObject GameCompleted = GameObject.FindGameObjectWithTag("GameCompleted");
-        GameCompleted.GetComponent<Canvas>().enabled = true;
+            GameObject GameCompleted = GameObject.FindGameObjectWithTag("GameCompleted");
+            GameCompleted.GetComponent<Canvas>().enabled = true;
 
-        GameCompleted.GetComponent<AudioSource>().Play();
+            GameCompleted.GetComponent<AudioSource>().Play();
 
-        mainChar.GetComponent<MainCharMovementScript>().SetStopMoving(true);
-        mainChar.GetComponent<Rigidbody2D>().simulated = false;
+            mainChar.GetComponent<MainCharMovementScript>().SetStopMoving(true);
+            mainChar.GetComponent<Rigidbody2D>().simulated = false;
 
-        GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>().volume = 0;
+            GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>().volume = 0;
 
-        GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreScript>().Show(zombiesKills, nightLordKills, totalCollectedCoins, levelSystem.GetComponent<LevelSystem>().GetTotalExperience());
+            GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreScript>().Show(zombiesKills, nightLordKills, totalCollectedCoins, levelSystem.GetComponent<LevelSystem>().GetTotalExperience());
 
-        DisableAllWeapons();
+            DisableAllWeapons();
+        }
     }
 
 
