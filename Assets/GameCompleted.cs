@@ -41,12 +41,12 @@ public class GameCompleted : MonoBehaviour
         {
             return;
         }
-        if (UnityEngine.Input.GetKeyDown(KeyCode.DownArrow) || UnityEngine.Input.GetKeyDown(KeyCode.S) && selected == OptionType.RETRY)
+        if ((UnityEngine.Input.GetKeyDown(KeyCode.DownArrow) || UnityEngine.Input.GetKeyDown(KeyCode.S)) && selected == OptionType.RETRY)
         {
             MoveDown();
             selected = OptionType.MAINMENU;
         }
-        else if (UnityEngine.Input.GetKeyDown(KeyCode.UpArrow) || UnityEngine.Input.GetKeyDown(KeyCode.W) && selected == OptionType.MAINMENU)
+        else if ((UnityEngine.Input.GetKeyDown(KeyCode.UpArrow) || UnityEngine.Input.GetKeyDown(KeyCode.W)) && selected == OptionType.MAINMENU)
         {
             MoveUp();
             selected = OptionType.RETRY;
