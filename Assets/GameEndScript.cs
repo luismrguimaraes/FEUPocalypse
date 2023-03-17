@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
-public class GameOverScript : MonoBehaviour
+public class GameEndScript : MonoBehaviour
 {
-    enum OptionType {RETRY, MAINMENU}
+    enum OptionType { RETRY, MAINMENU }
     private OptionType selected = OptionType.RETRY;
     private Transform pointer;
     private bool active = false;
