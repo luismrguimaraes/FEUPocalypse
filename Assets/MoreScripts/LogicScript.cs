@@ -32,8 +32,8 @@ public class LogicScript : MonoBehaviour
     public VectorValue playerPosition;
     public bool isGameCompleted = false;
 
-    private UnityEngine.UI.Button restartButton;
-    private UnityEngine.UI.Button quitButton;
+    //private UnityEngine.UI.Button restartButton;
+    //private UnityEngine.UI.Button quitButton;
 
 
     // Start is called before the first frame update
@@ -230,14 +230,11 @@ public class LogicScript : MonoBehaviour
 
     private void GameOver()
     {
-        restartButton = GameObject.FindGameObjectWithTag("GameOver").GetComponentsInChildren<UnityEngine.UI.Button>()[0];
-        restartButton.onClick.AddListener(RestartGame);
-
-        quitButton = GameObject.FindGameObjectWithTag("GameOver").GetComponentsInChildren<UnityEngine.UI.Button>()[1];
-        quitButton.onClick.AddListener(ReturnToMenu);
 
         GameObject gameOver = GameObject.FindGameObjectWithTag("GameOver");
         gameOver.GetComponent<Canvas>().enabled = true;
+
+        gameOver.GetComponent<GameEndScript>().SetActive(true);
 
         gameOver.GetComponent<AudioSource>().Play();
 
@@ -256,16 +253,12 @@ public class LogicScript : MonoBehaviour
         if (!isGameCompleted)
         {
             isGameCompleted = true;
-            restartButton = GameObject.FindGameObjectWithTag("GameCompleted").GetComponentsInChildren<UnityEngine.UI.Button>()[0];
-            restartButton.onClick.AddListener(RestartGame);
+            GameObject gameCompleted = GameObject.FindGameObjectWithTag("GameCompleted");
+            gameCompleted.GetComponent<Canvas>().enabled = true;
 
-            quitButton = GameObject.FindGameObjectWithTag("GameCompleted").GetComponentsInChildren<UnityEngine.UI.Button>()[1];
-            quitButton.onClick.AddListener(ReturnToMenu);
+            gameCompleted.GetComponent<GameEndScript>().SetActive(true);
 
-            GameObject GameCompleted = GameObject.FindGameObjectWithTag("GameCompleted");
-            GameCompleted.GetComponent<Canvas>().enabled = true;
-
-            GameCompleted.GetComponent<AudioSource>().Play();
+            gameCompleted.GetComponent<AudioSource>().Play();
 
             mainChar.GetComponent<MainCharMovementScript>().SetStopMoving(true);
             mainChar.GetComponent<Rigidbody2D>().simulated = false;

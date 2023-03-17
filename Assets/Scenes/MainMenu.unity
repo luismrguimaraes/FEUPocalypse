@@ -648,7 +648,7 @@ MonoBehaviour:
 
 
     Use the WASD or the Arrow Keys
-    to your character Luis Huang around the place.'
+    to move your character Luis Huang around the place.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5bd0e110330644d9b9a4d7cc55bacd84, type: 2}
   m_sharedMaterial: {fileID: -390427457222498131, guid: 5bd0e110330644d9b9a4d7cc55bacd84, type: 2}
