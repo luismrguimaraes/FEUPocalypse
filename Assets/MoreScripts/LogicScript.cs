@@ -264,10 +264,12 @@ public class LogicScript : MonoBehaviour
             //quitButton = GameObject.FindGameObjectWithTag("GameCompleted").GetComponentsInChildren<UnityEngine.UI.Button>()[1];
             //quitButton.onClick.AddListener(ReturnToMenu);
 
-            GameObject GameCompleted = GameObject.FindGameObjectWithTag("GameCompleted");
-            GameCompleted.GetComponent<Canvas>().enabled = true;
+            GameObject gameCompleted = GameObject.FindGameObjectWithTag("GameCompleted");
+            gameCompleted.GetComponent<Canvas>().enabled = true;
 
-            GameCompleted.GetComponent<AudioSource>().Play();
+            gameCompleted.GetComponent<GameCompleted>().SetActive(true);
+
+            gameCompleted.GetComponent<AudioSource>().Play();
 
             mainChar.GetComponent<MainCharMovementScript>().SetStopMoving(true);
             mainChar.GetComponent<Rigidbody2D>().simulated = false;

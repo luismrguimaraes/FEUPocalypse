@@ -20,12 +20,12 @@ public class GameOverScript : MonoBehaviour
 
     public void MoveDown()
     {
-        pointer.transform.Translate(new Vector3(200.0f, -120.0f, 0));
+        pointer.transform.Translate(new Vector3(200.0f, -100.0f, 0));
     }
 
     public void MoveUp()
     {
-        pointer.transform.Translate(new Vector3(-200.0f, 120.0f, 0));
+        pointer.transform.Translate(new Vector3(-200.0f, 100.0f, 0));
 
     }
     public void SetActive(bool _active)
