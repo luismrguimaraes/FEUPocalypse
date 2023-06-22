@@ -8,14 +8,14 @@ public class PointerScript : MonoBehaviour
 
     public void Next()
     {
-        transform.Translate(new Vector3(0, -1.75f, 0));
+        transform.Find("Pointer").Translate(new Vector3(-1.6f, 0, 0));
     }
     public void Previous()
     {
-        transform.Translate(new Vector3(0, 1.75f, 0));
+        transform.Find("Pointer").Translate(new Vector3(1.6f, 0, 0));
     }
     public void ResetPosition()
     {
-        transform.position = initialPosition;
+        transform.transform.Find("Pointer").transform.position = initialPosition;
     }
 }
