@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Outside.unity
+- path: Assets/Scenes/D. Beatriz' Store.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
