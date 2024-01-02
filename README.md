@@ -1,15 +1,18 @@
 
 # Description:
 The apocalypse has taken hold, and as the monsters close in, there is little hope left for the student at FEUP. Try to survive long enough in this hellish place surrounded by a horde of grotesque monsters that seemed to have crawled their way up from the underworld.
-## Demo
+
+# Game Link
+https://hail-seitan.itch.io/feupocalypse
+
+# Demo
 https://github.com/luismrguimaraes/FEUPocalypse/assets/100025288/92cb6552-e80d-48a5-a8e2-4c489db37f46
 
-# HOW TO PLAY
+# How to Play
 ## Controls:
 - Move: WASD/Arrow Keys/Joystick
 
-
-# CREDITS
+# Credits
 ## Programming:
 - [Luís Guimarães](https://luismrguimaraes.github.io/)
 - [Fábio Huang](https://github.com/FabioMiguel2000)
