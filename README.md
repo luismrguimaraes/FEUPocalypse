@@ -1,8 +1,13 @@
+<p align="center">
+	<br>
+  <img height="120" src="https://github.com/luismrguimaraes/FEUPocalypse/assets/50105554/0fa43147-c324-417e-b1a1-9f2d636657e6">
+	<br>
+The apocalypse has taken hold, and as the monsters close in, little hope is left for the students at FEUP. Try to survive long enough in this hellish place surrounded by a horde of grotesque monsters that seemed to have crawled their way up from the underworld.
 
-# Description:
-The apocalypse has taken hold, and as the monsters close in, there is little hope left for the student at FEUP. Try to survive long enough in this hellish place surrounded by a horde of grotesque monsters that seemed to have crawled their way up from the underworld.
-
-Game Available in itch.io 👉🏻 [Link Here](https://hail-seitan.itch.io/feupocalypse)
+<p align="center">
+<a href="https://github.com/luismrguimaraes/FEUPocalypse"><img alt="GitHub" height="50" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact-minimal/available/github_vector.svg"></a>
+<a href="https://hail-seitan.itch.io/feupocalypse" target="itch"><img alt="CurseForge" height="50" src="https://github.com/luismrguimaraes/FEUPocalypse/assets/50105554/e1acb9f3-85a7-469c-8a56-dec5cf104f59"></a>
+</p>
 
 # User Interface
 <table>
