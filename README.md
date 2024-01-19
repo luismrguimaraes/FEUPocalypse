@@ -1,15 +1,63 @@
 
 # Description:
 The apocalypse has taken hold, and as the monsters close in, there is little hope left for the student at FEUP. Try to survive long enough in this hellish place surrounded by a horde of grotesque monsters that seemed to have crawled their way up from the underworld.
-## Demo
+
+Game Available in itch.io 👉🏻 [Link Here](https://hail-seitan.itch.io/feupocalypse)
+
+# User Interface
+<table>
+   <tr>
+    <th>Main Menu</th>
+    <th><img src="./img/screenshot_0.png" alt="Main Menu"></th>
+  </tr>
+  <tr>
+    <th>Game Play</th>
+    <th><img src="./img/screenshot_1.png" alt="Game Play 1" ></th>
+  </tr>
+  <tr>
+    <th>Open World</th>
+    <th><img src="./img/screenshot_2.png" alt="Game Play 2" ></th>
+  </tr>
+  <tr>
+    <th>Puzzle</th>
+    <th><img src="./img/screenshot_3.png" alt="Game Play 3" ></th>
+  </tr>
+  <tr>
+    <th>Store (Dona Beatriz)</th>
+    <th><img src="./img/screenshot_4.png" alt="Store" ></th>
+  </tr>
+  
+</table>
+
+# Demo
 https://github.com/luismrguimaraes/FEUPocalypse/assets/100025288/92cb6552-e80d-48a5-a8e2-4c489db37f46
 
-# HOW TO PLAY
+# How to Play
 ## Controls:
-- Move: WASD/Arrow Keys/Joystick
+| Control       | Key/Command            |
+|---------------|------------------------|
+| Move          | WASD/Arrow Keys/Joystick |
+| Select        | ENTER                  |
+| Go Back       | Backspace or ESC       |
 
+### Collectibles:
+- <img src="./img/coin.png" width="20" height="20">: Spend at the shop
+- <img src="./img/light.png" width="20" height="20">: Full vision for a given duration
+- <img src="./img/boots.png" width="20" height="20">: Increased movement speed for a given duration
 
-# CREDITS
+### Weapons:
+- <img src="./img/notes.png" width="20" height="20">: Shoot notes
+- <img src="./img/flame_breath.png" width="20" height="20">: Blow fire when facing horizontally
+- <img src="./img/molotov.png" width="20" height="20">: Drop an explosive cocktail at your current position
+
+### Player Levels:
+- Every 5 levels HP is fully recovered
+- Upgrades:
+  - Lvl 3: Shoots backwards
+  - Lvl 6: Deals more damage
+  - Lvl 9: Is not destroyed on contact
+
+# Authors and Acknowledgement
 ## Programming:
 - [Luís Guimarães](https://luismrguimaraes.github.io/)
 - [Fábio Huang](https://github.com/FabioMiguel2000)
