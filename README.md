@@ -2,6 +2,31 @@
 # Description:
 The apocalypse has taken hold, and as the monsters close in, there is little hope left for the student at FEUP. Try to survive long enough in this hellish place surrounded by a horde of grotesque monsters that seemed to have crawled their way up from the underworld.
 
+# User Interface
+<table>
+   <tr>
+    <th>Main Menu</th>
+    <th><img src="./img/screenshot_0.png" alt="Main Menu"></th>
+  </tr>
+  <tr>
+    <th>Game Play</th>
+    <th><img src="./img/screenshot_1.png" alt="Game Play 1" ></th>
+  </tr>
+  <tr>
+    <th>Open World</th>
+    <th><img src="./img/screenshot_2.png" alt="Game Play 2" ></th>
+  </tr>
+  <tr>
+    <th>Puzzle</th>
+    <th><img src="./img/screenshot_3.png" alt="Game Play 3" ></th>
+  </tr>
+  <tr>
+    <th>Store (Dona Beatriz)</th>
+    <th><img src="./img/screenshot_4.png" alt="Store" ></th>
+  </tr>
+  
+</table>
+
 # Game Link
 https://hail-seitan.itch.io/feupocalypse
 
