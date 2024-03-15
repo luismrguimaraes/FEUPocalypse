@@ -20,11 +20,11 @@ The apocalypse has taken hold, and as the monsters close in, little hope is left
     <th><img src="./img/screenshot_1.png" alt="Game Play 1" ></th>
   </tr>
   <tr>
-    <th>Open World</th>
+    <th>Game Play</th>
     <th><img src="./img/screenshot_2.png" alt="Game Play 2" ></th>
   </tr>
   <tr>
-    <th>Puzzle</th>
+    <th>Game Play</th>
     <th><img src="./img/screenshot_3.png" alt="Game Play 3" ></th>
   </tr>
   <tr>
