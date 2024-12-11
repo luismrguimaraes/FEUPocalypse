@@ -9,7 +9,7 @@ The apocalypse has taken hold, and as the monsters close in, little hope is left
 <a href="https://hail-seitan.itch.io/feupocalypse" target="itch"><img alt="CurseForge" height="50" src="https://github.com/luismrguimaraes/FEUPocalypse/assets/50105554/e1acb9f3-85a7-469c-8a56-dec5cf104f59"></a>
 </p>
 
-# User Interface
+# Pictures
 <table>
    <tr>
     <th>Main Menu</th>
